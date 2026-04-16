@@ -232,8 +232,8 @@ nav {
 /* scene */
 .scene-center {
   position:relative;
-  width: min(580px, 80vw);
-  height: min(580px, 80vw);
+  width: 100%;
+  height: calc(100vh - 180px);
   display:flex; align-items:center; justify-content:center;
 }
 .scene-photo {
@@ -243,7 +243,7 @@ nav {
 .scene-photo img {
   width:100%; height:100%;
   object-fit:contain; display:block;
-  filter:drop-shadow(0 20px 60px rgba(0,0,0,0.5));
+  filter:drop-shadow(0 24px 80px rgba(0,0,0,0.45));
 }
 #photo-open   { opacity:1; }
 #photo-closed { opacity:0; }
