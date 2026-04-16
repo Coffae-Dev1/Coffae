@@ -35,7 +35,7 @@
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 28px 48px;
+    padding: 20px 48px;
     background: rgba(44,26,10,0.95);
     backdrop-filter: blur(16px);
     border-bottom: 0.5px solid var(--mocha);
@@ -44,7 +44,7 @@
     font-family: var(--f);
     font-size: 1rem; font-weight: 400;
     letter-spacing: 0.55em; text-transform: uppercase;
-    color: #F0E5CC; text-decoration: none;
+    color: #F0E5CC !important; text-decoration: none;
   }
   .nav-right {
     display: flex;
@@ -54,9 +54,9 @@
     font-family: var(--s);
     font-size: 0.8rem; font-weight: 400;
     letter-spacing: 0.4em; text-transform: uppercase;
-    color: #C4A882; text-decoration: none;
+    color: #C4A882 !important; text-decoration: none;
   }
-  .nav-right a:hover { color: #F0E5CC; }
+  .nav-right a:hover { color: #F0E5CC !important; }
   
   /* ── HERO ── */
   .hero {
