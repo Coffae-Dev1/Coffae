@@ -60,11 +60,25 @@
     /* ── HERO ── */
     .about-hero {
       min-height: 100vh;
-      display: flex; flex-direction: column;
-      justify-content: flex-end;
-      padding: 0 48px 80px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: end;
       border-bottom: 0.5px solid var(--mocha);
       background: linear-gradient(160deg, var(--brew) 0%, var(--americano) 60%);
+      overflow: hidden;
+    }
+    .about-hero-content {
+      padding: 0 48px 80px;
+    }
+    .about-hero-art {
+      height: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    .about-hero-art img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
     }
     .about-hero-eyebrow {
       font-family: var(--s);
@@ -237,7 +251,9 @@
     @media (max-width: 768px) {
       nav { padding: 22px 24px; }
       .nav-links { display: none; }
-      .about-hero { padding: 0 24px 64px; }
+      .about-hero { grid-template-columns: 1fr; }
+      .about-hero-art { min-height: 60vw; height: 60vw; }
+      .about-hero-content { padding: 0 24px 64px; }
       .mission { grid-template-columns: 1fr; }
       .mission-left { border-right: none; border-bottom: 0.5px solid var(--mocha); padding: 72px 24px; }
       .mission-right { padding: 72px 24px; }
@@ -265,13 +281,18 @@
 
   <!-- HERO -->
   <section class="about-hero">
-    <p class="about-hero-eyebrow">About Coffaé</p>
-    <h1 class="about-hero-headline">Small space.<br>Full life.</h1>
-    <p class="about-hero-sub">
-      We design furniture for the way people actually live today —
-      in apartments measured in square feet, not square meters,
-      where every piece has to earn its place.
-    </p>
+    <div class="about-hero-content">
+      <p class="about-hero-eyebrow">About Coffaé</p>
+      <h1 class="about-hero-headline">Small space.<br>Full life.</h1>
+      <p class="about-hero-sub">
+        We design furniture for the way people actually live today —
+        in apartments measured in square feet, not square meters,
+        where every piece has to earn its place.
+      </p>
+    </div>
+    <div class="about-hero-art">
+      <img src="img/coffae-sketch.jpg" alt="Coffaé concept sketch">
+    </div>
   </section>
 
   <!-- MISSION -->
