@@ -2,12 +2,12 @@
     --f: 'Playfair Display', Georgia, serif;
     --s: 'Montserrat', sans-serif;
 
-    --americano: #1E1D1D;
-    --brew:      #303031;
-    --mocha:     #5A4D41;
-    --chai:      #7E6957;
-    --roast:     #867C70;
-    --ink:       #C8BAA4;
+    --americano: #2A3B2C;
+    --brew:      #344D36;
+    --mocha:     #5C3D1E;
+    --chai:      #8A6040;
+    --roast:     #C4A882;
+    --ink:       #F0E5CC;
 }
 
 * {

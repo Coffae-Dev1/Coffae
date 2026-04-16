@@ -2,12 +2,12 @@
     --f: 'Playfair Display', Georgia, serif;
     --s: 'Montserrat', sans-serif;
 
-    --americano: #1E1D1D;
-    --brew:      #303031;
-    --mocha:     #5A4D41;
-    --chai:      #7E6957;
-    --roast:     #867C70;
-    --ink:       #C8BAA4;
+    --americano: #2A3B2C;
+    --brew:      #344D36;
+    --mocha:     #5C3D1E;
+    --chai:      #8A6040;
+    --roast:     #C4A882;
+    --ink:       #F0E5CC;
 }
 
 * {
@@ -132,8 +132,8 @@ body {
     border-bottom: 0.5px solid var(--mocha);
     color: var(--ink);
     font-family: var(--s);
-    font-size: 0.75rem;
-    font-weight: 300;
+    font-size: 1rem;
+    font-weight: 400;
     padding: 10px 0;
     outline: none;
     transition: border-color 0.2s;
@@ -184,9 +184,9 @@ body {
 .contact-success {
     display: none;
     font-family: var(--s);
-    font-size: 0.6rem;
-    font-weight: 300;
-    letter-spacing: 0.05em;
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
     color: var(--chai);
 }
 
@@ -210,8 +210,8 @@ body {
 
 .contact-info-val {
     font-family: var(--s);
-    font-size: 0.7rem;
-    font-weight: 300;
+    font-size: 1rem;
+    font-weight: 400;
     color: var(--ink);
 }
 
@@ -222,8 +222,8 @@ body {
 
 .contact-socials a {
     font-family: var(--s);
-    font-size: 0.7rem;
-    font-weight: 300;
+    font-size: 1rem;
+    font-weight: 400;
     color: var(--roast);
     text-decoration: none;
 }
@@ -299,8 +299,8 @@ body {
 
 .thankyou-sub {
     font-family: var(--s);
-    font-size: 0.65rem;
-    font-weight: 300;
+    font-size: 1rem;
+    font-weight: 400;
     color: var(--roast);
     letter-spacing: 0.03em;
 }

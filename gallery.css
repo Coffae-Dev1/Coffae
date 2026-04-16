@@ -13,12 +13,12 @@
     --s: 'Montserrat', sans-serif;
   
     /* ── Coffae palette ── */
-    --americano: #1E1D1D;   /* background          */
-    --brew:      #303031;   /* secondary surfaces  */
-    --mocha:     #5A4D41;   /* borders / dividers  */
-    --chai:      #7E6957;   /* muted text / labels */
-    --roast:     #867C70;   /* caption / body text */
-    --ink:       #C8BAA4;   /* primary text        */
+    --americano: #2A3B2C;   /* background          */
+    --brew:      #344D36;   /* secondary surfaces  */
+    --mocha:     #5C3D1E;   /* borders / dividers  */
+    --chai:      #8A6040;   /* muted text / labels */
+    --roast:     #C4A882;   /* caption / body text */
+    --ink:       #F0E5CC;   /* primary text        */
   }
   
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -104,7 +104,7 @@
   }
   .cap-name {
     font-family: var(--f);
-    font-size: 0.9rem; font-weight: 300;
+    font-size: 1rem; font-weight: 400;
     letter-spacing: 0.1em; color: var(--roast);
   }
   .cap-detail {
@@ -130,8 +130,8 @@
   }
   .tb-body {
     font-family: var(--s);
-    font-size: 0.65rem; font-weight: 300;
-    line-height: 1.95; letter-spacing: 0.03em;
+    font-size: 1rem; font-weight: 400;
+    line-height: 1.9; letter-spacing: 0.02em;
     color: var(--roast);
   }
   
@@ -196,7 +196,7 @@
   /* ── LIGHTBOX ── */
   .lb {
     display: none; position: fixed; inset: 0; z-index: 999;
-    background: rgba(30,29,29,0.98);
+    background: rgba(42,59,44,0.98);
     align-items: center; justify-content: center;
   }
   .lb.open { display: flex; }
