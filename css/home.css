@@ -2,12 +2,12 @@
     --f: 'Playfair Display', Georgia, serif;
     --s: 'Montserrat', sans-serif;
 
-    --americano: #2C1A0A;
-    --brew:      #3E2A16;
+    --americano: #F0E5CC;
+    --brew:      #E4D4B0;
     --mocha:     #4A6B4E;
-    --chai:      #8A6040;
-    --roast:     #C4A882;
-    --ink:       #F0E5CC;
+    --chai:      #5C3D1E;
+    --roast:     #3A5C3E;
+    --ink:       #2C1A0A;
 }
 
 * {
@@ -31,7 +31,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 28px 48px;
-    background: rgba(44,26,10,0.5);
+    background: rgba(240,229,204,0.55);
     z-index: 10;
 }
 
@@ -91,7 +91,7 @@ body {
 .home-hero-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(44,26,10,0.25);
+    background: rgba(240,229,204,0.3);
 }
 
 .home-hero-text {

@@ -2,12 +2,12 @@
   --f: 'Playfair Display', Georgia, serif;
   --s: 'Montserrat', sans-serif;
 
-  --americano: #2C1A0A;
-  --brew:      #3E2A16;
+  --americano: #F0E5CC;
+  --brew:      #E4D4B0;
   --mocha:     #4A6B4E;
-  --chai:      #8A6040;
-  --roast:     #C4A882;
-  --ink:       #F0E5CC;
+  --chai:      #5C3D1E;
+  --roast:     #3A5C3E;
+  --ink:       #2C1A0A;
 
   --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -41,7 +41,7 @@ body {
   align-items: center;
   padding: 28px 48px;
   z-index: 100;
-  background: rgba(44,26,10,0.9);
+  background: rgba(240,229,204,0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(74,107,78,0.5);
   transition: var(--transition);
@@ -168,7 +168,7 @@ body {
 
 .form:focus-within {
   border: 1px solid rgba(134, 124, 112, 0.8);
-  box-shadow: 0 10px 36px rgba(44,26,10,0.5);
+  box-shadow: 0 10px 36px rgba(240,229,204,0.55);
 }
 
 .form input {

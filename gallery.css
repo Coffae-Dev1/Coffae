@@ -13,12 +13,12 @@
     --s: 'Montserrat', sans-serif;
   
     /* ── Coffae palette ── */
-    --americano: #2C1A0A;   /* background          */
-    --brew:      #3E2A16;   /* secondary surfaces  */
+    --americano: #F0E5CC;   /* background          */
+    --brew:      #E4D4B0;   /* secondary surfaces  */
     --mocha:     #4A6B4E;   /* borders / dividers  */
-    --chai:      #8A6040;   /* muted text / labels */
-    --roast:     #C4A882;   /* caption / body text */
-    --ink:       #F0E5CC;   /* primary text        */
+    --chai:      #5C3D1E;   /* muted text / labels */
+    --roast:     #3A5C3E;   /* caption / body text */
+    --ink:       #2C1A0A;   /* primary text        */
   }
   
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -196,7 +196,7 @@
   /* ── LIGHTBOX ── */
   .lb {
     display: none; position: fixed; inset: 0; z-index: 999;
-    background: rgba(44,26,10,0.98);
+    background: rgba(240,229,204,0.98);
     align-items: center; justify-content: center;
   }
   .lb.open { display: flex; }
