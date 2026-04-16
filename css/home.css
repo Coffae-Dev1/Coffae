@@ -2,12 +2,12 @@
     --f: 'Playfair Display', Georgia, serif;
     --s: 'Montserrat', sans-serif;
 
-    --americano: #F0E5CC;
-    --brew:      #E4D4B0;
-    --mocha:     #4A6B4E;
-    --chai:      #5C3D1E;
-    --roast:     #3A5C3E;
-    --ink:       #2C1A0A;
+    --americano: #1E1D1D;
+    --brew:      #303031;
+    --mocha:     #5A4D41;
+    --chai:      #7E6957;
+    --roast:     #867C70;
+    --ink:       #C8BAA4;
 }
 
 * {
@@ -31,7 +31,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 28px 48px;
-    background: rgba(240,229,204,0.55);
+    background: rgba(30, 29, 29, 0.5);
     z-index: 10;
 }
 
@@ -44,8 +44,8 @@ body {
     color: var(--ink);
     text-decoration: none;
     font-family: var(--s);
-    font-size: 0.8rem;
-    font-weight: 400;
+    font-size: 0.55rem;
+    font-weight: 300;
     letter-spacing: 0.4em;
     text-transform: uppercase;
 }
@@ -57,7 +57,7 @@ body {
 .home-logo {
     font-family: var(--f);
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 0.85rem;
     color: var(--ink);
     text-decoration: none;
     letter-spacing: 0.55em;
@@ -91,7 +91,7 @@ body {
 .home-hero-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(240,229,204,0.3);
+    background: rgba(30, 29, 29, 0.25);
 }
 
 .home-hero-text {
@@ -106,7 +106,7 @@ body {
 .home-hero-title {
     font-family: var(--f);
     font-size: clamp(2.5rem, 6vw, 5rem);
-    font-weight: 400;
+    font-weight: 300;
     letter-spacing: -0.01em;
     color: var(--ink);
     margin-bottom: 14px;
@@ -116,8 +116,8 @@ body {
 .home-hero-sub {
     display: block;
     font-family: var(--s);
-    font-size: 1.05rem;
-    font-weight: 400;
+    font-size: 0.52rem;
+    font-weight: 300;
     letter-spacing: 0.45em;
     text-transform: uppercase;
     color: var(--roast);
