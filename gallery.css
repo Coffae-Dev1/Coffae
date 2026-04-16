@@ -35,11 +35,14 @@
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 32px 48px;
+    padding: 28px 48px;
+    background: rgba(240,229,204,0.95);
+    backdrop-filter: blur(16px);
+    border-bottom: 0.5px solid var(--mocha);
   }
   .logo {
     font-family: var(--f);
-    font-size: 0.85rem; font-weight: 400;
+    font-size: 1rem; font-weight: 400;
     letter-spacing: 0.55em; text-transform: uppercase;
     color: var(--ink); text-decoration: none;
   }
@@ -49,7 +52,7 @@
   }
   .nav-right a {
     font-family: var(--s);
-    font-size: 0.55rem; font-weight: 300;
+    font-size: 0.8rem; font-weight: 400;
     letter-spacing: 0.4em; text-transform: uppercase;
     color: var(--chai); text-decoration: none;
   }
@@ -68,7 +71,7 @@
     position: absolute; bottom: 52px; left: 48px;
     font-family: var(--f);
     font-size: clamp(3.5rem, 9vw, 8rem);
-    font-weight: 300; letter-spacing: -0.02em; line-height: 0.9;
+    font-weight: 400; letter-spacing: -0.02em; line-height: 0.9;
     color: var(--ink); pointer-events: none;
   }
   .hero-ph {
@@ -109,7 +112,7 @@
   }
   .cap-detail {
     font-family: var(--s);
-    font-size: 0.52rem; font-weight: 300;
+    font-size: 1.05rem; font-weight: 400;
     letter-spacing: 0.35em; text-transform: uppercase;
     color: var(--chai);
   }
@@ -118,14 +121,14 @@
   .text-break { padding: 110px 48px; max-width: 680px; }
   .tb-eyebrow {
     font-family: var(--s);
-    font-size: 0.52rem; font-weight: 300;
+    font-size: 1.05rem; font-weight: 400;
     letter-spacing: 0.5em; text-transform: uppercase;
     color: var(--chai); margin-bottom: 28px;
   }
   .tb-headline {
     font-family: var(--f);
     font-size: clamp(2rem, 4.5vw, 3.8rem);
-    font-weight: 300; line-height: 1.08; letter-spacing: -0.01em;
+    font-weight: 400; line-height: 1.08; letter-spacing: -0.01em;
     color: var(--ink); margin-bottom: 28px;
   }
   .tb-body {
@@ -148,13 +151,13 @@
   .spec-item:last-child { border-right: none; }
   .spec-key {
     font-family: var(--s);
-    font-size: 0.5rem; font-weight: 300;
+    font-size: 1.05rem; font-weight: 400;
     letter-spacing: 0.4em; text-transform: uppercase;
     color: var(--chai); margin-bottom: 10px;
   }
   .spec-val {
     font-family: var(--f);
-    font-size: 0.95rem; font-weight: 300;
+    font-size: 1.1rem; font-weight: 400;
     color: var(--ink); line-height: 1.4;
   }
   
@@ -182,13 +185,13 @@
   }
   .ft-logo {
     font-family: var(--f);
-    font-size: 0.85rem; font-weight: 300;
+    font-size: 1rem; font-weight: 400;
     letter-spacing: 0.55em; text-transform: uppercase;
     color: var(--roast);
   }
   .ft-copy {
     font-family: var(--s);
-    font-size: 0.5rem; font-weight: 300;
+    font-size: 1.05rem; font-weight: 400;
     letter-spacing: 0.3em; text-transform: uppercase;
     color: var(--chai);
   }
@@ -203,7 +206,7 @@
   .lb img { max-width: 94vw; max-height: 94vh; object-fit: contain; }
   .lb-close {
     position: fixed; top: 32px; right: 48px;
-    font-family: var(--s); font-size: 0.52rem; font-weight: 300;
+    font-family: var(--s); font-size: 1.05rem; font-weight: 400;
     letter-spacing: 0.4em; text-transform: uppercase;
     color: var(--roast); cursor: pointer;
     background: none; border: none; transition: color 0.2s;
@@ -212,7 +215,7 @@
   
   /* ── PLACEHOLDER LABEL ── */
   .ph-label {
-    font-family: var(--s); font-size: 0.52rem; letter-spacing: 0.4em;
+    font-family: var(--s); font-size: 1.05rem; letter-spacing: 0.4em;
     text-transform: uppercase; color: var(--mocha);
   }
   
