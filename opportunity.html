@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COFFAÉ — The Opportunity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --f: 'Playfair Display', Georgia, serif;
+      --s: 'Montserrat', sans-serif;
+      --americano: #2C1A0A;
+      --brew:      #3E2A16;
+      --mocha:     #4A6B4E;
+      --chai:      #8A6040;
+      --roast:     #C4A882;
+      --ink:       #F0E5CC;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--americano);
+      color: var(--ink);
+      font-family: var(--s);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 28px 48px;
+      background: rgba(44,26,10,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 0.5px solid var(--mocha);
+    }
+    .nav-logo {
+      font-family: var(--f);
+      font-size: 0.85rem; font-weight: 400;
+      letter-spacing: 0.55em; text-transform: uppercase;
+      color: var(--ink); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      font-family: var(--s);
+      font-size: 0.55rem; font-weight: 300;
+      letter-spacing: 0.4em; text-transform: uppercase;
+      color: var(--roast); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--ink); border-bottom: 0.5px solid var(--mocha); padding-bottom: 2px; }
+
+    /* ── HEADER ── */
+    .opp-header {
+      padding-top: 100px;
+      border-bottom: 0.5px solid var(--mocha);
+    }
+    .opp-title-bar {
+      padding: 48px 48px 36px;
+    }
+    .opp-eyebrow {
+      font-family: var(--s);
+      font-size: 0.52rem; font-weight: 300;
+      letter-spacing: 0.5em; text-transform: uppercase;
+      color: var(--mocha); margin-bottom: 18px;
+    }
+    .opp-title {
+      font-family: var(--f);
+      font-size: clamp(3rem, 6vw, 6rem);
+      font-weight: 300; line-height: 1.02;
+      letter-spacing: -0.02em; color: var(--ink);
+    }
+    .opp-hero-img {
+      width: 100%; display: block;
+      max-height: 520px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* ── SECTION SHELL ── */
+    .opp-section {
+      border-bottom: 0.5px solid var(--mocha);
+    }
+    .opp-section-header {
+      display: grid; grid-template-columns: 1fr 2fr;
+      gap: 48px;
+      padding: 80px 48px 56px;
+      border-bottom: 0.5px solid rgba(74,107,78,0.35);
+    }
+    .opp-section-label {
+      font-family: var(--s);
+      font-size: 0.52rem; font-weight: 300;
+      letter-spacing: 0.5em; text-transform: uppercase;
+      color: var(--mocha); padding-top: 6px;
+    }
+    .opp-section-headline {
+      font-family: var(--f);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 300; line-height: 1.1;
+      letter-spacing: -0.01em; color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .opp-section-sub {
+      font-family: var(--s);
+      font-size: 1rem; font-weight: 400;
+      line-height: 1.85; color: var(--roast);
+    }
+    .opp-section-body {
+      padding: 56px 48px 80px;
+    }
+
+    /* ── COMPETITIVE TABLE ── */
+    .comp-table-wrap { overflow-x: auto; }
+    .comp-table {
+      width: 100%; border-collapse: collapse;
+      font-family: var(--s);
+    }
+    .comp-table th {
+      font-size: 0.5rem; font-weight: 300;
+      letter-spacing: 0.4em; text-transform: uppercase;
+      color: var(--mocha);
+      padding: 16px 20px;
+      border-bottom: 0.5px solid var(--mocha);
+      text-align: left; white-space: nowrap;
+    }
+    .comp-table td {
+      font-size: 0.95rem; font-weight: 400;
+      color: var(--roast);
+      padding: 20px 20px;
+      border-bottom: 0.5px solid rgba(74,107,78,0.2);
+      vertical-align: top;
+    }
+    .comp-table tr.highlight td {
+      color: var(--ink);
+      background: rgba(74,107,78,0.08);
+    }
+    .comp-table tr.highlight td:first-child {
+      border-left: 2px solid var(--mocha);
+    }
+    .tag {
+      display: inline-block;
+      font-size: 0.45rem; font-weight: 300;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 999px;
+    }
+    .tag-yes  { background: rgba(74,107,78,0.18); color: var(--mocha); }
+    .tag-no   { background: rgba(138,96,64,0.15); color: var(--chai); }
+    .tag-part { background: rgba(200,168,130,0.12); color: var(--roast); }
+
+    .comp-insight {
+      margin-top: 48px;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    }
+    .insight-card {
+      padding: 36px 32px;
+      background: var(--brew);
+    }
+    .insight-num {
+      font-family: var(--f);
+      font-size: 2.4rem; font-weight: 300;
+      color: var(--ink); line-height: 1;
+      margin-bottom: 10px;
+    }
+    .insight-label {
+      font-family: var(--s);
+      font-size: 0.5rem; font-weight: 300;
+      letter-spacing: 0.4em; text-transform: uppercase;
+      color: var(--mocha); margin-bottom: 10px;
+    }
+    .insight-desc {
+      font-family: var(--s);
+      font-size: 0.9rem; font-weight: 400;
+      line-height: 1.7; color: var(--roast);
+    }
+
+    /* ── FINANCIAL PROFORMA ── */
+    .proforma-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+      margin-bottom: 48px;
+    }
+    .proforma-col {
+      background: var(--brew);
+      padding: 40px 36px;
+    }
+    .proforma-col.featured {
+      background: rgba(74,107,78,0.12);
+      border: 0.5px solid var(--mocha);
+    }
+    .proforma-year {
+      font-family: var(--s);
+      font-size: 0.5rem; font-weight: 300;
+      letter-spacing: 0.45em; text-transform: uppercase;
+      color: var(--mocha); margin-bottom: 24px;
+    }
+    .proforma-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 10px 0;
+      border-bottom: 0.5px solid rgba(74,107,78,0.15);
+    }
+    .proforma-row:last-child { border-bottom: none; }
+    .proforma-key {
+      font-family: var(--s);
+      font-size: 0.85rem; font-weight: 300;
+      color: var(--roast);
+    }
+    .proforma-val {
+      font-family: var(--f);
+      font-size: 1rem; font-weight: 300;
+      color: var(--ink);
+    }
+    .proforma-val.accent { color: var(--mocha); }
+    .proforma-divider {
+      border: none; border-top: 0.5px solid var(--mocha);
+      margin: 12px 0;
+    }
+    .proforma-assumptions {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+    }
+    .assumption {
+      padding: 28px 32px;
+      background: var(--brew);
+    }
+    .assumption-label {
+      font-family: var(--s);
+      font-size: 0.48rem; font-weight: 300;
+      letter-spacing: 0.4em; text-transform: uppercase;
+      color: var(--chai); margin-bottom: 8px;
+    }
+    .assumption-val {
+      font-family: var(--f);
+      font-size: 1.4rem; font-weight: 300;
+      color: var(--ink); margin-bottom: 6px;
+    }
+    .assumption-note {
+      font-family: var(--s);
+      font-size: 0.85rem; font-weight: 400;
+      color: var(--roast); line-height: 1.6;
+    }
+
+    /* ── BUSINESS MODEL ── */
+    .bm-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+      margin-bottom: 2px;
+    }
+    .bm-grid-3 {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    }
+    .bm-card {
+      padding: 44px 40px;
+      background: var(--brew);
+    }
+    .bm-card.full { grid-column: 1 / -1; }
+    .bm-card-label {
+      font-family: var(--s);
+      font-size: 0.48rem; font-weight: 300;
+      letter-spacing: 0.45em; text-transform: uppercase;
+      color: var(--mocha); margin-bottom: 20px;
+    }
+    .bm-card-title {
+      font-family: var(--f);
+      font-size: 1.4rem; font-weight: 300;
+      color: var(--ink); margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .bm-card-body {
+      font-family: var(--s);
+      font-size: 1rem; font-weight: 400;
+      line-height: 1.8; color: var(--roast);
+    }
+    .bm-list {
+      list-style: none; margin-top: 4px;
+    }
+    .bm-list li {
+      font-family: var(--s);
+      font-size: 0.95rem; font-weight: 400;
+      color: var(--roast); line-height: 1.8;
+      padding-left: 16px; position: relative;
+    }
+    .bm-list li::before {
+      content: '—';
+      position: absolute; left: 0;
+      color: var(--mocha); font-size: 0.8rem;
+    }
+    .market-bar {
+      margin-top: 24px;
+    }
+    .market-row {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 14px;
+    }
+    .market-row-label {
+      font-family: var(--s);
+      font-size: 0.48rem; font-weight: 300;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--chai); width: 48px; flex-shrink: 0;
+    }
+    .market-track {
+      flex: 1; height: 3px;
+      background: rgba(74,107,78,0.18);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .market-fill {
+      height: 100%; border-radius: 999px;
+      background: var(--mocha);
+    }
+    .market-row-val {
+      font-family: var(--f);
+      font-size: 1rem; font-weight: 300;
+      color: var(--ink); width: 64px; text-align: right; flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 64px 48px;
+      display: flex; align-items: flex-end; justify-content: space-between;
+      border-top: 0.5px solid var(--mocha);
+      background: var(--brew);
+    }
+    .ft-logo {
+      font-family: var(--f);
+      font-size: 0.85rem; font-weight: 300;
+      letter-spacing: 0.55em; text-transform: uppercase;
+      color: var(--roast);
+    }
+    .ft-copy {
+      font-family: var(--s);
+      font-size: 0.5rem; font-weight: 300;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--chai);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 22px 24px; }
+      .nav-links { display: none; }
+      .opp-title-bar { padding: 36px 24px 28px; }
+      .opp-section-header { grid-template-columns: 1fr; gap: 16px; padding: 56px 24px 40px; }
+      .opp-section-body { padding: 40px 24px 56px; }
+      .comp-insight { grid-template-columns: 1fr; }
+      .proforma-grid { grid-template-columns: 1fr; }
+      .proforma-assumptions { grid-template-columns: 1fr; }
+      .bm-grid { grid-template-columns: 1fr; }
+      .bm-grid-3 { grid-template-columns: 1fr; }
+      footer { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html">COFFAÉ</a>
+    <div class="nav-links">
+      <a href="product.html">Product</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="opportunity.html" class="active">Opportunity</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="opp-header">
+    <div class="opp-title-bar">
+      <p class="opp-eyebrow">Investment &amp; Growth</p>
+      <h1 class="opp-title">The Opportunity</h1>
+    </div>
+    <img src="img/coffae-logo-dark.jpg" alt="Coffaé — Affordable, Functional, Simple" class="opp-hero-img">
+  </header>
+
+  <!-- SECTION 1: COMPETITIVE ANALYSIS -->
+  <section class="opp-section">
+    <div class="opp-section-header">
+      <p class="opp-section-label">01 — Competitive Analysis</p>
+      <div>
+        <h2 class="opp-section-headline">A market full of compromise.<br>We offer none.</h2>
+        <p class="opp-section-sub">The $15B US furniture market splits between budget disposables and aspirational pieces young consumers can't afford. Coffaé sits in the white space: real materials, real design, at a price that fits a first apartment.</p>
+      </div>
+    </div>
+    <div class="opp-section-body">
+      <div class="comp-table-wrap">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th>Brand</th>
+              <th>Price Range</th>
+              <th>Quality</th>
+              <th>Space-Saving</th>
+              <th>Multi-Function</th>
+              <th>Target Consumer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>IKEA</td>
+              <td>$35 – $149</td>
+              <td>Low – Med</td>
+              <td><span class="tag tag-part">Partial</span></td>
+              <td><span class="tag tag-no">No</span></td>
+              <td>Budget / student</td>
+            </tr>
+            <tr>
+              <td>Wayfair</td>
+              <td>$79 – $349</td>
+              <td>Low – Med</td>
+              <td><span class="tag tag-no">No</span></td>
+              <td><span class="tag tag-no">No</span></td>
+              <td>Value shopper</td>
+            </tr>
+            <tr>
+              <td>Article</td>
+              <td>$349 – $699</td>
+              <td>Med – High</td>
+              <td><span class="tag tag-no">No</span></td>
+              <td><span class="tag tag-no">No</span></td>
+              <td>Design-conscious millennial</td>
+            </tr>
+            <tr>
+              <td>CB2</td>
+              <td>$599 – $999</td>
+              <td>High</td>
+              <td><span class="tag tag-no">No</span></td>
+              <td><span class="tag tag-no">No</span></td>
+              <td>Urban professional</td>
+            </tr>
+            <tr>
+              <td>West Elm</td>
+              <td>$799 – $1,299</td>
+              <td>High</td>
+              <td><span class="tag tag-part">Partial</span></td>
+              <td><span class="tag tag-part">Partial</span></td>
+              <td>Upscale homeowner</td>
+            </tr>
+            <tr class="highlight">
+              <td><strong>Coffaé</strong></td>
+              <td><strong>$349 – $649</strong></td>
+              <td><strong>High</strong></td>
+              <td><span class="tag tag-yes">Yes</span></td>
+              <td><span class="tag tag-yes">Yes</span></td>
+              <td><strong>Young urban renter</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="comp-insight">
+        <div class="insight-card">
+          <div class="insight-num">0</div>
+          <div class="insight-label">Direct Competitors</div>
+          <div class="insight-desc">No brand at our price point combines solid-wood quality with genuine space-saving multi-function design. The gap is real.</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-num">72%</div>
+          <div class="insight-label">Renters Under 35</div>
+          <div class="insight-desc">72% of Americans under 35 rent. That's 28M households actively furnishing small spaces with no purpose-built option at a fair price.</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-num">4.2×</div>
+          <div class="insight-label">Premium Over IKEA</div>
+          <div class="insight-desc">Consumers already pay 4× more for Article and CB2 to get quality — Coffaé delivers that quality plus functionality they can't find elsewhere.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: FINANCIAL PROFORMA -->
+  <section class="opp-section">
+    <div class="opp-section-header">
+      <p class="opp-section-label">02 — Financial Proforma</p>
+      <div>
+        <h2 class="opp-section-headline">A path to $2.5M revenue<br>by Year 3.</h2>
+        <p class="opp-section-sub">Direct-to-consumer margins are strong. With a 60% gross margin and disciplined CAC, Coffaé reaches profitability in Year 2 and scales efficiently through organic and paid channels.</p>
+      </div>
+    </div>
+    <div class="opp-section-body">
+      <div class="proforma-grid">
+        <div class="proforma-col">
+          <div class="proforma-year">Year 1 — Launch</div>
+          <div class="proforma-row">
+            <span class="proforma-key">Units Sold</span>
+            <span class="proforma-val">800</span>
+          </div>
+          <div class="proforma-row">
+            <span class="proforma-key">Avg. Selling Price</span>
+            <span class="proforma-val">$449</span>
+          </div>
+          <div class="proforma-row">
+            <span class="proforma-key">Revenue</span>
+            <span class="proforma-val">$359K</span>
+          </div>
+          <hr class="proforma-divider">
+          <div class="proforma-row">
+            <span class="proforma-key">COGS (40%)</span>
+            <span class="proforma-val">$144K</span>
+          </div>
+          <div class="proforma-row">
+            <span class="proforma-key">Gross Profit</span>
+            <span class="proforma-val">$215K</span>
+          </div>
+          <hr class="proforma-divider">
+          <div class="proforma-row">
+            <span class="proforma-key">Operating Expenses</span>
+            <span class="proforma-val">$192K</span>
+          </div>
+          <div class="proforma-row">
+            <span class="proforma-key">EBITDA</span>
+            <span class="proforma-val accent">$23K</span>
+          </div>
+        </div>
+
+        <div class="proforma-col featured">
+          <div class="proforma-year">Year 2 — Growth</div>
+          <div class="proforma-row">
+            <span class="proforma-key">Units Sold</span>
+            <span class="proforma-val">2,400</span>
+          </div>
+          <div class="proforma-row">
+            <span class="proforma-key">Avg. Selling Price</span>
+            <span class="proforma-val">$449</span>
+          </div>
+          <div class="proforma-row">
+            <span class="proforma-key">Revenue</span>
+            <span class="proforma-val">$1.08M</span>
+          </div>
+          <hr class="proforma-divider">
+          <div class="proforma-row">
+            <span class="proforma-key">COGS (40%)</span>
+            <span class="proforma-val">$431K</span>
+          </div>
+          <div class="proforma-row">
+            <span class="proforma-key">Gross Profit</span>
+            <span class="proforma-val">$647K</span>
+          </div>
+          <hr class="proforma-divider">
+          <div class="proforma-row">
+            <span class="proforma-key">Operating Expenses</span>
+            <span class="proforma-val">$324K</span>
+          </div>
+          <div class="proforma-row">
+            <span class="proforma-key">EBITDA</span>
+            <span class="proforma-val accent">$323K</span>
+          </div>
+        </div>
+
+        <div class="proforma-col">
+          <div class="proforma-year">Year 3 — Scale</div>
+          <div class="proforma-row">
+            <span class="proforma-key">Units Sold</span>
+            <span class="proforma-val">5,500</span>
+          </div>
+          <div class="proforma-row">
+            <span class="proforma-key">Avg. Selling Price</span>
+            <span class="proforma-val">$449</span>
+          </div>
+          <div class="proforma-row">
+            <span class="proforma-key">Revenue</span>
+            <span class="proforma-val">$2.47M</span>
+          </div>
+          <hr class="proforma-divider">
+          <div class="proforma-row">
+            <span class="proforma-key">COGS (40%)</span>
+            <span class="proforma-val">$988K</span>
+          </div>
+          <div class="proforma-row">
+            <span class="proforma-key">Gross Profit</span>
+            <span class="proforma-val">$1.48M</span>
+          </div>
+          <hr class="proforma-divider">
+          <div class="proforma-row">
+            <span class="proforma-key">Operating Expenses</span>
+            <span class="proforma-val">$618K</span>
+          </div>
+          <div class="proforma-row">
+            <span class="proforma-key">EBITDA</span>
+            <span class="proforma-val accent">$862K</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proforma-assumptions">
+        <div class="assumption">
+          <div class="assumption-label">Gross Margin</div>
+          <div class="assumption-val">60%</div>
+          <div class="assumption-note">Solid walnut + steel hardware sourced directly. White-glove D2C eliminates retail markup entirely.</div>
+        </div>
+        <div class="assumption">
+          <div class="assumption-label">Customer Acquisition Cost</div>
+          <div class="assumption-val">$68</div>
+          <div class="assumption-note">Paid social + referral program. LTV:CAC ratio of 6.6× at avg. $449 ASP with 1.2 repeat purchase rate.</div>
+        </div>
+        <div class="assumption">
+          <div class="assumption-label">YoY Growth Rate</div>
+          <div class="assumption-val">3× → 2.3×</div>
+          <div class="assumption-note">Y1→Y2 tripling driven by launch momentum. Y2→Y3 growth sustained by brand equity and referrals.</div>
+        </div>
+        <div class="assumption">
+          <div class="assumption-label">Return Rate</div>
+          <div class="assumption-val">&lt; 4%</div>
+          <div class="assumption-note">30-day satisfaction guarantee. Pre-sale AR visualization tool reduces mismatch returns before purchase.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: BUSINESS MODEL -->
+  <section class="opp-section">
+    <div class="opp-section-header">
+      <p class="opp-section-label">03 — Business Model</p>
+      <div>
+        <h2 class="opp-section-headline">Direct, digital, and built<br>for the way Gen Z shops.</h2>
+        <p class="opp-section-sub">Coffaé is a vertically integrated D2C brand. We design, source, and sell — cutting out every middleman that stands between quality craftsmanship and the consumers who deserve it.</p>
+      </div>
+    </div>
+    <div class="opp-section-body">
+      <div class="bm-grid" style="margin-bottom:2px;">
+        <div class="bm-card">
+          <div class="bm-card-label">Value Proposition</div>
+          <div class="bm-card-title">The only coffee table built for your first apartment.</div>
+          <div class="bm-card-body">Three-piece nesting system in solid walnut and tempered glass. Expands from ottoman to full workstation. Priced at $349–$649 — less than two months of the showroom markup you're not paying.</div>
+        </div>
+        <div class="bm-card">
+          <div class="bm-card-label">Total Addressable Market</div>
+          <div class="bm-card-title">$15B US furniture market. We own a slice no one else is after.</div>
+          <div class="bm-card-body">
+            <div class="market-bar">
+              <div class="market-row">
+                <span class="market-row-label">TAM</span>
+                <div class="market-track"><div class="market-fill" style="width:100%"></div></div>
+                <span class="market-row-val">$15B</span>
+              </div>
+              <div class="market-row">
+                <span class="market-row-label">SAM</span>
+                <div class="market-track"><div class="market-fill" style="width:55%"></div></div>
+                <span class="market-row-val">$2.1B</span>
+              </div>
+              <div class="market-row">
+                <span class="market-row-label">SOM</span>
+                <div class="market-track"><div class="market-fill" style="width:8%"></div></div>
+                <span class="market-row-val">$42M</span>
+              </div>
+            </div>
+            <p style="font-size:0.85rem;color:var(--chai);margin-top:16px;line-height:1.6;">SAM = renters 18–34 in urban metros. SOM = 2% capture over 5 years.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bm-grid-3" style="margin-bottom:2px;">
+        <div class="bm-card">
+          <div class="bm-card-label">Revenue Streams</div>
+          <div class="bm-card-title">Product-first, services to follow.</div>
+          <ul class="bm-list">
+            <li>Core table system ($349–$649)</li>
+            <li>Accessory add-ons: cushions, trays, charging pads</li>
+            <li>Extended care plan ($49/yr)</li>
+            <li>Custom finish upgrades (+$80)</li>
+            <li>University + co-living B2B partnerships</li>
+          </ul>
+        </div>
+        <div class="bm-card">
+          <div class="bm-card-label">Customer Acquisition</div>
+          <div class="bm-card-title">Organic-first. Community-driven.</div>
+          <ul class="bm-list">
+            <li>TikTok + Instagram content (in-space styling)</li>
+            <li>College ambassador program (20 campuses, Y1)</li>
+            <li>Referral: $30 credit per converted friend</li>
+            <li>PR in Apartment Therapy, Dwell, Clever</li>
+            <li>Paid social at $68 CAC target</li>
+          </ul>
+        </div>
+        <div class="bm-card">
+          <div class="bm-card-label">Operations</div>
+          <div class="bm-card-title">Lean supply chain. High-touch delivery.</div>
+          <ul class="bm-list">
+            <li>Manufacturing: certified walnut mill, Vietnam</li>
+            <li>QC inspection before every shipment</li>
+            <li>White-glove in-home delivery, nationwide</li>
+            <li>30-day no-questions return policy</li>
+            <li>6-week lead time, 2-week express available</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bm-grid">
+        <div class="bm-card">
+          <div class="bm-card-label">Why Now</div>
+          <div class="bm-card-title">The apartment generation is spending — and nobody's designed for them.</div>
+          <div class="bm-card-body">Gen Z renters spend $1,200/yr on furniture on average, up 34% since 2020. Remote work made living rooms multi-purpose by necessity. The demand for furniture that does more in less space has never been higher — and the category gap has never been more obvious.</div>
+        </div>
+        <div class="bm-card">
+          <div class="bm-card-label">Use of Funds</div>
+          <div class="bm-card-title">Seed round: $400K to reach $1M ARR.</div>
+          <ul class="bm-list" style="margin-top:8px;">
+            <li><strong style="color:var(--ink);">$160K</strong> — Initial inventory (Y1 800 units)</li>
+            <li><strong style="color:var(--ink);">$80K</strong> — Brand + digital marketing launch</li>
+            <li><strong style="color:var(--ink);">$60K</strong> — E-commerce platform + AR tool dev</li>
+            <li><strong style="color:var(--ink);">$60K</strong> — Operations + logistics setup</li>
+            <li><strong style="color:var(--ink);">$40K</strong> — Founding team salary buffer (6 mo)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="ft-logo">COFFAÉ</span>
+    <span class="ft-copy">© 2026</span>
+  </footer>
+
+</body>
+</html>
