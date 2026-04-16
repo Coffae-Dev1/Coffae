@@ -13,9 +13,9 @@
     --s: 'Montserrat', sans-serif;
   
     /* ── Coffae palette ── */
-    --americano: #2A3B2C;   /* background          */
-    --brew:      #344D36;   /* secondary surfaces  */
-    --mocha:     #5C3D1E;   /* borders / dividers  */
+    --americano: #2C1A0A;   /* background          */
+    --brew:      #3E2A16;   /* secondary surfaces  */
+    --mocha:     #4A6B4E;   /* borders / dividers  */
     --chai:      #8A6040;   /* muted text / labels */
     --roast:     #C4A882;   /* caption / body text */
     --ink:       #F0E5CC;   /* primary text        */
@@ -196,7 +196,7 @@
   /* ── LIGHTBOX ── */
   .lb {
     display: none; position: fixed; inset: 0; z-index: 999;
-    background: rgba(42,59,44,0.98);
+    background: rgba(44,26,10,0.98);
     align-items: center; justify-content: center;
   }
   .lb.open { display: flex; }

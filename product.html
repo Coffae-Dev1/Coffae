@@ -30,21 +30,21 @@
   --f:         'Playfair Display', Georgia, serif;
   --s:         'Montserrat', sans-serif;
 
-  --americano: #2A3B2C;
-  --brew:      #344D36;
-  --mocha:     #5C3D1E;
+  --americano: #2C1A0A;
+  --brew:      #3E2A16;
+  --mocha:     #4A6B4E;
   --chai:      #8A6040;
   --roast:     #C4A882;
   --ink:       #F0E5CC;
 
-  --espresso:  #344D36;
+  --espresso:  #3E2A16;
   --cream:     #F0E5CC;
   --cream-mid: #C4A882;
-  --warm-bg:   #2A3B2C;
+  --warm-bg:   #2C1A0A;
   --text:      #F0E5CC;
   --text-soft: rgba(240,229,204,0.55);
   --walnut:    #6B4423;
-  --surface:   #344D36;
+  --surface:   #3E2A16;
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -66,9 +66,9 @@ nav {
   align-items: center;
   padding: 0 52px;
   height: 72px;
-  background: rgba(42,59,44,0.92);
+  background: rgba(44,26,10,0.92);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(92,61,30,0.4);
+  border-bottom: 1px solid rgba(74,107,78,0.4);
 }
 .nav-brand {
   font-family: 'Playfair Display', Georgia, serif;
@@ -140,7 +140,7 @@ nav {
   align-items: center;
   gap: 14px;
   padding: 14px 30px;
-  border: 1.5px solid #5C3D1E;
+  border: 1.5px solid #4A6B4E;
   font-size: 10px;
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -168,7 +168,7 @@ nav {
   max-width: 560px;
   display: block;
   object-fit: contain;
-  filter: drop-shadow(0 24px 56px rgba(42,59,44,0.18));
+  filter: drop-shadow(0 24px 56px rgba(44,26,10,0.18));
   position: relative;
   z-index: 2;
 }
@@ -304,7 +304,7 @@ nav {
 /* ══ POPUP ══ */
 #pop-overlay { display:none; position:fixed; inset:0; z-index:600; }
 #pop-overlay.open { display:block; }
-#pop-bd { position:absolute; inset:0; background:rgba(42,59,44,0.88); backdrop-filter:blur(8px); }
+#pop-bd { position:absolute; inset:0; background:rgba(44,26,10,0.88); backdrop-filter:blur(8px); }
 #pop-card {
   position:absolute; left:50%; top:50%;
   transform:translate(-50%,-50%) scale(0.9);
@@ -322,10 +322,10 @@ nav {
 .pop-x:hover { opacity:1; }
 .pop-x svg { width:13px; height:13px; stroke:var(--cream); fill:none; stroke-width:2; }
 .pop-eyebrow { font-size:9px; letter-spacing:.4em; text-transform:uppercase; opacity:.32; margin-bottom:9px; }
-.pop-rule { width:32px; height:1.5px; background:#5C3D1E; opacity:1; margin-bottom:16px; }
+.pop-rule { width:32px; height:1.5px; background:#4A6B4E; opacity:1; margin-bottom:16px; }
 .pop-title { font-family:'Playfair Display', Georgia, serif; font-size:30px; color:var(--cream); letter-spacing:.05em; margin-bottom:15px; line-height:1.15; }
 .pop-body { font-size:16px; line-height:1.85; color:var(--cream); opacity:.75; margin-bottom:26px; }
-.pop-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px 18px; padding-top:20px; border-top:1px solid #5C3D1E; }
+.pop-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px 18px; padding-top:20px; border-top:1px solid #4A6B4E; }
 .pg-l { font-size:9px; letter-spacing:.28em; text-transform:uppercase; opacity:.3; margin-bottom:2px; }
 .pg-v { font-size:13.5px; color:var(--cream); }
 
@@ -335,8 +335,8 @@ nav {
 .specs-hed { font-family:'Playfair Display', Georgia, serif; font-size:clamp(40px,5.5vw,68px); line-height:1.0; color:var(--cream); margin-bottom:68px; letter-spacing:.05em; }
 .specs-hed em { font-family:'Playfair Display', Georgia, serif; opacity:.35; font-style:normal; }
 .specs-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(240,229,204,0.07); }
-.sc { background:rgba(42,59,44,0.55); padding:30px 34px; transition:background .3s; }
-.sc:hover { background:rgba(42,59,44,0.8); }
+.sc { background:rgba(44,26,10,0.55); padding:30px 34px; transition:background .3s; }
+.sc:hover { background:rgba(44,26,10,0.8); }
 .sc-l { font-size:9px; letter-spacing:.3em; text-transform:uppercase; color:var(--cream); opacity:.28; margin-bottom:9px; }
 .sc-v { font-family:'Playfair Display', Georgia, serif; font-size:26px; color:var(--cream); letter-spacing:.04em; }
 .sc-u { font-size:14px; opacity:.35; margin-left:3px; font-family:'Montserrat',sans-serif; font-weight:200; }
@@ -346,17 +346,17 @@ nav {
 .mat-in { max-width:1080px; margin:0 auto; }
 .mat-hed { font-family:'Playfair Display', Georgia, serif; font-size:clamp(36px,5vw,58px); color:var(--cream); margin-bottom:58px; letter-spacing:.05em; }
 .mat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
-.mat-card { background:var(--surface); padding:38px 32px; border:1px solid rgba(92,61,30,0.25); position:relative; overflow:hidden; }
+.mat-card { background:var(--surface); padding:38px 32px; border:1px solid rgba(74,107,78,0.25); position:relative; overflow:hidden; }
 .mat-card::before { content:''; position:absolute; top:0; left:0; width:100%; height:3px; }
 .mat-w::before { background:linear-gradient(90deg,var(--walnut),transparent); }
 .mat-g::before { background:linear-gradient(90deg,rgba(240,229,204,0.5),transparent); }
-.mat-f::before { background:linear-gradient(90deg,#344D36,transparent); }
+.mat-f::before { background:linear-gradient(90deg,#3E2A16,transparent); }
 .mat-sw { width:46px; height:46px; border-radius:50%; margin-bottom:22px; }
 .mat-name { font-family:'Playfair Display', Georgia, serif; font-size:20px; color:var(--cream); margin-bottom:10px; letter-spacing:.05em; }
 .mat-desc { font-size:12.5px; line-height:1.85; color:var(--cream); opacity:.55; }
 
 /* ══ FOOTER ══ */
-footer { background:var(--espresso); padding:40px 52px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid #5C3D1E; }
+footer { background:var(--espresso); padding:40px 52px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid #4A6B4E; }
 .ft-brand { font-family:'Playfair Display', Georgia, serif; font-size:26px; letter-spacing:.22em; color:var(--cream); opacity:.9; text-transform:uppercase; }
 .ft-copy { font-size:9.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--cream); opacity:.18; }
 
@@ -500,17 +500,17 @@ footer { background:var(--espresso); padding:40px 52px; display:flex; justify-co
     <h2 class="mat-hed rev">Materials</h2>
     <div class="mat-grid">
       <div class="mat-card mat-w rev">
-        <div class="mat-sw" style="background:linear-gradient(135deg,#8A5C30,#5C3D1E);"></div>
+        <div class="mat-sw" style="background:linear-gradient(135deg,#8A5C30,#4A6B4E);"></div>
         <div class="mat-name">American Black Walnut</div>
         <div class="mat-desc">Solid Juglans nigra, air-dried 18 months. Panels book-matched for continuous grain. Finished with penetrating Danish oil — a matte surface that deepens richly with age.</div>
       </div>
       <div class="mat-card mat-g rev">
-        <div class="mat-sw" style="background:linear-gradient(135deg,rgba(200,186,164,0.35),rgba(134,124,112,0.2));border:1px solid rgba(92,61,30,0.4);"></div>
+        <div class="mat-sw" style="background:linear-gradient(135deg,rgba(200,186,164,0.35),rgba(134,124,112,0.2));border:1px solid rgba(74,107,78,0.4);"></div>
         <div class="mat-name">Tempered Float Glass</div>
         <div class="mat-desc">8mm tempered safety glass, low-iron clarity, polished flat edges. Precision-routed walnut rebate with silicone isolation gaskets to eliminate rattle entirely.</div>
       </div>
       <div class="mat-card mat-f rev">
-        <div class="mat-sw" style="background:linear-gradient(135deg,#5C3D1E,#344D36);"></div>
+        <div class="mat-sw" style="background:linear-gradient(135deg,#4A6B4E,#3E2A16);"></div>
         <div class="mat-name">Charcoal Wool Boucle</div>
         <div class="mat-desc">Premium wool-blend boucle over high-resilience foam. Loop weave provides grip and warmth. Removable cover for care. Available in three tonal options including ivory and umber.</div>
       </div>
