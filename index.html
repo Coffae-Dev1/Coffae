@@ -6,31 +6,21 @@
     <title>COFFAÉ</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Schoolbell&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- NAV -->
     <nav class="home-nav">
-        <div class="home-nav-links">
-            <a href="product.html">PRODUCT</a>
-            <a href="gallery.html">GALLERY</a>
-            <a href="about.html">ABOUT</a>
-            <a href="contact.html">CONTACT</a>
-            <a href="opportunity.html">OPPORTUNITY</a>
-        </div>
-        <a href="index.html" class="home-logo">COFFAÉ</a>
-        <div class="home-nav-icons">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <i class="fa-regular fa-heart"></i>
-            <i class="fa-regular fa-user"></i>
-            <i class="fa-solid fa-bag-shopping"></i>
-        </div>
-    </nav>
+    <a href="index.html" class="home-logo schoolbell-regular">COFFAÉ</a>
+    <div class="home-nav-links">
+        <a href="product.html">Products</a>
+        <a href="about.html">Our Story</a>
+        <a href="opportunity.html">Opportunity</a>
+        <a href="cart.html" class="home-nav-cart">0</a>
+    </div>
+</nav>
 
-    <!-- HERO -->
     <section class="home-hero">
         <img src="img/hero.jpg" alt="Coffae living room" class="home-hero-img">
         <div class="home-hero-overlay"></div>
@@ -40,6 +30,103 @@
         </div>
     </section>
 
+    <section class="home-gallery">
+        <div class="home-gallery-header">
+            <h2 class="home-gallery-title">Explore the Table</h2>
+        </div>
+        <div class="home-gallery-grid">
+            <div class="home-gallery-item">
+                <img src="img/hero.jpg" alt="Coffae table view 1">
+                <p class="home-gallery-caption">Compact Mode</p>
+            </div>
+            <div class="home-gallery-item">
+                <img src="img/hero.jpg" alt="Coffae table view 2">
+                <p class="home-gallery-caption">Walnut Detail</p>
+            </div>
+            <div class="home-gallery-item">
+                <img src="img/hero.jpg" alt="Coffae table view 3">
+                <p class="home-gallery-caption">Ottoman Extended</p>
+            </div>
+            <div class="home-gallery-item">
+                <img src="img/hero.jpg" alt="Coffae table view 4">
+                <p class="home-gallery-caption">In Your Space</p>
+            </div>
+        </div>
+    </section>
+<section class="home-reviews">
+    <p class="home-reviews-label">Customer Reviews</p>
+    <hr class="home-reviews-rule">
+    <div class="home-reviews-track-wrapper">
+        <div class="home-reviews-track" id="reviewsTrack">
+
+            <div class="home-review-card">
+                <div class="home-review-stars">★★★★★</div>
+                <p class="home-review-text">This table completely transformed my small apartment. It looks way more expensive than it is and my guests always ask about it.</p>
+                <p class="home-review-author">Jordan M.</p>
+            </div>
+
+            <div class="home-review-card">
+                <div class="home-review-stars">★★★★★</div>
+                <p class="home-review-text">I was skeptical at first but the walnut finish is gorgeous in person. The ottoman slides out so smoothly — no wobble at all.</p>
+                <p class="home-review-author">Aisha T.</p>
+            </div>
+
+            <div class="home-review-card">
+                <div class="home-review-stars">★★★★★</div>
+                <p class="home-review-text">Perfect for my studio. I use it as a coffee table during the day and pull out the ottoman when friends come over. So worth it.</p>
+                <p class="home-review-author">Marcus L.</p>
+            </div>
+
+            <div class="home-review-card">
+                <div class="home-review-stars">★★★★★</div>
+                <p class="home-review-text">The glass top is so clean and the walnut frame feels super solid. I've had it for months and it still looks brand new.</p>
+                <p class="home-review-author">Priya K.</p>
+            </div>
+
+            <div class="home-review-card">
+                <div class="home-review-stars">★★★★★</div>
+                <p class="home-review-text">Honestly one of the best purchases I've made for my apartment. It's simple, modern, and actually functional. Love it.</p>
+                <p class="home-review-author">Devon R.</p>
+            </div>
+
+            <div class="home-review-card">
+                <div class="home-review-stars">★★★★★</div>
+                <p class="home-review-text">Looks exactly like the photos. Assembly was easy and it fits perfectly in my living room. Highly recommend for small spaces.</p>
+                <p class="home-review-author">Camille B.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
     <script src="js/home.js"></script>
 </body>
 </html>
+
+<footer class="home-footer">
+    <div class="home-footer-top">
+        <a href="index.html" class="home-footer-logo schoolbell-regular">COFFAÉ</a>
+        <p class="home-footer-tagline">Small space. Big personality.</p>
+    </div>
+
+    <div class="home-footer-middle">
+        <div class="home-footer-links">
+            <p class="home-footer-links-label">Quick links</p>
+            <a href="contact.html" class="home-footer-link">Contact Us</a>
+        </div>
+
+        <div class="home-footer-waitlist">
+            <p class="home-footer-waitlist-label">Join the waitlist</p>
+            <p class="home-footer-waitlist-sub">Be the first to know when COFFAÉ drops.</p>
+            <div class="home-footer-form">
+                <input type="email" placeholder="Your email" class="home-footer-input">
+                <button class="home-footer-btn" onclick="handleWaitlist()">Join</button>
+            </div>
+            <p class="home-footer-success" id="waitlistSuccess">You're on the list!</p>
+        </div>
+    </div>
+
+    <div class="home-footer-bottom">
+        <p>© 2025 COFFAÉ. All rights reserved.</p>
+    </div>
+</footer>
