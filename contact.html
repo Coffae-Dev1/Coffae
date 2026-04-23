@@ -6,46 +6,48 @@
     <title>COFFAÉ — Contact</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Schoolbell&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/contact.css">
 </head>
 <body>
 
-
     <nav class="contact-nav">
-        <a href="index.html" class="contact-logo">COFFAÉ</a>
+        <a href="index.html" class="contact-logo schoolbell-regular">COFFAÉ</a>
         <div class="contact-nav-links">
-            <a href="product.html">Product</a>
-            <a href="materials.html">Materials</a>
-            <a href="gallery.html">Gallery View</a>
-            <a href="about.html">About</a>
+            <a href="product.html">Products</a>
+            <a href="about.html">Our Story</a>
             <a href="opportunity.html">Opportunity</a>
-            <a href="contact.html" class="contact-nav-active">Contact</a>
+            <a href="cart.html" class="contact-nav-cart">0</a>
         </div>
     </nav>
 
-    <main class="contact-main">
+    <section class="contact-hero">
+        <img src="img/contacthero.jpg" alt="Coffae contact hero" class="contact-hero-img">
+        <div class="contact-hero-overlay"></div>
+    </section>
+
+    <main class="contact-main" id="contactMain">
         <div class="contact-body">
 
-            <p class="contact-eyebrow">Contact</p>
-            <h1 class="contact-title">Send us<br>a message.</h1>
+            <p class="contact-eyebrow">Get in touch</p>
+            <h2 class="contact-title">Send us<br>a message.</h2>
 
-            <form class="contact-form" onsubmit="handleSubmit(event)">
+            <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
 
                 <div class="contact-form-row">
                     <div class="contact-field">
                         <label class="contact-label">First name</label>
-                        <input type="text" class="contact-input" placeholder="—">
+                        <input type="text" class="contact-input" placeholder="—" required>
                     </div>
                     <div class="contact-field">
                         <label class="contact-label">Last name</label>
-                        <input type="text" class="contact-input" placeholder="—">
+                        <input type="text" class="contact-input" placeholder="—" required>
                     </div>
                 </div>
 
                 <div class="contact-field">
                     <label class="contact-label">Email</label>
-                    <input type="email" class="contact-input" placeholder="—">
+                    <input type="email" class="contact-input" placeholder="—" required>
                 </div>
 
                 <div class="contact-field">
@@ -60,16 +62,17 @@
 
                 <div class="contact-field">
                     <label class="contact-label">Message</label>
-                    <textarea class="contact-textarea" placeholder="—"></textarea>
+                    <textarea class="contact-textarea" placeholder="—" required></textarea>
                 </div>
 
                 <button type="submit" class="contact-btn">Send</button>
 
-                <p class="contact-success" id="contactSuccess">
-                    Message sent! We'll be in touch soon.
-                </p>
-
             </form>
+
+            <div class="contact-thankyou" id="contactThankyou">
+                <h2 class="contact-thankyou-title schoolbell-regular">Thank you.</h2>
+                <p class="contact-thankyou-sub">We'll get back to you shortly.</p>
+            </div>
 
             <div class="contact-footer-info">
                 <div>
@@ -79,28 +82,14 @@
                 <div>
                     <p class="contact-info-label">Follow</p>
                     <div class="contact-socials">
-                        <a href="#">Instagram</a>
-                        <a href="#">Pinterest</a>
+                        <a href="https://www.instagram.com/anzacoffee/">Instagram</a>
+                        <a href="https://www.pinterest.com/pin/18999629668736580/">Pinterest</a>
                     </div>
                 </div>
             </div>
 
         </div>
     </main>
-
-    <footer class="contact-page-footer">
-        <a href="index.html" class="contact-page-footer-logo">COFFAÉ</a>
-    </footer>
-
-    <!-- Thank you overlay -->
-    <div class="thankyou-overlay" id="thankyouOverlay">
-        <a href="index.html" class="thankyou-logo">COFFAÉ</a>
-        <div class="thankyou-content">
-            <p class="thankyou-eyebrow">Message received</p>
-            <h1 class="thankyou-title">Thank You</h1>
-            <p class="thankyou-sub">We'll be in touch soon.</p>
-        </div>
-    </div>
 
     <script src="js/contact.js"></script>
 </body>
