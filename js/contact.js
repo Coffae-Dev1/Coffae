@@ -1,21 +1,30 @@
-const contactMain = document.getElementById("contactMain");
+// Contact Page - Osemdi Nwabuzor
 
-window.addEventListener("scroll", function() {
-    if (!contactMain) return;
-    const top = contactMain.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
-    if (top < windowHeight - 100) {
-        contactMain.classList.add("visible");
-    }
+// Fade in form on load
+const contactLeft = document.getElementById("contactMain");
+
+window.addEventListener("load", function() {
+    setTimeout(function() {
+        contactLeft.classList.add("visible");
+    }, 200);
 });
 
 // Form submit
 function handleSubmit(event) {
     event.preventDefault();
 
-    const form = document.getElementById("contactForm");
-    const thankyou = document.getElementById("contactThankyou");
+    const body = document.querySelector(".contact-body");
 
-    form.style.display = "none";
-    thankyou.style.display = "block";
+    body.style.transition = "opacity 0.8s ease";
+    body.style.opacity = "0";
+
+    setTimeout(function() {
+        body.innerHTML = `
+            <div class="contact-thankyou" style="display:block">
+                <h2 class="contact-thankyou-title schoolbell-regular">Thank you.</h2>
+                <p class="contact-thankyou-sub">We'll get back to you shortly.</p>
+            </div>
+        `;
+        body.style.opacity = "1";
+    }, 800);
 }
