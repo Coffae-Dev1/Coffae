@@ -1,3 +1,5 @@
+/* Contact Page - Osemdi Nwabuzor */
+
 * {
     margin: 0;
     padding: 0;
@@ -66,59 +68,32 @@ body {
     letter-spacing: 0 !important;
 }
 
-/* HERO */
-.contact-hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+/* SPLIT LAYOUT */
+.contact-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
 }
 
-.contact-hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.contact-hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(34, 22, 4, 0.35);
-}
-
-.contact-hero-text {
-    position: absolute;
-    bottom: 12%;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-}
-
-.contact-hero-title {
-    font-family: "Schoolbell", cursive;
-    font-size: 72px;
-    color: #EDE7DA;
-    font-weight: 400;
-}
-
-/* MAIN FORM */
-.contact-main {
+/* LEFT */
+.contact-left {
     display: flex;
+    align-items: center;
     justify-content: center;
-    padding: 100px 40px;
+    padding: 120px 60px 60px;
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(30px);
     transition: opacity 0.9s ease, transform 0.9s ease;
 }
 
-.contact-main.visible {
+.contact-left.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
 .contact-body {
     width: 100%;
-    max-width: 520px;
+    max-width: 460px;
 }
 
 .contact-eyebrow {
@@ -130,6 +105,7 @@ body {
 }
 
 .contact-title {
+    font-family: "Schoolbell", cursive;
     font-size: 42px;
     font-weight: 400;
     color: #221604;
@@ -196,7 +172,7 @@ body {
 
 .contact-textarea {
     resize: none;
-    min-height: 100px;
+    min-height: 80px;
 }
 
 /* BUTTON */
@@ -226,7 +202,7 @@ body {
 
 .contact-thankyou-title {
     font-family: "Schoolbell", cursive;
-    font-size: 72px;
+    font-size: 80px;
     font-weight: 400;
     color: #21201D;
     margin-bottom: 16px;
@@ -238,12 +214,25 @@ body {
     letter-spacing: 0.05em;
 }
 
+/* RIGHT IMAGE */
+.contact-right {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.contact-split-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* FOOTER INFO */
 .contact-footer-info {
     display: flex;
-    gap: 60px;
-    margin-top: 60px;
-    padding-top: 32px;
+    gap: 40px;
+    margin-top: 48px;
+    padding-top: 24px;
     border-top: 0.5px solid rgba(34, 22, 4, 0.15);
 }
 
