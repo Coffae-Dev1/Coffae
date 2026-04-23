@@ -11,6 +11,7 @@
 </head>
 <body>
 
+    <!-- NAV -->
     <nav class="contact-nav">
         <a href="index.html" class="contact-logo schoolbell-regular">COFFAÉ</a>
         <div class="contact-nav-links">
@@ -21,75 +22,81 @@
         </div>
     </nav>
 
-    <section class="contact-hero">
-        <img src="img/contacthero.jpg" alt="Coffae contact hero" class="contact-hero-img">
-        <div class="contact-hero-overlay"></div>
-    </section>
+    <!-- SPLIT LAYOUT -->
+    <div class="contact-split">
 
-    <main class="contact-main" id="contactMain">
-        <div class="contact-body">
+        <!-- LEFT: FORM -->
+        <div class="contact-left" id="contactMain">
+            <div class="contact-body">
 
-            <p class="contact-eyebrow">Get in touch</p>
-            <h2 class="contact-title">Send us<br>a message.</h2>
+                <p class="contact-eyebrow">Get in touch</p>
+                <h2 class="contact-title">Send us<br>a message.</h2>
 
-            <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+                <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
 
-                <div class="contact-form-row">
+                    <div class="contact-form-row">
+                        <div class="contact-field">
+                            <label class="contact-label">First name</label>
+                            <input type="text" class="contact-input" placeholder="—" required>
+                        </div>
+                        <div class="contact-field">
+                            <label class="contact-label">Last name</label>
+                            <input type="text" class="contact-input" placeholder="—" required>
+                        </div>
+                    </div>
+
                     <div class="contact-field">
-                        <label class="contact-label">First name</label>
-                        <input type="text" class="contact-input" placeholder="—" required>
+                        <label class="contact-label">Email</label>
+                        <input type="email" class="contact-input" placeholder="—" required>
                     </div>
+
                     <div class="contact-field">
-                        <label class="contact-label">Last name</label>
-                        <input type="text" class="contact-input" placeholder="—" required>
+                        <label class="contact-label">Subject</label>
+                        <select class="contact-select">
+                            <option>General inquiry</option>
+                            <option>Product question</option>
+                            <option>Licensing interest</option>
+                            <option>Press & media</option>
+                        </select>
+                    </div>
+
+                    <div class="contact-field">
+                        <label class="contact-label">Message</label>
+                        <textarea class="contact-textarea" placeholder="—" required></textarea>
+                    </div>
+
+                    <button type="submit" class="contact-btn">Send</button>
+
+                </form>
+
+                <div class="contact-thankyou" id="contactThankyou">
+                    <h2 class="contact-thankyou-title schoolbell-regular">Thank you!</h2>
+                    <p class="contact-thankyou-sub">We'll get back to you shortly.</p>
+                </div>
+
+                <div class="contact-footer-info">
+                    <div>
+                        <p class="contact-info-label">Email</p>
+                        <p class="contact-info-val">hello@coffae.co</p>
+                    </div>
+                    <div>
+                        <p class="contact-info-label">Follow</p>
+                        <div class="contact-socials">
+                            <a href="#">Instagram</a>
+                            <a href="#">Pinterest</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="contact-field">
-                    <label class="contact-label">Email</label>
-                    <input type="email" class="contact-input" placeholder="—" required>
-                </div>
-
-                <div class="contact-field">
-                    <label class="contact-label">Subject</label>
-                    <select class="contact-select">
-                        <option>General inquiry</option>
-                        <option>Product question</option>
-                        <option>Licensing interest</option>
-                        <option>Press & media</option>
-                    </select>
-                </div>
-
-                <div class="contact-field">
-                    <label class="contact-label">Message</label>
-                    <textarea class="contact-textarea" placeholder="—" required></textarea>
-                </div>
-
-                <button type="submit" class="contact-btn">Send</button>
-
-            </form>
-
-            <div class="contact-thankyou" id="contactThankyou">
-                <h2 class="contact-thankyou-title schoolbell-regular">Thank you.</h2>
-                <p class="contact-thankyou-sub">We'll get back to you shortly.</p>
             </div>
-
-            <div class="contact-footer-info">
-                <div>
-                    <p class="contact-info-label">Email</p>
-                    <p class="contact-info-val">hello@coffae.co</p>
-                </div>
-                <div>
-                    <p class="contact-info-label">Follow</p>
-                    <div class="contact-socials">
-                        <a href="https://www.instagram.com/anzacoffee/">Instagram</a>
-                        <a href="https://www.pinterest.com/pin/18999629668736580/">Pinterest</a>
-                    </div>
-                </div>
-            </div>
-
         </div>
-    </main>
+
+        <!-- RIGHT: IMAGE -->
+        <div class="contact-right">
+            <img src="img/contacthero.jpg" alt="Coffae table" class="contact-split-img">
+        </div>
+
+    </div>
 
     <script src="js/contact.js"></script>
 </body>
