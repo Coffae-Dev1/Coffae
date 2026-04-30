@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Schoolbell&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/opportunity.css?v=2" />
+    <link rel="stylesheet" href="css/opportunity.css" />
 </head>
 <body>
 
@@ -42,7 +42,7 @@
                 <h3>Key Activities</h3>
                 <p>Design, build, brand, deliver.</p>
             </div>
-            <div class="opp-block" onclick="toggleBlock(this)">
+            <div class="opp-block opp-block-large" onclick="toggleBlock(this)">
                 <h3>Value Proposition</h3>
                 <p>Smart furniture for compact living.</p>
             </div>
@@ -50,7 +50,7 @@
                 <h3>Customer Relationships</h3>
                 <p>Direct, premium customer support.</p>
             </div>
-            <div class="opp-block" onclick="toggleBlock(this)">
+            <div class="opp-block opp-block-tall" onclick="toggleBlock(this)">
                 <h3>Customer Segments</h3>
                 <p>Urban professionals in small homes.</p>
             </div>
@@ -69,6 +69,19 @@
             <div class="opp-block opp-block-wide" onclick="toggleBlock(this)">
                 <h3>Revenue Streams</h3>
                 <p>Core sales, upgrades, add-ons.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="opp-section opp-fade" id="compSection">
+        <p class="opp-section-label">Competitive Analysis</p>
+        <div class="opp-comp">
+            <div class="opp-comp-tabs">
+                <button class="opp-tab active" onclick="switchChart(this, 'img/opp1.jpeg')">Chart 1</button>
+                <button class="opp-tab" onclick="switchChart(this, 'img/opp2.jpeg')">Chart 2</button>
+            </div>
+            <div class="opp-comp-img-wrap">
+                <img id="compImg" src="img/opp1.jpeg" alt="Competitive analysis chart" class="opp-comp-img">
             </div>
         </div>
     </section>
