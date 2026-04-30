@@ -1534,7 +1534,7 @@ section { position: relative; }
 /* --------- Checkout modal --------- */
 .checkout {
   position: fixed; inset: 0;
-  background: var(--cream);
+  background: #FFFFFF;
   z-index: 1100;
   overflow-y: auto;
   display: none;
