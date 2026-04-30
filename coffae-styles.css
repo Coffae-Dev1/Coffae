@@ -1256,7 +1256,7 @@ section { position: relative; }
 /* --------- CTA band --------- */
 .cta {
   padding: 160px 36px;
-  background: var(--crema);
+  background: #FFFFFF;
   color: var(--espresso);
   text-align: center;
   position: relative;
