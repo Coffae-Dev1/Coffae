@@ -481,7 +481,7 @@ function NestingTableSection({ onAdd }) {
         <div className="section-label">№ 002 · Companion Series</div>
         <h2>The <em>Nesting</em><br/>Trio.</h2>
         <p className="product-sub">
-          Three tables that live as one. Steam-bent plywood, softened corners.
+          <span className="ticker-emphasis">Three tables that live as one. Steam-bent plywood, softened corners.</span>
         </p>
         <div className="product-desc">
           <p>Pull them apart for guests; tuck them back for quiet mornings. Sized to nest perfectly beside the Coffaé Table.</p>
