@@ -72,6 +72,41 @@ body {
     font-size: 11px !important;
     letter-spacing: 0 !important;
 }
+.opp-comp-tabs {
+    display: flex;
+    margin-bottom: 32px;
+    border-bottom: 0.5px solid rgba(34, 22, 4, 0.1);
+}
+
+.opp-tab {
+    background: none;
+    border: none;
+    padding: 12px 24px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8C775E;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.opp-tab.active {
+    color: #221604;
+    border-bottom-color: #221604;
+}
+
+.opp-comp-img-wrap {
+    width: 100%;
+}
+
+.opp-comp-img {
+    width: 100%;
+    max-height: 600px;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+}
 
 /* HERO */
 .opp-hero {
