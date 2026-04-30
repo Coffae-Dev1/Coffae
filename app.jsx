@@ -309,7 +309,7 @@ function Hero() {
 function Ticker() {
   const row = (
     <span>
-<span className="ticker-emphasis">Space-saving</span> <span className="bullet" /> Walnut <span className="bullet" /> Glass <span className="bullet" /> Ottoman <span className="bullet" /> Made in small batches <span className="bullet" /> <span className="ticker-emphasis">Ships in 4 weeks</span> <span className="bullet" />
+Space-saving <span className="bullet" /> Walnut <span className="bullet" /> Glass <span className="bullet" /> Ottoman <span className="bullet" /> Made in small batches <span className="bullet" /> Ships in 4 weeks <span className="bullet" />
     </span>
   );
   return (
