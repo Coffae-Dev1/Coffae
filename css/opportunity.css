@@ -1,0 +1,262 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: sans-serif;
+    color: #221604;
+}
+
+/* NAV */
+.opp-nav {
+    position: fixed;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 48px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px;
+    background: rgba(180, 175, 168, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 100;
+    border-radius: 15px;
+}
+
+.opp-logo {
+    font-family: "Schoolbell", cursive;
+    font-size: 24px;
+    color: #221604;
+    text-decoration: none;
+}
+
+.opp-nav-links {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.opp-nav-links a {
+    color: #221604;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.opp-nav-links a:hover {
+    opacity: 0.5;
+}
+
+.opp-nav-active {
+    border-bottom: 1px solid #221604;
+    padding-bottom: 2px;
+}
+
+.opp-nav-cart {
+    background: #221604;
+    color: #ffffff !important;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px !important;
+    letter-spacing: 0 !important;
+}
+
+/* HERO */
+.opp-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 40px 80px;
+    text-align: center;
+    background: #ffffff;
+}
+
+.opp-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8C775E;
+    margin-bottom: 20px;
+}
+
+.opp-hero-title {
+    font-family: "Schoolbell", cursive;
+    font-size: 80px;
+    font-weight: 400;
+    color: #221604;
+    line-height: 1.1;
+    margin-bottom: 24px;
+}
+
+.opp-hero-sub {
+    font-size: 16px;
+    color: #8C775E;
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* SECTIONS */
+.opp-section {
+    padding: 80px 40px;
+    border-top: 0.5px solid rgba(34, 22, 4, 0.1);
+}
+
+.opp-section-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8C775E;
+    margin-bottom: 40px;
+}
+
+/* FADE IN */
+.opp-fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.opp-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* CANVAS GRID */
+.opp-canvas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(34, 22, 4, 0.1);
+}
+
+.opp-block {
+    background: #ffffff;
+    padding: 32px 24px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.opp-block:hover { 
+    background: rgba(34, 22, 4, 0.15);
+    color: #221604;
+}
+
+.opp-block.active {
+    background: #221604;
+    color: #EDE7DA;
+}
+
+.opp-block h3 {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+
+.opp-block p {
+    font-size: 12px;
+    opacity: 0.7;
+    line-height: 1.5;
+}
+
+.opp-block-large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.opp-block-wide {
+    grid-column: span 2;
+}
+
+.opp-block-tall {
+    grid-row: span 2;
+}
+
+/* COMPETITIVE */
+.opp-comp-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 32px;
+    border-bottom: 0.5px solid rgba(34, 22, 4, 0.1);
+}
+
+.opp-tab {
+    background: none;
+    border: none;
+    padding: 12px 24px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8C775E;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.opp-tab.active {
+    color: #221604;
+    border-bottom-color: #221604;
+}
+
+.opp-comp-img-wrap {
+    width: 100%;
+    overflow: hidden;
+}
+
+.opp-comp-img {
+    width: 100%;
+    max-height: 600px;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+}
+
+/* CARDS */
+.opp-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(34, 22, 4, 0.1);
+}
+
+.opp-card {
+    background: #ffffff;
+    padding: 48px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.opp-card-num {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: #8C775E;
+}
+
+.opp-card-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #221604;
+}
+
+.opp-card-text {
+    font-size: 13px;
+    color: #8C775E;
+    line-height: 1.7;
+}
