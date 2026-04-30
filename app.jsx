@@ -1100,7 +1100,9 @@ function CartDrawer({ open, onClose, items, updateQty, removeItem, onCheckout })
             <div className="cart-empty">Empty. But not for long.</div>
           ) : items.map((it, idx) => (
             <div key={idx} className="cart-line">
-              <div className="thumb"><TableDiagram view="front" /></div>
+              <div className="thumb">
+                <img src={`assets/${it.finish.toLowerCase()}.png`} alt={it.finish} style={{width:'100%',height:'100%',objectFit:'cover'}} />
+              </div>
               <div>
                 <h6>{PRODUCT.name}</h6>
                 <div className="meta">{it.finish} · {it.fabric}</div>
