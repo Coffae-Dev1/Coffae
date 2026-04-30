@@ -1,3 +1,5 @@
+// Opportunity Page - Osemdi Nwabuzor
+
 const fadeSections = document.querySelectorAll(".opp-fade");
 
 window.addEventListener("scroll", function() {
