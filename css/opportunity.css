@@ -10,7 +10,6 @@ body {
     color: #221604;
 }
 
-/* NAV */
 .opp-nav {
     position: fixed;
     top: 12px;
@@ -68,25 +67,44 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 11px !important;
-    letter-spacing: 0 !important;
+    letter-spacing: 0 ! important;
 }
 
-/* HERO */
 .opp-hero {
+    position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 120px 40px 80px;
     text-align: center;
-    background: #ffffff;
+    overflow: hidden;
+}
+
+.opp-hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.opp-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(34, 22, 4, 0.35);
+}
+
+.opp-hero-text {
+    position: relative;
+    z-index: 2;
+    padding: 120px 40px 80px;
 }
 
 .opp-eyebrow {
     font-size: 11px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #8C775E;
+    color: #EDE7DA;
     margin-bottom: 20px;
 }
 
@@ -94,20 +112,20 @@ body {
     font-family: "Schoolbell", cursive;
     font-size: 80px;
     font-weight: 400;
-    color: #221604;
+    color: #EDE7DA;
     line-height: 1.1;
     margin-bottom: 24px;
 }
 
 .opp-hero-sub {
     font-size: 16px;
-    color: #8C775E;
+    color: #EDE7DA;
     max-width: 480px;
     margin: 0 auto;
     line-height: 1.7;
+    opacity: 0.8;
 }
 
-/* SECTIONS */
 .opp-section {
     padding: 80px 40px;
     border-top: 0.5px solid rgba(34, 22, 4, 0.1);
@@ -121,7 +139,6 @@ body {
     margin-bottom: 40px;
 }
 
-/* FADE IN */
 .opp-fade {
     opacity: 0;
     transform: translateY(40px);
@@ -133,7 +150,6 @@ body {
     transform: translateY(0);
 }
 
-/* CANVAS GRID */
 .opp-canvas {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
