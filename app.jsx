@@ -255,7 +255,7 @@ function ViewIcon({ kind, finish }) {
 function Nav({ cartCount, onCartOpen }) {
   return (
     <nav className="nav">
-      <a href="#top" className="nav-logo">COFFAÉ</a>
+      <a href="index.html" className="nav-logo">COFFAÉ</a>
       <div className="nav-links">
         <a href="product.html">Products</a>
         <a href="about.html">Our Story</a>
