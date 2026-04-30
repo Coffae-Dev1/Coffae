@@ -1160,7 +1160,7 @@ function Checkout({ open, onClose, items, onComplete }) {
   return (
     <div className={`checkout ${open?'open':''}`}>
       <div className="checkout-head">
-        <span className="brand">Coffaé<span className="ticker-emphasis" style={{color:'#A07844'}}> · checkout</span></span>
+        <span className="brand">Coffaé<span className="ticker-emphasis" style={{color:'#A07844', fontSize:'22px'}}> · Checkout</span></span>
         <button className="drawer-close" onClick={() => { onClose(); if (step === 'done') onComplete(); }}>
           {step === 'done' ? 'Done' : 'Close'} ×
         </button>
