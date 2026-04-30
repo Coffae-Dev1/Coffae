@@ -288,3 +288,6 @@ body {
     color: #8C775E;
     line-height: 1.7;
 }
+#compSection {
+    display: none;
+}
