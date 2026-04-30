@@ -257,9 +257,9 @@ function Nav({ cartCount, onCartOpen }) {
     <nav className="nav">
       <a href="#top" className="nav-logo">COFFAÉ</a>
       <div className="nav-links">
-        <a href="#product">Products</a>
-        <a href="#materials">Our Story</a>
-        <a href="#gallery">Opportunity</a>
+        <a href="product.html">Products</a>
+        <a href="about.html">Our Story</a>
+        <a href="opportunity.html">Opportunity</a>
         <button className="nav-cart" onClick={onCartOpen} aria-label="Open cart">{cartCount}</button>
       </div>
     </nav>
