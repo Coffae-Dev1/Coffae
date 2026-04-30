@@ -1536,7 +1536,7 @@ section { position: relative; }
 /* --------- Checkout modal --------- */
 .checkout {
   position: fixed; inset: 0;
-  background: var(--ivory);
+  background: var(--cream);
   z-index: 1100;
   overflow-y: auto;
   display: none;
@@ -1698,7 +1698,7 @@ section { position: relative; }
   width: 100%;
   padding: 22px;
   background: var(--espresso);
-  color: var(--ivory);
+  color: #fff;
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.3em;
@@ -1748,7 +1748,7 @@ section { position: relative; }
   bottom: 32px; left: 50%;
   transform: translate(-50%, 40px);
   background: var(--espresso);
-  color: var(--ivory);
+  color: #fff;
   padding: 16px 24px;
   display: flex; align-items: center; gap: 14px;
   font-family: var(--mono);

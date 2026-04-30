@@ -1215,7 +1215,9 @@ function Checkout({ open, onClose, items, onComplete }) {
             <h4>Order summary</h4>
             {items.map((it, idx) => (
               <div key={idx} className="summary-line">
-                <div className="thumb"><svg viewBox="0 0 40 40" stroke="#1A120B" strokeWidth="1" fill="none"><rect x="6" y="18" width="28" height="14"/><rect x="8" y="20" width="24" height="2" fill="#B8C4CC" fillOpacity="0.4"/></svg></div>
+                <div className="thumb" style={{overflow:'hidden'}}>
+                  <img src={`assets/${it.finish.toLowerCase()}.png`} alt={it.finish} style={{width:'100%',height:'100%',objectFit:'cover'}} />
+                </div>
                 <div>
                   <h6>{PRODUCT.name}</h6>
                   <div className="sm">{it.finish} · {it.fabric} · Qty {it.qty}</div>
