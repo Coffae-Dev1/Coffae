@@ -549,7 +549,7 @@ function Manifesto() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const text = "Designed for the apartments we actually live in. Not the ones in magazines.";
+  const text = "Because your space should adapt to you—not the other way around.";
   const words = text.split(' ');
   const lit = Math.floor(progress * words.length * 1.6);
 
@@ -558,7 +558,7 @@ function Manifesto() {
       <div className="section-label" style={{maxWidth: 1400, margin: '0 auto 40px'}}>A manifesto · № 002</div>
       <p className="pullquote">
         {words.map((w, i) => {
-          const isItalic = /small|honest|one/.test(w.toLowerCase());
+          const isItalic = /adapt|space|around/.test(w.toLowerCase());
           return (
             <React.Fragment key={i}>
               <span className={`word ${i < lit ? 'lit' : ''}`}>{isItalic ? <em>{w}</em> : w}</span>
