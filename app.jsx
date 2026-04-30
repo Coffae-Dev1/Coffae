@@ -309,7 +309,7 @@ function Hero() {
 function Ticker() {
   const row = (
     <span>
-Space-saving <span className="bullet" /> Walnut <span className="bullet" /> Glass <span className="bullet" /> Ottoman <span className="bullet" /> Made in small batches <span className="bullet" /> Ships in 4 weeks <span className="bullet" />
+<span className="ticker-emphasis">Space-saving</span> <span className="bullet" /> Walnut <span className="bullet" /> Glass <span className="bullet" /> Ottoman <span className="bullet" /> Made in small batches <span className="bullet" /> <span className="ticker-emphasis">Ships in 4 weeks</span> <span className="bullet" />
     </span>
   );
   return (
@@ -363,7 +363,7 @@ function ProductSection({ onAdd }) {
         <div className="section-label">№ 001 · First Edition</div>
         <h2>The <em>Coffaé</em><br/>Table.</h2>
         <p className="product-sub">
-          Three things in one. Walnut, glass, a pull-out ottoman.
+          <span className="ticker-emphasis">Three things in one. Walnut, glass, a pull-out ottoman.</span>
         </p>
         <div className="product-desc">
           <p>Built in small batches. Made for first apartments and long mornings.</p>
@@ -915,7 +915,7 @@ function Materials() {
       <div className="section-label">№ 003</div>
       <div className="materials-header">
         <h3>Three <em>materials.</em></h3>
-        <p className="intro">Wood. Fabric. Glass.</p>
+        <p className="intro"><span className="ticker-emphasis">Wood. Fabric. Glass.</span></p>
       </div>
       <div className="materials-grid">
         <MaterialBrowser
