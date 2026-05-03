@@ -395,9 +395,9 @@ function ProductSection({ onAdd }) {
             {n:'Moss',     key: 'moss'},
           ].map(o => (
             <button key={o.n} onClick={() => { setFabric(o.n); setView('photo'); }} title={o.n} style={{
-              width: 72, height: 72,
+              width: 44, height: 44,
               position: 'relative', overflow: 'hidden', padding: 0,
-              border: fabric===o.n ? '2px solid #1A120B' : '2px solid transparent',
+              border: fabric===o.n ? '2px solid #1A120B' : '1px solid rgba(26,18,11,0.15)',
               outline: fabric===o.n ? '1px solid rgba(26,18,11,0.3)' : 'none',
               outlineOffset: 3,
               transition: 'all 0.25s',
