@@ -389,27 +389,22 @@ function ProductSection({ onAdd }) {
         <div className="section-label" style={{marginBottom: 12}}>Ottoman</div>
         <div style={{display:'flex', gap: 10, marginBottom: 40}}>
           {[
-            {n:'Charcoal', key: null},
+            {n:'Charcoal', key: 'charcoal'},
             {n:'Oat',      key: 'oat'},
             {n:'Rust',     key: 'rust'},
             {n:'Moss',     key: 'moss'},
-          ].map(o => {
-            const src = o.key
-              ? `assets/${finish.toLowerCase()}-${o.key}.png`
-              : `assets/${finish.toLowerCase()}.png`;
-            return (
-              <button key={o.n} onClick={() => { setFabric(o.n); setView('photo'); }} title={o.n} style={{
-                width: 72, height: 72,
-                position: 'relative', overflow: 'hidden', padding: 0,
-                border: fabric===o.n ? '2px solid #1A120B' : '2px solid transparent',
-                outline: fabric===o.n ? '1px solid rgba(26,18,11,0.3)' : 'none',
-                outlineOffset: 3,
-                transition: 'all 0.25s',
-              }}>
-                <img src={src} alt={o.n} style={{position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover'}} />
-              </button>
-            );
-          })}
+          ].map(o => (
+            <button key={o.n} onClick={() => { setFabric(o.n); setView('photo'); }} title={o.n} style={{
+              width: 72, height: 72,
+              position: 'relative', overflow: 'hidden', padding: 0,
+              border: fabric===o.n ? '2px solid #1A120B' : '2px solid transparent',
+              outline: fabric===o.n ? '1px solid rgba(26,18,11,0.3)' : 'none',
+              outlineOffset: 3,
+              transition: 'all 0.25s',
+            }}>
+              <img src={`assets/fabric-${o.key}.png`} alt={o.n} style={{position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover'}} />
+            </button>
+          ))}
         </div>
 
         <dl className="spec-grid">
