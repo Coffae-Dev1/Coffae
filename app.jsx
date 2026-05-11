@@ -522,16 +522,17 @@ function NestingMedia({ shade }) {
 function NestingIntro() {
   return (
     <section className="nesting-intro">
-      <video
-        autoPlay
-        muted
-        playsInline
-        loop
-        preload="auto"
-        className="nesting-intro__video"
-      >
+      <video autoPlay muted playsInline loop preload="auto" className="nesting-intro__video">
         <source src="assets/nesting-introductory-animation.mp4" type="video/mp4" />
       </video>
+      <div className="nesting-intro__overlay">
+        <div className="nesting-intro__label">
+          <span className="nesting-intro__rule" />
+          № 002 · Companion Series
+        </div>
+        <h2 className="nesting-intro__heading">One table.<br/>Then three.</h2>
+        <p className="nesting-intro__sub">Three tables that live as one. Pull apart for guests; tuck back for quiet mornings.</p>
+      </div>
     </section>
   );
 }
