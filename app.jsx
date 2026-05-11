@@ -435,7 +435,7 @@ function NestingMedia({ shade }) {
   const vRef = React.useRef(null);
   const [playing, setPlaying] = React.useState(false);
   const key = (shade || 'walnut').toLowerCase();
-  const hasVideo = key === 'walnut' || key === 'birch';
+  const hasVideo = key === 'walnut' || key === 'birch' || key === 'oak';
   const videoSrc = `assets/nesting-${key}-animation.mp4`;
 
   React.useEffect(() => {
