@@ -1005,8 +1005,8 @@ function MaterialsIntro() {
 
   const WORDS = [
     { label: 'Wood',   sub: 'American Walnut · FSC' },
-    { label: 'Glass',  sub: '10mm Tempered · Low-iron' },
     { label: 'Fabric', sub: 'Wool-linen · Portugal' },
+    { label: 'Glass',  sub: '10mm Tempered · Low-iron' },
   ];
 
   return (
@@ -1099,16 +1099,16 @@ function Materials() {
   const fabric = FABRIC_OPTIONS.find(f => f.key === activeFabric);
   const glass = GLASS_OPTIONS.find(g => g.key === activeGlass);
 
-  const wordsRef = React.useRef(null);
-  const firedRef = React.useRef(false);
+  const [dropped, setDropped] = React.useState(false);
+  const sectionRef = React.useRef(null);
 
   React.useEffect(() => {
     const style = document.createElement('style');
     style.textContent = `
       @keyframes wordsDrop {
-        0%   { transform: translateY(-48px); opacity: 0; }
-        60%  { transform: translateY(6px);  opacity: 1; }
-        78%  { transform: translateY(-3px); }
+        0%   { transform: translateY(-52px); opacity: 0; }
+        62%  { transform: translateY(7px);  opacity: 1; }
+        79%  { transform: translateY(-3px); }
         100% { transform: translateY(0);    opacity: 1; }
       }
     `;
@@ -1117,37 +1117,36 @@ function Materials() {
   }, []);
 
   React.useEffect(() => {
-    const el = wordsRef.current;
+    const el = sectionRef.current;
     if (!el) return;
     const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting && !firedRef.current) {
-        firedRef.current = true;
-        el.style.animation = 'wordsDrop 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards';
-      }
+      if (entries[0].isIntersecting) setDropped(true);
     }, { threshold: 0.05 });
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
+  const MAT_WORDS = [
+    { word: 'Wood',   delay: '0s' },
+    { word: 'Fabric', delay: '0.13s' },
+    { word: 'Glass',  delay: '0.26s' },
+  ];
+
   return (
-    <section className="materials">
-      {/* Dropped words — land here from the animation above */}
-      <div ref={wordsRef} style={{
-        display: 'flex', justifyContent: 'center', gap: 56,
-        padding: '36px 0 32px',
-        borderBottom: '0.5px solid rgba(26,18,11,0.1)',
-        opacity: 0,
-        willChange: 'transform, opacity',
-      }}>
-        {['Wood', 'Glass', 'Fabric'].map((label) => (
-          <div key={label} style={{
+    <section className="materials" ref={sectionRef}>
+      <div className="materials-grid">
+        {MAT_WORDS.map(({ word, delay }) => (
+          <div key={word} style={{
             fontFamily: "'Schoolbell', cursive", fontSize: 26,
             color: '#1A120B', letterSpacing: '0.04em',
-          }}>{label}</div>
+            textAlign: 'center',
+            paddingBottom: 8,
+            opacity: dropped ? undefined : 0,
+            animation: dropped ? `wordsDrop 0.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay} both` : 'none',
+            willChange: 'transform, opacity',
+          }}>{word}</div>
         ))}
-      </div>
 
-      <div className="materials-grid">
         <MaterialBrowser
           idx="01"
           label="Wood"
