@@ -281,16 +281,6 @@ function Hero() {
         playsInline
         preload="auto"
       />
-      <div className="hero-caption">
-        <div className="hero-caption__tag">
-          <span className="dot"></span>
-          <span>Coffaé Studio · Edition 001 · 2026</span>
-        </div>
-        <h1 className="hero-title">A table for <em>small rooms.</em></h1>
-        <p className="hero-caption__meta">
-          <strong>Surface. Storage. Ottoman.</strong> One piece of furniture.
-        </p>
-      </div>
     </section>
   );
 }
