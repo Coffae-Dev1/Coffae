@@ -973,6 +973,7 @@ function MaterialBrowser({ idx, label, options, onExpand }) {
 function MaterialsIntro() {
   const containerRef = React.useRef(null);
   const titleRef = React.useRef(null);
+  const wordsBarRef = React.useRef(null);
   const prevWordRef = React.useRef(-1);
   const [activeWord, setActiveWord] = React.useState(-1);
 
@@ -988,6 +989,11 @@ function MaterialsIntro() {
       if (titleRef.current) {
         titleRef.current.style.opacity = Math.max(0, 1 - p * 2.8);
         titleRef.current.style.transform = `translateY(${p * -60}px)`;
+      }
+
+      // Word bar — fade out as section ends
+      if (wordsBarRef.current) {
+        wordsBarRef.current.style.opacity = Math.max(0, 1 - (p - 0.86) / 0.11);
       }
 
       // Word highlight — setState only when it changes
@@ -1055,36 +1061,35 @@ function MaterialsIntro() {
           </h3>
         </div>
 
-        {/* Centered bottom word bar */}
-        <div style={{
-          position: 'absolute', bottom: 52, left: 0, right: 0,
-          zIndex: 2, display: 'flex', justifyContent: 'center',
+        {/* Bottom word bar — spaced to match materials grid columns */}
+        <div ref={wordsBarRef} style={{
+          position: 'absolute', bottom: 48, left: 0, right: 0,
+          zIndex: 2,
+          display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32,
+          padding: '20px 36px 0',
+          borderTop: '0.5px solid rgba(242,237,228,0.15)',
           userSelect: 'none', pointerEvents: 'none',
         }}>
-          <div style={{
-            display: 'flex', gap: 56, alignItems: 'flex-start',
-            borderTop: '0.5px solid rgba(242,237,228,0.15)',
-            paddingTop: 22,
-          }}>
-            {WORDS.map((w, i) => {
-              const on = activeWord === i;
-              return (
-                <div key={w.label} style={{ textAlign: 'center' }}>
-                  <div style={{
-                    fontFamily: "'Schoolbell', cursive", fontSize: 26,
-                    color: on ? '#F2EDE4' : 'rgba(242,237,228,0.18)',
-                    transition: 'color 0.55s ease',
-                    textShadow: on ? '0 0 28px rgba(242,237,228,0.4)' : 'none',
-                  }}>{w.label}</div>
-                  <div style={{
-                    height: 1, background: '#F2EDE4',
-                    width: on ? 28 : 0, margin: '7px auto 0',
-                    transition: 'width 0.6s cubic-bezier(0.25,1,0.5,1)',
-                  }} />
-                </div>
-              );
-            })}
-          </div>
+          {WORDS.map((w, i) => {
+            const on = activeWord === i;
+            return (
+              <div key={w.label} style={{ textAlign: 'center' }}>
+                <div style={{
+                  fontFamily: "'Schoolbell', cursive", fontSize: 42,
+                  fontWeight: 700,
+                  color: on ? '#F2EDE4' : 'rgba(242,237,228,0.15)',
+                  transition: 'color 0.55s ease',
+                  textShadow: on ? '0 0 32px rgba(242,237,228,0.45)' : 'none',
+                  lineHeight: 1,
+                }}>{w.label}</div>
+                <div style={{
+                  height: 1.5, background: '#F2EDE4',
+                  width: on ? 36 : 0, margin: '9px auto 0',
+                  transition: 'width 0.6s cubic-bezier(0.25,1,0.5,1)',
+                }} />
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
@@ -1137,10 +1142,12 @@ function Materials() {
       <div className="materials-grid">
         {MAT_WORDS.map(({ word, delay }) => (
           <div key={word} style={{
-            fontFamily: "'Schoolbell', cursive", fontSize: 26,
-            color: '#1A120B', letterSpacing: '0.04em',
+            fontFamily: "'Schoolbell', cursive", fontSize: 42,
+            fontWeight: 700,
+            color: '#1A120B',
             textAlign: 'center',
-            paddingBottom: 8,
+            paddingBottom: 12,
+            lineHeight: 1,
             opacity: dropped ? undefined : 0,
             animation: dropped ? `wordsDrop 0.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay} both` : 'none',
             willChange: 'transform, opacity',
