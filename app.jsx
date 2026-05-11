@@ -140,8 +140,7 @@ function ProductMedia({ finish, fabric, variant = 'photo' }) {
   // Tabs 2 and 3 always show the angle/detail shots so each tab is visually distinct.
   const ottomanSwap = ['birch','walnut','oak'].includes(key) && ['oat','rust','moss'].includes(fabricKey);
   const isVideo = variant === 'photo';
-  // walnut and birch have ottoman-color tab-2 images; oak not yet available
-  const hasOttomanPhoto2 = ottomanSwap && (key === 'walnut' || key === 'birch');
+  const hasOttomanPhoto2 = ottomanSwap;
   const imgSrc = ottomanSwap && variant === 'photo'
     ? `assets/${key}-${fabricKey}.png?v=4`
     : hasOttomanPhoto2 && variant === 'photo2'
@@ -344,7 +343,7 @@ function ProductSection({ onAdd }) {
         <div className="view-tabs">
           {[
             { key: 'photo',  img: fabric !== 'Charcoal' ? `assets/${finish.toLowerCase()}-${fabric.toLowerCase()}.png` : `assets/${finish.toLowerCase()}.png` },
-            { key: 'photo2', img: fabric !== 'Charcoal' && (finish === 'Walnut' || finish === 'Birch') ? `assets/${finish.toLowerCase()}-${fabric.toLowerCase()}-2.png` : `assets/${finish.toLowerCase()}-2.png` },
+            { key: 'photo2', img: fabric !== 'Charcoal' ? `assets/${finish.toLowerCase()}-${fabric.toLowerCase()}-2.png` : `assets/${finish.toLowerCase()}-2.png` },
             { key: 'photo3', img: `assets/${finish.toLowerCase()}-3.png` },
           ].map(t => (
             <button
