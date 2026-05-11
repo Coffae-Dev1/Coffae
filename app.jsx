@@ -493,13 +493,15 @@ function NestingMedia({ shade }) {
         <span style={{
           position:'absolute', left:20, top:20,
           fontFamily:'var(--sans)', fontSize:10, letterSpacing:'0.3em', textTransform:'uppercase',
-          color:'#1A120B',
-          textShadow:'none',
+          color:'#FFFFFF',
+          textShadow:'0 0 3px rgba(0,0,0,0.55), 0 1px 6px rgba(0,0,0,0.35)',
           opacity: playing ? 0 : 1,
           transition:'opacity 0.35s',
           display:'flex', alignItems:'center', gap:10,
         }}>
-          <svg width="5" height="7" viewBox="0 0 7 9"><path d="M0 0 L7 4.5 L0 9 Z" fill="currentColor"/></svg>
+          <span style={{display:'inline-flex', alignItems:'center', justifyContent:'center'}}>
+            <svg width="5" height="7" viewBox="0 0 7 9"><path d="M0 0 L7 4.5 L0 9 Z" fill="currentColor"/></svg>
+          </span>
           Hover to play
         </span>
       )}
