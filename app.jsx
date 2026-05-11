@@ -973,7 +973,6 @@ function MaterialBrowser({ idx, label, options, onExpand }) {
 function MaterialsIntro() {
   const containerRef = React.useRef(null);
   const titleRef = React.useRef(null);
-  const preTileRef = React.useRef(null);
   const prevWordRef = React.useRef(-1);
   const [activeWord, setActiveWord] = React.useState(-1);
 
@@ -989,13 +988,6 @@ function MaterialsIntro() {
       if (titleRef.current) {
         titleRef.current.style.opacity = Math.max(0, 1 - p * 2.8);
         titleRef.current.style.transform = `translateY(${p * -60}px)`;
-      }
-
-      // Pre-drop tile — fades in as section ends
-      if (preTileRef.current) {
-        const tp = Math.max(0, Math.min(1, (p - 0.80) / 0.13));
-        preTileRef.current.style.opacity = tp;
-        preTileRef.current.style.transform = `translateY(${(1 - tp) * 28}px)`;
       }
 
       // Word highlight — setState only when it changes
@@ -1040,29 +1032,6 @@ function MaterialsIntro() {
           background: 'radial-gradient(ellipse 75% 65% at 50% 50%, rgba(26,18,11,0.05) 0%, rgba(26,18,11,0.68) 100%)',
         }} />
 
-        {/* Pre-drop tile — appears as p → 1, signals the upcoming drop */}
-        {(() => {
-          const TILE_IMGS = [WOOD_FINISHES[0].img, GLASS_OPTIONS[0].img, FABRIC_OPTIONS[0].img];
-          const img = activeWord >= 0 ? TILE_IMGS[activeWord] : null;
-          return (
-            <div style={{
-              position: 'absolute', bottom: 48, left: 0, right: 0,
-              zIndex: 3, display: 'flex', justifyContent: 'center',
-              pointerEvents: 'none',
-            }}>
-              <div ref={preTileRef} style={{
-                opacity: 0,
-                width: 240, height: 170,
-                borderRadius: 4, overflow: 'hidden',
-                boxShadow: '0 20px 70px rgba(26,18,11,0.55)',
-                willChange: 'opacity, transform',
-              }}>
-                {img && <img src={img} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />}
-              </div>
-            </div>
-          );
-        })()}
-
         {/* Title — fades + rises via direct DOM ref */}
         <div ref={titleRef} style={{
           position: 'relative', zIndex: 2,
@@ -1086,40 +1055,36 @@ function MaterialsIntro() {
           </h3>
         </div>
 
-        {/* Left word list */}
+        {/* Centered bottom word bar */}
         <div style={{
-          position: 'absolute', left: 48, top: '50%',
-          transform: 'translateY(-50%)',
-          zIndex: 2, display: 'flex', flexDirection: 'column', gap: 28,
+          position: 'absolute', bottom: 52, left: 0, right: 0,
+          zIndex: 2, display: 'flex', justifyContent: 'center',
           userSelect: 'none', pointerEvents: 'none',
         }}>
-          {WORDS.map((w, i) => {
-            const on = activeWord === i;
-            return (
-              <div key={w.label} style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-                <div style={{
-                  width: on ? 24 : 8, height: 1,
-                  background: on ? '#F2EDE4' : 'rgba(242,237,228,0.25)',
-                  transition: 'width 0.5s cubic-bezier(0.25,1,0.5,1), background 0.5s ease',
-                  flexShrink: 0,
-                }} />
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+          <div style={{
+            display: 'flex', gap: 56, alignItems: 'flex-start',
+            borderTop: '0.5px solid rgba(242,237,228,0.15)',
+            paddingTop: 22,
+          }}>
+            {WORDS.map((w, i) => {
+              const on = activeWord === i;
+              return (
+                <div key={w.label} style={{ textAlign: 'center' }}>
                   <div style={{
-                    fontFamily: "'Schoolbell', cursive", fontSize: 20,
-                    letterSpacing: '0.04em',
-                    color: on ? '#F2EDE4' : 'rgba(242,237,228,0.2)',
-                    transition: 'color 0.5s ease',
+                    fontFamily: "'Schoolbell', cursive", fontSize: 26,
+                    color: on ? '#F2EDE4' : 'rgba(242,237,228,0.18)',
+                    transition: 'color 0.55s ease',
+                    textShadow: on ? '0 0 28px rgba(242,237,228,0.4)' : 'none',
                   }}>{w.label}</div>
                   <div style={{
-                    fontFamily: 'var(--sans)', fontSize: 9,
-                    letterSpacing: '0.12em', textTransform: 'uppercase',
-                    color: on ? 'rgba(242,237,228,0.45)' : 'transparent',
-                    transition: 'color 0.5s ease',
-                  }}>{w.sub}</div>
+                    height: 1, background: '#F2EDE4',
+                    width: on ? 28 : 0, margin: '7px auto 0',
+                    transition: 'width 0.6s cubic-bezier(0.25,1,0.5,1)',
+                  }} />
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
@@ -1134,17 +1099,17 @@ function Materials() {
   const fabric = FABRIC_OPTIONS.find(f => f.key === activeFabric);
   const glass = GLASS_OPTIONS.find(g => g.key === activeGlass);
 
-  const heroRef = React.useRef(null);
+  const wordsRef = React.useRef(null);
   const firedRef = React.useRef(false);
 
   React.useEffect(() => {
     const style = document.createElement('style');
     style.textContent = `
-      @keyframes matDrop {
-        0%   { transform: translateY(-56px) scaleX(0.97); opacity: 0; }
-        62%  { transform: translateY(10px) scaleX(1.01); opacity: 1; }
-        79%  { transform: translateY(-4px) scaleX(0.995); }
-        100% { transform: translateY(0) scaleX(1); opacity: 1; }
+      @keyframes wordsDrop {
+        0%   { transform: translateY(-48px); opacity: 0; }
+        60%  { transform: translateY(6px);  opacity: 1; }
+        78%  { transform: translateY(-3px); }
+        100% { transform: translateY(0);    opacity: 1; }
       }
     `;
     document.head.appendChild(style);
@@ -1152,46 +1117,34 @@ function Materials() {
   }, []);
 
   React.useEffect(() => {
-    const el = heroRef.current;
+    const el = wordsRef.current;
     if (!el) return;
     const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting && !firedRef.current) {
         firedRef.current = true;
-        el.style.animation = 'matDrop 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards';
+        el.style.animation = 'wordsDrop 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards';
       }
     }, { threshold: 0.05 });
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
-  const TILE_IMGS = [WOOD_FINISHES[0].img, GLASS_OPTIONS[0].img, FABRIC_OPTIONS[0].img];
-  const TILE_NAMES = ['American Walnut', 'Glass — Low-iron', 'Charcoal Wool'];
-  const dropIdx = _dropWord >= 0 ? _dropWord : 0;
-
   return (
     <section className="materials">
-      {/* Drop hero — the tile that "fell" from the animation above */}
-      <div ref={heroRef} style={{
-        width: '100%', height: '44vh', overflow: 'hidden',
-        position: 'relative', opacity: 0,
+      {/* Dropped words — land here from the animation above */}
+      <div ref={wordsRef} style={{
+        display: 'flex', justifyContent: 'center', gap: 56,
+        padding: '36px 0 32px',
+        borderBottom: '0.5px solid rgba(26,18,11,0.1)',
+        opacity: 0,
         willChange: 'transform, opacity',
       }}>
-        <img
-          src={TILE_IMGS[dropIdx]}
-          alt={TILE_NAMES[dropIdx]}
-          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-        />
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'linear-gradient(to bottom, rgba(26,18,11,0) 50%, rgba(26,18,11,0.45) 100%)',
-        }} />
-        <div style={{
-          position: 'absolute', bottom: 28, left: 40,
-          fontFamily: "'Schoolbell', cursive", fontSize: 22,
-          color: '#F2EDE4',
-          textShadow: '0 2px 12px rgba(26,18,11,0.4)',
-          letterSpacing: '0.04em',
-        }}>{TILE_NAMES[dropIdx]}</div>
+        {['Wood', 'Glass', 'Fabric'].map((label) => (
+          <div key={label} style={{
+            fontFamily: "'Schoolbell', cursive", fontSize: 26,
+            color: '#1A120B', letterSpacing: '0.04em',
+          }}>{label}</div>
+        ))}
       </div>
 
       <div className="materials-grid">
