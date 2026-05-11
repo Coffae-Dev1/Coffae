@@ -332,28 +332,24 @@ function ProductSection({ onAdd }) {
     <section className="product" id="product">
       <div className="product-left">
         <div className="product-visual">
-          {(view === 'photo' || view === 'photo2' || view === 'photo3') ? (
-            <ProductMedia finish={finish} fabric={fabric} variant={view} />
-          ) : (
-            <div className="stage"><TableDiagram view={view} /></div>
-          )}
-          <span className="caption">
-            {view === 'photo'
-              ? `${finish} · hover to play`
-              : view === 'photo2'
-              ? `${finish} · styled composition`
-              : view === 'photo3'
-              ? `${finish} · joinery detail`
-              : `Fig. ${view === 'front' ? '01' : view === 'top' ? '02' : '03'} — ${view} elevation`}
-          </span>
-          <span className="index-num" style={(view === 'photo' || view === 'photo2' || view === 'photo3') ? {color:'#F2EDE4', mixBlendMode:'difference'} : {}}>
-            0{view === 'photo' ? '1' : view === 'photo2' ? '2' : view === 'photo3' ? '3' : view === 'front' ? '4' : view === 'top' ? '5' : '6'}
-          </span>
+          <ProductMedia finish={finish} fabric={fabric} variant="photo" />
+          <span className="caption">{finish} · {fabric}</span>
+          <span className="index-num" style={{color:'#F2EDE4', mixBlendMode:'difference'}}>01</span>
         </div>
         <div className="view-tabs">
-          {['photo','photo2','photo3'].map(k => (
-            <button key={k} className={`view-tab ${view===k?'active':''}`} onClick={() => setView(k)}>
-              <ViewIcon kind={k} finish={finish} />
+          {[
+            { fabricName: 'Charcoal', img: `assets/${finish.toLowerCase()}.png` },
+            { fabricName: 'Oat',      img: `assets/${finish.toLowerCase()}-oat.png` },
+            { fabricName: 'Rust',     img: `assets/${finish.toLowerCase()}-rust.png` },
+            { fabricName: 'Moss',     img: `assets/${finish.toLowerCase()}-moss.png` },
+          ].map(t => (
+            <button
+              key={t.fabricName}
+              className={`view-tab ${fabric === t.fabricName ? 'active' : ''}`}
+              onClick={() => { setFabric(t.fabricName); }}
+              title={t.fabricName}
+            >
+              <img src={t.img} alt={t.fabricName} style={{position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover'}} />
             </button>
           ))}
         </div>
