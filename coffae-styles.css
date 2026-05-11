@@ -1804,7 +1804,8 @@ section { position: relative; }
   to   { opacity: 1; transform: scale(1); }
 }
 .product-visual.nesting-visual {
-  aspect-ratio: 3/4;
+  aspect-ratio: 4/3;
+  background: var(--cream);
 }
 .product.nesting {
   padding-top: 180px;
