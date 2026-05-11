@@ -1381,6 +1381,7 @@ function App() {
     <>
       <div className="grain" aria-hidden="true"></div>
       <Nav cartCount={cartCount} onCartOpen={() => setCartOpen(true)} />
+      <Hero />
       <Ticker />
       <ProductSection onAdd={addToCart} />
       <NestingIntro />
