@@ -1052,57 +1052,100 @@ function MaterialsIntro() {
           </h3>
         </div>
 
-        {/* Material words — bottom bar */}
-        <div style={{
-          position: 'absolute', bottom: 56, left: 0, right: 0,
-          zIndex: 2, display: 'flex', justifyContent: 'center',
-          userSelect: 'none',
-        }}>
-          <div style={{
-            display: 'flex', width: '100%', maxWidth: 680,
-            borderTop: '0.5px solid rgba(242,237,228,0.2)',
-            paddingTop: 28,
-          }}>
-            {WORDS.map((w, i) => {
-              const on = activeWord === i;
-              return (
-                <div key={w.label} style={{
-                  flex: 1, textAlign: 'center', padding: '0 24px',
-                  borderRight: i < 2 ? '0.5px solid rgba(242,237,228,0.2)' : 'none',
-                  transition: 'transform 0.6s cubic-bezier(0.25,1,0.5,1)',
-                  transform: on ? 'translateY(-4px)' : 'translateY(0)',
-                }}>
-                  <div style={{
+        {/* Sliding material panel */}
+        {(() => {
+          const PANEL_MATERIALS = [
+            { ...WOOD_FINISHES[0] },
+            { ...GLASS_OPTIONS[0] },
+            { ...FABRIC_OPTIONS[0] },
+          ];
+          return (
+            <div style={{
+              position: 'absolute', bottom: 0, left: 0, right: 0,
+              zIndex: 3, height: '52%',
+              display: 'flex', flexDirection: 'column',
+              transform: activeWord >= 0 ? 'translateY(0)' : 'translateY(100%)',
+              transition: 'transform 0.75s cubic-bezier(0.22, 1, 0.36, 1)',
+              background: 'rgba(242, 237, 228, 0.97)',
+              backdropFilter: 'blur(24px)',
+            }}>
+              {/* Tab row */}
+              <div style={{
+                display: 'flex', flexShrink: 0,
+                borderBottom: '0.5px solid rgba(26,18,11,0.12)',
+              }}>
+                {WORDS.map((w, i) => (
+                  <div key={w.label} style={{
+                    flex: 1, padding: '18px 0', textAlign: 'center',
                     fontFamily: 'var(--sans)', fontSize: 9,
                     letterSpacing: '0.3em', textTransform: 'uppercase',
-                    color: on ? 'rgba(242,237,228,0.6)' : 'rgba(242,237,228,0.2)',
-                    marginBottom: 10, transition: 'color 0.6s ease',
-                  }}>0{i + 1}</div>
-                  <div style={{
-                    fontFamily: 'var(--sans)', fontSize: 13,
-                    letterSpacing: '0.24em', textTransform: 'uppercase',
-                    color: on ? '#F2EDE4' : 'rgba(242,237,228,0.2)',
-                    transition: 'color 0.6s ease',
-                    marginBottom: 12,
-                    textShadow: on ? '0 0 20px rgba(242,237,228,0.4)' : 'none',
+                    color: activeWord === i ? '#1A120B' : 'rgba(26,18,11,0.28)',
+                    transition: 'color 0.5s ease',
+                    borderBottom: activeWord === i ? '1.5px solid #1A120B' : '1.5px solid transparent',
+                    marginBottom: '-0.5px',
+                    userSelect: 'none',
                   }}>{w.label}</div>
-                  <div style={{
-                    height: '1px', background: '#F2EDE4',
-                    width: on ? '48px' : '0px', margin: '0 auto',
-                    transition: 'width 0.7s cubic-bezier(0.25,1,0.5,1)',
-                  }} />
-                  <div style={{
-                    fontFamily: 'var(--sans)', fontSize: 9,
-                    letterSpacing: '0.12em', textTransform: 'uppercase',
-                    color: on ? 'rgba(242,237,228,0.45)' : 'rgba(242,237,228,0.08)',
-                    transition: 'color 0.6s ease',
-                    marginTop: 10, lineHeight: 1.7,
-                  }}>{w.sub}</div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+                ))}
+              </div>
+
+              {/* Content — cross-fading panels */}
+              <div style={{ flex: 1, position: 'relative', overflow: 'hidden' }}>
+                {PANEL_MATERIALS.map((mat, i) => (
+                  <div key={i} style={{
+                    position: 'absolute', inset: 0,
+                    opacity: activeWord === i ? 1 : 0,
+                    transition: 'opacity 0.55s ease',
+                    display: 'flex', alignItems: 'center',
+                    padding: '0 56px', gap: 48,
+                    pointerEvents: activeWord === i ? 'auto' : 'none',
+                  }}>
+                    <img
+                      src={mat.img}
+                      alt={mat.name}
+                      style={{
+                        width: 180, height: 140, objectFit: 'cover',
+                        borderRadius: 3, flexShrink: 0,
+                        boxShadow: '0 4px 24px rgba(26,18,11,0.12)',
+                      }}
+                    />
+                    <div style={{ flex: 1 }}>
+                      <div style={{
+                        fontFamily: 'var(--sans)', fontSize: 8,
+                        letterSpacing: '0.32em', textTransform: 'uppercase',
+                        color: 'rgba(26,18,11,0.4)', marginBottom: 10,
+                      }}>{mat.meta[0]} · {mat.meta[1]}</div>
+                      <div style={{
+                        fontFamily: 'var(--serif)', fontSize: 26,
+                        fontWeight: 400, color: '#1A120B', marginBottom: 10,
+                        lineHeight: 1.1,
+                      }}>{mat.name}</div>
+                      <div style={{
+                        fontFamily: 'var(--sans)', fontSize: 13,
+                        color: 'rgba(26,18,11,0.6)', lineHeight: 1.7,
+                        marginBottom: 20,
+                      }}>{mat.blurb}</div>
+                      <div style={{ display: 'flex', gap: 36 }}>
+                        {mat.detail.slice(0, 2).map(d => (
+                          <div key={d.label}>
+                            <div style={{
+                              fontFamily: 'var(--sans)', fontSize: 8,
+                              letterSpacing: '0.3em', textTransform: 'uppercase',
+                              color: 'rgba(26,18,11,0.38)', marginBottom: 5,
+                            }}>{d.label}</div>
+                            <div style={{
+                              fontFamily: 'var(--sans)', fontSize: 11,
+                              color: '#1A120B', lineHeight: 1.55,
+                            }}>{d.value}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })()}
       </div>
     </div>
   );
