@@ -967,6 +967,100 @@ function MaterialBrowser({ idx, label, options, onExpand }) {
   );
 }
 
+// ---------- Materials scroll intro ----------
+function MaterialsIntro() {
+  const containerRef = React.useRef(null);
+  const videoRef = React.useRef(null);
+  const [progress, setProgress] = React.useState(0);
+  const [ready, setReady] = React.useState(false);
+
+  React.useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    const onMeta = () => { setReady(true); v.pause(); };
+    v.addEventListener('loadedmetadata', onMeta);
+    if (v.readyState >= 1) onMeta();
+    return () => v.removeEventListener('loadedmetadata', onMeta);
+  }, []);
+
+  React.useEffect(() => {
+    const tick = () => {
+      const el = containerRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const total = el.offsetHeight - window.innerHeight;
+      const p = Math.max(0, Math.min(1, -rect.top / total));
+      setProgress(p);
+      const v = videoRef.current;
+      if (v && ready && v.duration) v.currentTime = p * v.duration;
+    };
+    window.addEventListener('scroll', tick, { passive: true });
+    tick();
+    return () => window.removeEventListener('scroll', tick);
+  }, [ready]);
+
+  const WORDS = ['Wood', 'Glass', 'Fabric'];
+  const THRESHOLDS = [0.25, 0.55, 0.80];
+  const activeWord = THRESHOLDS.reduce((acc, t, i) => progress >= t ? i : acc, -1);
+
+  return (
+    <div ref={containerRef} style={{ height: '350vh', position: 'relative' }} id="materials">
+      <div style={{
+        position: 'sticky', top: 0, height: '100vh',
+        overflow: 'hidden',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+      }}>
+        <video
+          ref={videoRef}
+          src="assets/nesting-walnut-animation.mp4"
+          muted playsInline preload="auto"
+          style={{
+            position: 'absolute', inset: 0,
+            width: '100%', height: '100%', objectFit: 'cover',
+          }}
+        />
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'rgba(26,18,11,0.40)',
+          zIndex: 1,
+        }} />
+        <div style={{
+          position: 'relative', zIndex: 2,
+          textAlign: 'center', color: '#F2EDE4',
+          userSelect: 'none',
+        }}>
+          <div style={{
+            fontFamily: 'var(--sans)', fontSize: 10,
+            letterSpacing: '0.3em', textTransform: 'uppercase',
+            opacity: 0.5, marginBottom: 24,
+          }}>№ 003</div>
+          <h3 style={{
+            fontSize: 'clamp(52px, 7vw, 108px)',
+            fontWeight: 400, lineHeight: 1.05,
+            color: '#F2EDE4', marginBottom: 56,
+          }}>
+            Three <em>materials.</em>
+          </h3>
+          <div style={{ display: 'flex', gap: 52, justifyContent: 'center', alignItems: 'center' }}>
+            {WORDS.map((w, i) => (
+              <div key={w} style={{
+                fontFamily: 'var(--sans)', fontSize: 11,
+                letterSpacing: '0.3em', textTransform: 'uppercase',
+                display: 'flex', alignItems: 'center', gap: 10,
+                color: activeWord === i ? '#F2EDE4' : 'rgba(242,237,228,0.22)',
+                transition: 'color 0.5s ease',
+              }}>
+                <span style={{ fontSize: 9, opacity: 0.45 }}>0{i + 1}</span>
+                {w}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Materials() {
   const [activeWood, setActiveWood] = React.useState(null);
   const [activeFabric, setActiveFabric] = React.useState(null);
@@ -976,12 +1070,7 @@ function Materials() {
   const glass = GLASS_OPTIONS.find(g => g.key === activeGlass);
 
   return (
-    <section className="materials" id="materials">
-      <div className="section-label">№ 003</div>
-      <div className="materials-header">
-        <h3>Three <em>materials.</em></h3>
-        <p className="intro"><span className="ticker-emphasis">Wood. Fabric. Glass.</span></p>
-      </div>
+    <section className="materials">
       <div className="materials-grid">
         <MaterialBrowser
           idx="01"
@@ -1377,6 +1466,7 @@ function App() {
       <NestingIntro />
       <NestingTableSection onAdd={addToCart} />
       <Manifesto />
+      <MaterialsIntro />
       <Materials />
       <Gallery />
       <CTA onAdd={addToCart} />
