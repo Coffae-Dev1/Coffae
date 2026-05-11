@@ -332,24 +332,24 @@ function ProductSection({ onAdd }) {
     <section className="product" id="product">
       <div className="product-left">
         <div className="product-visual">
-          <ProductMedia finish={finish} fabric={fabric} variant="photo" />
-          <span className="caption">{finish} · {fabric}</span>
-          <span className="index-num" style={{color:'#F2EDE4', mixBlendMode:'difference'}}>01</span>
+          <ProductMedia finish={finish} fabric={fabric} variant={view} />
+          <span className="caption">{finish} · {fabric}{view === 'photo2' ? ' · styled' : view === 'photo3' ? ' · detail' : ''}</span>
+          <span className="index-num" style={{color:'#F2EDE4', mixBlendMode:'difference'}}>
+            {view === 'photo' ? '01' : view === 'photo2' ? '02' : '03'}
+          </span>
         </div>
         <div className="view-tabs">
           {[
-            { fabricName: 'Charcoal', img: `assets/${finish.toLowerCase()}.png` },
-            { fabricName: 'Oat',      img: `assets/${finish.toLowerCase()}-oat.png` },
-            { fabricName: 'Rust',     img: `assets/${finish.toLowerCase()}-rust.png` },
-            { fabricName: 'Moss',     img: `assets/${finish.toLowerCase()}-moss.png` },
+            { key: 'photo',  img: fabric !== 'Charcoal' ? `assets/${finish.toLowerCase()}-${fabric.toLowerCase()}.png` : `assets/${finish.toLowerCase()}.png` },
+            { key: 'photo2', img: `assets/${finish.toLowerCase()}-2.png` },
+            { key: 'photo3', img: `assets/${finish.toLowerCase()}-3.png` },
           ].map(t => (
             <button
-              key={t.fabricName}
-              className={`view-tab ${fabric === t.fabricName ? 'active' : ''}`}
-              onClick={() => { setFabric(t.fabricName); }}
-              title={t.fabricName}
+              key={t.key}
+              className={`view-tab ${view === t.key ? 'active' : ''}`}
+              onClick={() => setView(t.key)}
             >
-              <img src={t.img} alt={t.fabricName} style={{position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover'}} />
+              <img src={t.img} alt={t.key} style={{position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover'}} />
             </button>
           ))}
         </div>
