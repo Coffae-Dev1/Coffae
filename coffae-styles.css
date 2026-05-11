@@ -21,8 +21,8 @@
 
   /* legacy aliases mapped to new palette for backward compat */
   --ivory: #1E1D1D;
-  --ivory-warm: #F6F1E8;
-  --cream: #F6F1E8;
+  --ivory-warm: rgba(180, 175, 168, 0.45);
+  --cream: rgba(180, 175, 168, 0.45);
   --crema: #7E6957;
   --crema-deep: #5A4D41;
   --espresso: #1E1D1D;
