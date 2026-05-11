@@ -1071,8 +1071,8 @@ function MaterialsIntro() {
                 }} />
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
                   <div style={{
-                    fontFamily: 'var(--sans)', fontSize: 11,
-                    letterSpacing: '0.28em', textTransform: 'uppercase',
+                    fontFamily: "'Schoolbell', cursive", fontSize: 20,
+                    letterSpacing: '0.04em',
                     color: on ? '#F2EDE4' : 'rgba(242,237,228,0.2)',
                     transition: 'color 0.5s ease',
                   }}>{w.label}</div>
