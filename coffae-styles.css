@@ -1875,7 +1875,7 @@ section { position: relative; }
   color: #E5D6BE;
 }
 .nesting-hero__sub {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--sans);
   font-style: italic;
   font-weight: 400;
   font-size: 17px;
