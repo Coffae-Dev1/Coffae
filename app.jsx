@@ -431,6 +431,93 @@ function ProductSection({ onAdd }) {
   );
 }
 
+function NestingMedia({ shade }) {
+  const vRef = React.useRef(null);
+  const [playing, setPlaying] = React.useState(false);
+  const key = (shade || 'walnut').toLowerCase();
+  const hasVideo = key === 'walnut' || key === 'birch';
+  const videoSrc = `assets/nesting-${key}-animation.mp4`;
+
+  React.useEffect(() => {
+    const v = vRef.current;
+    if (!v) return;
+    v.load();
+    v.currentTime = 0;
+    setPlaying(false);
+  }, [key]);
+
+  const enter = () => {
+    if (!hasVideo) return;
+    const v = vRef.current;
+    if (!v) return;
+    v.currentTime = 0;
+    const p = v.play();
+    if (p && p.then) p.then(() => setPlaying(true)).catch(() => {});
+  };
+  const leave = () => {
+    if (!hasVideo) return;
+    const v = vRef.current;
+    if (!v) return;
+    v.pause();
+    v.currentTime = 0;
+    setPlaying(false);
+  };
+
+  return (
+    <div
+      onMouseEnter={enter}
+      onMouseLeave={leave}
+      onFocus={enter}
+      onBlur={leave}
+      tabIndex={0}
+      style={{position:'absolute', inset:0, cursor: hasVideo ? 'none' : 'default'}}
+    >
+      <img
+        key={key}
+        src={`assets/table2-${key}.png`}
+        alt={`Nesting tables in ${shade}`}
+        style={{
+          position:'absolute', inset:0, width:'100%', height:'100%',
+          objectFit:'cover',
+          opacity: playing ? 0 : 1,
+          transition:'opacity 0.45s ease',
+        }}
+      />
+      {hasVideo && (
+        <video
+          ref={vRef}
+          muted
+          playsInline
+          loop
+          preload="metadata"
+          style={{
+            position:'absolute', inset:0, width:'100%', height:'100%',
+            objectFit:'cover',
+            opacity: playing ? 1 : 0,
+            transition:'opacity 0.45s ease',
+          }}
+        >
+          <source src={videoSrc} type="video/mp4" />
+        </video>
+      )}
+      {hasVideo && (
+        <span style={{
+          position:'absolute', left:20, top:20,
+          fontFamily:'var(--sans)', fontSize:10, letterSpacing:'0.3em', textTransform:'uppercase',
+          color:'#FFFFFF',
+          textShadow:'0 1px 6px rgba(0,0,0,0.45)',
+          opacity: playing ? 0 : 1,
+          transition:'opacity 0.35s',
+          display:'flex', alignItems:'center', gap:10,
+        }}>
+          <svg width="5" height="7" viewBox="0 0 7 9"><path d="M0 0 L7 4.5 L0 9 Z" fill="currentColor"/></svg>
+          Hover to play
+        </span>
+      )}
+    </div>
+  );
+}
+
 // ---------- Nesting Tables Section (Product № 002) ----------
 function NestingTableSection({ onAdd }) {
   const [shade, setShade] = React.useState('Oak');
@@ -443,16 +530,7 @@ function NestingTableSection({ onAdd }) {
     <section className="product nesting" id="nesting" style={{borderTop:'0.5px solid var(--rule)'}}>
       <div className="product-left">
         <div className="product-visual" style={{aspectRatio:'1/1'}}>
-          <img
-            key={key}
-            src={`assets/table2-${key}.png`}
-            alt={`Nesting tables in ${shade}`}
-            style={{
-              position:'absolute', inset:0, width:'100%', height:'100%',
-              objectFit:'cover',
-              animation:'fadeSwap 0.5s ease',
-            }}
-          />
+          <NestingMedia shade={shade} />
           <span className="caption">{shade} · set of three</span>
           <span className="index-num" style={{color:'#F2EDE4', mixBlendMode:'difference'}}>02</span>
         </div>
