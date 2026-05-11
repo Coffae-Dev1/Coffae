@@ -1007,13 +1007,11 @@ function MaterialsIntro() {
   ];
 
   return (
-    <div ref={containerRef} style={{
-      height: '500vh', position: 'relative',
-      width: '100vw', marginLeft: 'calc(50% - 50vw)',
-    }} id="materials">
+    <div ref={containerRef} style={{ height: '500vh', position: 'relative' }} id="materials">
       <div style={{
         position: 'sticky', top: 0, height: '100vh',
-        overflow: 'hidden',
+        overflow: 'hidden', display: 'flex',
+        flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
       }}>
         {/* Full-bleed video */}
         <video
@@ -1025,31 +1023,30 @@ function MaterialsIntro() {
           }}
         />
 
-        {/* Vignette — edges dark, centre open */}
+        {/* Vignette */}
         <div style={{
           position: 'absolute', inset: 0, zIndex: 1,
-          background: 'radial-gradient(ellipse 75% 65% at 50% 50%, rgba(26,18,11,0.05) 0%, rgba(26,18,11,0.70) 100%)',
+          background: 'radial-gradient(ellipse 75% 65% at 50% 50%, rgba(26,18,11,0.05) 0%, rgba(26,18,11,0.68) 100%)',
         }} />
 
         {/* Title — fades + rises via direct DOM ref */}
         <div ref={titleRef} style={{
-          position: 'absolute', zIndex: 2,
-          top: '50%', left: '50%',
-          transform: 'translate(-50%, -50%)',
+          position: 'relative', zIndex: 2,
           textAlign: 'center', color: '#F2EDE4',
           userSelect: 'none', pointerEvents: 'none',
-          width: '100%', padding: '0 40px',
+          marginBottom: 80,
         }}>
           <div style={{
             fontFamily: 'var(--sans)', fontSize: 10,
             letterSpacing: '0.32em', textTransform: 'uppercase',
-            color: 'rgba(242,237,228,0.55)', marginBottom: 22,
+            color: 'rgba(242,237,228,0.55)', marginBottom: 20,
           }}>№ 003 · Materials</div>
           <h3 style={{
-            fontSize: 'clamp(72px, 10vw, 160px)',
-            fontWeight: 400, lineHeight: 0.95,
+            fontSize: 'clamp(52px, 6vw, 96px)',
+            fontWeight: 400, lineHeight: 1,
             color: '#F2EDE4',
             textShadow: '0 4px 40px rgba(26,18,11,0.5)',
+            whiteSpace: 'nowrap',
           }}>
             Three <em>materials.</em>
           </h3>
@@ -1057,20 +1054,20 @@ function MaterialsIntro() {
 
         {/* Material words — bottom bar */}
         <div style={{
-          position: 'absolute', bottom: 60, left: 0, right: 0,
+          position: 'absolute', bottom: 56, left: 0, right: 0,
           zIndex: 2, display: 'flex', justifyContent: 'center',
           userSelect: 'none',
         }}>
           <div style={{
-            display: 'flex', width: '100%', maxWidth: 760,
+            display: 'flex', width: '100%', maxWidth: 680,
             borderTop: '0.5px solid rgba(242,237,228,0.2)',
-            paddingTop: 32,
+            paddingTop: 28,
           }}>
             {WORDS.map((w, i) => {
               const on = activeWord === i;
               return (
                 <div key={w.label} style={{
-                  flex: 1, textAlign: 'center', padding: '0 28px',
+                  flex: 1, textAlign: 'center', padding: '0 24px',
                   borderRight: i < 2 ? '0.5px solid rgba(242,237,228,0.2)' : 'none',
                   transition: 'transform 0.6s cubic-bezier(0.25,1,0.5,1)',
                   transform: on ? 'translateY(-4px)' : 'translateY(0)',
@@ -1082,12 +1079,12 @@ function MaterialsIntro() {
                     marginBottom: 10, transition: 'color 0.6s ease',
                   }}>0{i + 1}</div>
                   <div style={{
-                    fontFamily: 'var(--sans)', fontSize: 14,
+                    fontFamily: 'var(--sans)', fontSize: 13,
                     letterSpacing: '0.24em', textTransform: 'uppercase',
                     color: on ? '#F2EDE4' : 'rgba(242,237,228,0.2)',
-                    transition: 'color 0.6s ease, font-size 0.6s ease',
+                    transition: 'color 0.6s ease',
                     marginBottom: 12,
-                    textShadow: on ? '0 0 24px rgba(242,237,228,0.4)' : 'none',
+                    textShadow: on ? '0 0 20px rgba(242,237,228,0.4)' : 'none',
                   }}>{w.label}</div>
                   <div style={{
                     height: '1px', background: '#F2EDE4',
