@@ -341,7 +341,7 @@ function ProductSection({ onAdd }) {
         <div className="view-tabs">
           {[
             { key: 'photo',  img: fabric !== 'Charcoal' ? `assets/${finish.toLowerCase()}-${fabric.toLowerCase()}.png` : `assets/${finish.toLowerCase()}.png` },
-            { key: 'photo2', img: `assets/${finish.toLowerCase()}-2.png` },
+            { key: 'photo2', img: fabric !== 'Charcoal' ? `assets/${finish.toLowerCase()}-${fabric.toLowerCase()}.png` : `assets/${finish.toLowerCase()}-2.png` },
             { key: 'photo3', img: `assets/${finish.toLowerCase()}-3.png` },
           ].map(t => (
             <button
