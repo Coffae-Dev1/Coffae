@@ -478,7 +478,7 @@ function NestingMedia({ shade }) {
         alt={`Nesting tables in ${shade}`}
         style={{
           position:'absolute', inset:0, width:'100%', height:'100%',
-          objectFit:'contain',
+          objectFit:'cover',
           opacity: playing ? 0 : 1,
           transition:'opacity 0.45s ease',
         }}
