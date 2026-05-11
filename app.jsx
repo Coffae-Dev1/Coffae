@@ -400,7 +400,7 @@ function ProductSection({ onAdd }) {
               outlineOffset: 3,
               transition: 'all 0.25s',
             }}>
-              <img src={`assets/fabric-${o.key}.png`} alt={o.n} style={{position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover'}} />
+              <img src={`assets/${o.key}-fabric-texture.png`} alt={o.n} style={{position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover'}} />
             </button>
           ))}
         </div>
