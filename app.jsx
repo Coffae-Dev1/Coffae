@@ -540,7 +540,6 @@ function NestingIntro() {
           Three tables that live as one. Pull apart for guests; tuck back for quiet mornings.
         </p>
       </div>
-      <span className="nesting-hero__caption">Looping · sound off</span>
     </section>
   );
 }
