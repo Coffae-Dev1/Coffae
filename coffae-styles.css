@@ -342,6 +342,8 @@ section { position: relative; }
   color: #1A120B;
   opacity: 1;
 }
+.nesting-visual .caption { color: #F2EDE4; }
+
 .product-visual .index-num {
   position: absolute;
   right: 20px; top: 20px;
