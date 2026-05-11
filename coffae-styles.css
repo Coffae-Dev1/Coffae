@@ -1922,6 +1922,7 @@ section { position: relative; }
 
 /* --------- Schoolbell: headings only --------- */
 h1, h2, h3,
-.hero-title {
+.hero-title,
+.manifesto .pullquote {
   font-family: "Schoolbell", sans-serif !important;
 }
