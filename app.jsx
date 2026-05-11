@@ -219,8 +219,8 @@ function ProductMedia({ finish, fabric, variant = 'photo' }) {
         <span className="product-media__hint" style={{
           position:'absolute', left:20, top:20,
           fontFamily:'var(--sans)', fontSize: 10, letterSpacing:'0.3em', textTransform:'uppercase',
-          color:'#FFFFFF',
-          textShadow: '0 1px 6px rgba(0,0,0,0.45)',
+          color:'#1A120B',
+          textShadow: 'none',
           opacity: playing ? 0 : 1,
           transition:'opacity 0.35s',
           display:'flex', alignItems:'center', gap: 10,
