@@ -521,18 +521,26 @@ function NestingMedia({ shade }) {
 // ---------- Nesting Intro Video ----------
 function NestingIntro() {
   return (
-    <section className="nesting-intro">
-      <video autoPlay muted playsInline loop preload="auto" className="nesting-intro__video">
-        <source src="assets/nesting-introductory-animation.mp4" type="video/mp4" />
-      </video>
-      <div className="nesting-intro__overlay">
-        <div className="nesting-intro__label">
-          <span className="nesting-intro__rule" />
-          № 002 · Companion Series
-        </div>
-        <h2 className="nesting-intro__heading">One table.<br/>Then three.</h2>
-        <p className="nesting-intro__sub">Three tables that live as one. Pull apart for guests; tuck back for quiet mornings.</p>
+    <section className="nesting-hero" aria-label="Nesting tables in motion">
+      <video
+        className="nesting-hero__video"
+        src="assets/nesting-introductory-animation.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+      />
+      <div className="nesting-hero__overlay">
+        <div className="section-label">№ 002 · Companion Series</div>
+        <h2 className="nesting-hero__title">
+          One table.<br/><em>Then three.</em>
+        </h2>
+        <p className="nesting-hero__sub">
+          Three tables that live as one. Pull apart for guests; tuck back for quiet mornings.
+        </p>
       </div>
+      <span className="nesting-hero__caption">Looping · sound off</span>
     </section>
   );
 }
