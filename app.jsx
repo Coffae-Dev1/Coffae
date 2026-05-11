@@ -136,12 +136,11 @@ function ProductMedia({ finish, fabric, variant = 'photo' }) {
   const key = (finish || 'walnut').toLowerCase();
   const fabricKey = (fabric || '').toLowerCase();
 
-  // Finish + ottoman swap: when finish is birch / oak / walnut and the ottoman is one of
-  // the photographed colors, show the matching {finish}-{ottoman}.png as the still image.
-  // Video hover-to-play still works in all cases (uses {finish}.mp4).
+  // Finish + ottoman swap: only applies to the first gallery tab (photo).
+  // Tabs 2 and 3 always show the angle/detail shots so each tab is visually distinct.
   const ottomanSwap = ['birch','walnut','oak'].includes(key) && ['oat','rust','moss'].includes(fabricKey);
   const isVideo = variant === 'photo';
-  const imgSrc = ottomanSwap
+  const imgSrc = ottomanSwap && variant === 'photo'
     ? `assets/${key}-${fabricKey}.png?v=4`
     : variant === 'photo3'
     ? `assets/${key}-3.png?v=4`
@@ -341,7 +340,7 @@ function ProductSection({ onAdd }) {
         <div className="view-tabs">
           {[
             { key: 'photo',  img: fabric !== 'Charcoal' ? `assets/${finish.toLowerCase()}-${fabric.toLowerCase()}.png` : `assets/${finish.toLowerCase()}.png` },
-            { key: 'photo2', img: fabric !== 'Charcoal' ? `assets/${finish.toLowerCase()}-${fabric.toLowerCase()}.png` : `assets/${finish.toLowerCase()}-2.png` },
+            { key: 'photo2', img: `assets/${finish.toLowerCase()}-2.png` },
             { key: 'photo3', img: `assets/${finish.toLowerCase()}-3.png` },
           ].map(t => (
             <button
