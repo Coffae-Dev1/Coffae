@@ -506,7 +506,8 @@ section { position: relative; }
   gap: 32px;
 }
 .material-card {
-  background: var(--cream);
+  background: #ffffff;
+  border: 1px solid rgba(26, 18, 11, 0.12);
   padding: 40px 32px;
   display: flex;
   flex-direction: column;
