@@ -339,8 +339,8 @@ section { position: relative; }
   font-size: 10px;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--espresso);
-  opacity: 0.7;
+  color: #1A120B;
+  opacity: 1;
 }
 .product-visual .index-num {
   position: absolute;
