@@ -55,7 +55,7 @@ function TableDiagram({ view = 'front' }) {
         {/* floor */}
         <line x1="20" y1="380" x2="580" y2="380" strokeWidth="0.6" strokeDasharray="2 4"/>
         {/* dimension lines */}
-        <g opacity="0.4" fontFamily="JetBrains Mono, monospace" fontSize="10" fill="#2E2218">
+        <g opacity="0.4" fontFamily='sans-serif' fontSize="10" fill="#2E2218">
           <line x1="60" y1="400" x2="420" y2="400" strokeWidth="0.5"/>
           <line x1="60" y1="395" x2="60" y2="405" strokeWidth="0.5"/>
           <line x1="420" y1="395" x2="420" y2="405" strokeWidth="0.5"/>
@@ -82,7 +82,7 @@ function TableDiagram({ view = 'front' }) {
         {/* items on top seen from above */}
         <rect x="160" y="200" width="80" height="40" fill="#D4B896" fillOpacity="0.6"/>
         <circle cx="290" cy="250" r="20" fill="#6b6459" fillOpacity="0.5"/>
-        <g opacity="0.4" fontFamily="JetBrains Mono, monospace" fontSize="10" fill="#2E2218">
+        <g opacity="0.4" fontFamily='sans-serif' fontSize="10" fill="#2E2218">
           <text x="250" y="420" textAnchor="middle" stroke="none">TOP · GLASS · 10MM TEMPERED</text>
         </g>
       </svg>
@@ -98,7 +98,7 @@ function TableDiagram({ view = 'front' }) {
         {/* ottoman under */}
         <rect x="200" y="280" width="80" height="60" fill="#54504a" fillOpacity="0.6"/>
         <line x1="100" y1="360" x2="500" y2="360" strokeWidth="0.6" strokeDasharray="2 4"/>
-        <g opacity="0.4" fontFamily="JetBrains Mono, monospace" fontSize="10" fill="#2E2218">
+        <g opacity="0.4" fontFamily='sans-serif' fontSize="10" fill="#2E2218">
           <line x1="500" y1="200" x2="500" y2="340" strokeWidth="0.5"/>
           <line x1="495" y1="200" x2="505" y2="200" strokeWidth="0.5"/>
           <line x1="495" y1="340" x2="505" y2="340" strokeWidth="0.5"/>
@@ -122,7 +122,7 @@ function TableDiagram({ view = 'front' }) {
           <line key={i} x1={140 + i*11} y1="140" x2={140 + i*11} y2="360" />
         ))}
       </g>
-      <g opacity="0.4" fontFamily="JetBrains Mono, monospace" fontSize="10" fill="#2E2218">
+      <g opacity="0.4" fontFamily='sans-serif' fontSize="10" fill="#2E2218">
         <text x="300" y="395" textAnchor="middle" stroke="none">OTTOMAN · WOOL-LINEN BLEND · CHARCOAL</text>
       </g>
     </svg>
@@ -373,7 +373,7 @@ function ProductSection({ onAdd }) {
             <button key={f} onClick={() => { setFinish(f); setView('photo'); }} style={{
               padding: '10px 18px',
               border: `1px solid ${finish===f?'#1A120B':'rgba(26,18,11,0.2)'}`,
-              fontFamily: 'JetBrains Mono, monospace',
+              fontFamily: 'sans-serif',
               fontSize: 10,
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
@@ -597,7 +597,7 @@ function NestingTableSection({ onAdd }) {
             <button key={s} onClick={() => setShade(s)} style={{
               padding: '10px 18px',
               border: `1px solid ${shade===s?'#1A120B':'rgba(26,18,11,0.2)'}`,
-              fontFamily: 'JetBrains Mono, monospace',
+              fontFamily: 'sans-serif',
               fontSize: 10,
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
@@ -1093,7 +1093,7 @@ function PlaceholderImg({ tone, note }) {
         background: 'repeating-linear-gradient(45deg, rgba(201,166,119,0.05) 0 20px, transparent 20px 40px)'
       }}/>
       <div style={{
-        fontFamily: 'JetBrains Mono, monospace',
+        fontFamily: 'sans-serif',
         fontSize: 10,
         letterSpacing: '0.24em',
         color: 'rgba(242,237,228,0.4)',
@@ -1118,7 +1118,7 @@ function Story() {
           position:'absolute', inset: 40,
           border: '1px solid rgba(26,18,11,0.15)',
           display:'flex', alignItems:'center', justifyContent:'center',
-          fontFamily:'JetBrains Mono, monospace',
+          fontFamily:'sans-serif',
           fontSize: 10, letterSpacing:'0.24em',
           color:'rgba(26,18,11,0.4)',
           textAlign:'center', padding: 20,
@@ -1338,7 +1338,7 @@ function Checkout({ open, onClose, items, onComplete }) {
             <button className="place-btn" onClick={place} disabled={step==='processing'}>
               {step === 'processing' ? 'Processing…' : <>Place order · {USD(total)} <Icon.arrow /></>}
             </button>
-            <div style={{marginTop:16, textAlign:'center', fontFamily:'JetBrains Mono, monospace', fontSize: 9, letterSpacing:'0.22em', color:'rgba(26,18,11,0.4)', textTransform:'uppercase'}}>
+            <div style={{marginTop:16, textAlign:'center', fontFamily:'sans-serif', fontSize: 9, letterSpacing:'0.22em', color:'rgba(26,18,11,0.4)', textTransform:'uppercase'}}>
               demo only · no real payment
             </div>
           </aside>

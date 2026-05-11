@@ -1854,7 +1854,7 @@ section { position: relative; }
 .nesting-hero__overlay .section-label {
   color: rgba(245,239,227,0.7);
   margin-bottom: 14px;
-  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-family: sans-serif;
   font-size: 11px;
   letter-spacing: 0.24em;
   text-transform: uppercase;
