@@ -272,36 +272,24 @@ function Nav({ cartCount, onCartOpen }) {
 function Hero() {
   return (
     <section className="hero" id="top">
-      <div>
-        <div className="hero-tag">
+      <video
+        className="hero-video"
+        src="assets/coffae-hero-animation1.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+      />
+      <div className="hero-caption">
+        <div className="hero-caption__tag">
           <span className="dot"></span>
-          <span>Coffaé Studio</span>
-          <span style={{opacity:0.4}}>·</span>
-          <span>Edition 001 · 2026</span>
+          <span>Coffaé Studio · Edition 001 · 2026</span>
         </div>
-        <h1 className="hero-title">
-          <span className="line"><span>A table</span></span>
-          <span className="line"><span>for <em>small</em></span></span>
-          <span className="line"><span><em>rooms.</em></span></span>
-        </h1>
-      </div>
-
-      <div className="hero-image">
-        <img src="assets/hero.jpg" alt="Coffaé living room" />
-      </div>
-
-      <div className="hero-bottom">
-        <div className="hero-meta">
+        <h1 className="hero-title">A table for <em>small rooms.</em></h1>
+        <p className="hero-caption__meta">
           <strong>Surface. Storage. Ottoman.</strong> One piece of furniture.
-        </div>
-        <div className="hero-scroll">
-          <span>SCROLL</span>
-          <span className="line-v"></span>
-        </div>
-        <div className="hero-index">
-          <span>INDEX</span>
-          <b>01 / 05</b>
-        </div>
+        </p>
       </div>
     </section>
   );
