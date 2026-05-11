@@ -985,12 +985,6 @@ function MaterialsIntro() {
       const total = el.offsetHeight - window.innerHeight;
       const p = Math.max(0, Math.min(1, -rect.top / total));
 
-      // Parallax title — direct DOM, no re-render
-      if (titleRef.current) {
-        titleRef.current.style.opacity = Math.max(0, 1 - p * 2.8);
-        titleRef.current.style.transform = `translateY(${p * -60}px)`;
-      }
-
       // Word bar — fade out as section ends
       if (wordsBarRef.current) {
         wordsBarRef.current.style.opacity = Math.max(0, 1 - (p - 0.86) / 0.11);
@@ -1038,27 +1032,26 @@ function MaterialsIntro() {
           background: 'radial-gradient(ellipse 75% 65% at 50% 50%, rgba(26,18,11,0.05) 0%, rgba(26,18,11,0.68) 100%)',
         }} />
 
-        {/* Title — fades + rises via direct DOM ref */}
-        <div ref={titleRef} style={{
-          position: 'relative', zIndex: 2,
-          textAlign: 'center', color: '#F2EDE4',
+        {/* Title — fixed at top of frame, horizontal */}
+        <div style={{
+          position: 'absolute', top: 0, left: 0, right: 0,
+          zIndex: 2, display: 'flex', alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '28px 36px',
           userSelect: 'none', pointerEvents: 'none',
-          marginBottom: 80,
         }}>
           <div style={{
-            fontFamily: 'var(--sans)', fontSize: 10,
+            fontFamily: 'var(--sans)', fontSize: 9,
             letterSpacing: '0.32em', textTransform: 'uppercase',
-            color: 'rgba(242,237,228,0.55)', marginBottom: 20,
+            color: 'rgba(242,237,228,0.5)',
           }}>№ 003 · Materials</div>
           <h3 style={{
-            fontSize: 'clamp(52px, 6vw, 96px)',
-            fontWeight: 400, lineHeight: 1,
-            color: '#F2EDE4',
-            textShadow: '0 4px 40px rgba(26,18,11,0.5)',
-            whiteSpace: 'nowrap',
-          }}>
-            Three <em>materials.</em>
-          </h3>
+            fontFamily: 'var(--serif)',
+            fontSize: 'clamp(18px, 2.2vw, 30px)',
+            fontWeight: 400, color: '#F2EDE4',
+            textShadow: '0 2px 20px rgba(26,18,11,0.45)',
+            margin: 0,
+          }}>Three <em>materials.</em></h3>
         </div>
 
         {/* Bottom word bar — spaced to match materials grid columns */}
