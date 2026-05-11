@@ -30,7 +30,7 @@
   --rule: rgba(30, 29, 29, 0.12);
   --muted: rgba(30, 29, 29, 0.55);
 
-  --serif: "Schoolbell", sans-serif;
+  --serif: sans-serif;
   --sans: sans-serif;
   --mono: sans-serif;
 }
@@ -1917,4 +1917,10 @@ section { position: relative; }
 }
 @media (max-width: 900px) {
   .gallery-feature img { aspect-ratio: auto; }
+}
+
+/* --------- Schoolbell: headings only --------- */
+h1, h2, h3,
+.hero-title {
+  font-family: "Schoolbell", sans-serif !important;
 }
