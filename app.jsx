@@ -1012,7 +1012,7 @@ function MaterialsIntro() {
       }}>
         <video
           ref={videoRef}
-          src="assets/nesting-walnut-animation.mp4"
+          src="assets/three-materials-animation.mp4"
           muted playsInline preload="auto"
           style={{
             position: 'absolute', inset: 0,
