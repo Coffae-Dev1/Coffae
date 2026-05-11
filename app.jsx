@@ -970,6 +970,8 @@ function MaterialBrowser({ idx, label, options, onExpand }) {
 // ---------- Materials scroll intro ----------
 function MaterialsIntro() {
   const containerRef = React.useRef(null);
+  const titleRef = React.useRef(null);
+  const prevWordRef = React.useRef(-1);
   const [activeWord, setActiveWord] = React.useState(-1);
 
   React.useEffect(() => {
@@ -979,15 +981,30 @@ function MaterialsIntro() {
       const rect = el.getBoundingClientRect();
       const total = el.offsetHeight - window.innerHeight;
       const p = Math.max(0, Math.min(1, -rect.top / total));
+
+      // Parallax title — direct DOM, no re-render
+      if (titleRef.current) {
+        titleRef.current.style.opacity = Math.max(0, 1 - p * 2.8);
+        titleRef.current.style.transform = `translateY(${p * -60}px)`;
+      }
+
+      // Word highlight — setState only when it changes
       const wi = p < 0.25 ? -1 : p < 0.55 ? 0 : p < 0.80 ? 1 : 2;
-      setActiveWord(wi);
+      if (wi !== prevWordRef.current) {
+        prevWordRef.current = wi;
+        setActiveWord(wi);
+      }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const WORDS = ['Wood', 'Glass', 'Fabric'];
+  const WORDS = [
+    { label: 'Wood',   sub: 'American Walnut · FSC' },
+    { label: 'Glass',  sub: '10mm Tempered · Low-iron' },
+    { label: 'Fabric', sub: 'Wool-linen · Portugal' },
+  ];
 
   return (
     <div ref={containerRef} style={{ height: '350vh', position: 'relative' }} id="materials">
@@ -996,6 +1013,7 @@ function MaterialsIntro() {
         overflow: 'hidden',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
       }}>
+        {/* Full-bleed video */}
         <video
           src="assets/three-materials-animation.mp4"
           autoPlay muted loop playsInline preload="auto"
@@ -1004,39 +1022,83 @@ function MaterialsIntro() {
             width: '100%', height: '100%', objectFit: 'cover',
           }}
         />
+
+        {/* Vignette — edges dark, centre open */}
         <div style={{
-          position: 'absolute', inset: 0,
-          background: 'rgba(26,18,11,0.40)',
-          zIndex: 1,
+          position: 'absolute', inset: 0, zIndex: 1,
+          background: 'radial-gradient(ellipse 80% 70% at 50% 50%, rgba(26,18,11,0.08) 0%, rgba(26,18,11,0.62) 100%)',
         }} />
-        <div style={{
-          position: 'relative', zIndex: 2,
+
+        {/* Title — fades + rises on scroll via direct DOM ref */}
+        <div ref={titleRef} style={{
+          position: 'absolute', zIndex: 2,
+          top: '50%', left: '50%',
+          transform: 'translate(-50%, -50%)',
           textAlign: 'center', color: '#F2EDE4',
-          userSelect: 'none',
+          userSelect: 'none', pointerEvents: 'none',
+          width: '100%',
         }}>
           <div style={{
             fontFamily: 'var(--sans)', fontSize: 10,
             letterSpacing: '0.3em', textTransform: 'uppercase',
-            opacity: 0.5, marginBottom: 24,
-          }}>№ 003</div>
+            opacity: 0.5, marginBottom: 18,
+          }}>№ 003 · Materials</div>
           <h3 style={{
-            fontSize: 'clamp(52px, 7vw, 108px)',
-            fontWeight: 400, lineHeight: 1.05,
-            color: '#F2EDE4', marginBottom: 56,
+            fontSize: 'clamp(60px, 8.5vw, 130px)',
+            fontWeight: 400, lineHeight: 1,
+            color: '#F2EDE4',
           }}>
             Three <em>materials.</em>
           </h3>
-          <div style={{ display: 'flex', gap: 52, justifyContent: 'center', alignItems: 'center' }}>
+        </div>
+
+        {/* Material words — bottom bar */}
+        <div style={{
+          position: 'absolute', bottom: 56, left: 0, right: 0,
+          zIndex: 2, display: 'flex', justifyContent: 'center',
+          userSelect: 'none',
+        }}>
+          <div style={{
+            display: 'flex',
+            borderTop: '0.5px solid rgba(242,237,228,0.18)',
+            paddingTop: 28,
+            gap: 0,
+            width: '100%', maxWidth: 680,
+          }}>
             {WORDS.map((w, i) => (
-              <div key={w} style={{
-                fontFamily: 'var(--sans)', fontSize: 11,
-                letterSpacing: '0.3em', textTransform: 'uppercase',
-                display: 'flex', alignItems: 'center', gap: 10,
-                color: activeWord === i ? '#F2EDE4' : 'rgba(242,237,228,0.22)',
-                transition: 'color 0.5s ease',
+              <div key={w.label} style={{
+                flex: 1, textAlign: 'center',
+                padding: '0 20px',
+                borderRight: i < 2 ? '0.5px solid rgba(242,237,228,0.18)' : 'none',
               }}>
-                <span style={{ fontSize: 9, opacity: 0.45 }}>0{i + 1}</span>
-                {w}
+                <div style={{
+                  fontFamily: 'var(--sans)', fontSize: 9,
+                  letterSpacing: '0.28em', textTransform: 'uppercase',
+                  color: activeWord === i ? 'rgba(242,237,228,0.55)' : 'rgba(242,237,228,0.18)',
+                  marginBottom: 8,
+                  transition: 'color 0.6s ease',
+                }}>0{i + 1}</div>
+                <div style={{
+                  fontFamily: 'var(--sans)', fontSize: 12,
+                  letterSpacing: '0.22em', textTransform: 'uppercase',
+                  color: activeWord === i ? '#F2EDE4' : 'rgba(242,237,228,0.18)',
+                  transition: 'color 0.6s ease',
+                  marginBottom: 10,
+                }}>{w.label}</div>
+                {/* Animated underline */}
+                <div style={{
+                  height: '1px', background: '#F2EDE4',
+                  width: activeWord === i ? '40px' : '0px',
+                  margin: '0 auto',
+                  transition: 'width 0.7s cubic-bezier(0.25, 1, 0.5, 1)',
+                }} />
+                <div style={{
+                  fontFamily: 'var(--sans)', fontSize: 9,
+                  letterSpacing: '0.12em', textTransform: 'uppercase',
+                  color: activeWord === i ? 'rgba(242,237,228,0.4)' : 'rgba(242,237,228,0.1)',
+                  transition: 'color 0.6s ease',
+                  marginTop: 8, lineHeight: 1.6,
+                }}>{w.sub}</div>
               </div>
             ))}
           </div>
