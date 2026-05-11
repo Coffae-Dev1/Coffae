@@ -369,7 +369,7 @@ function ProductSection({ onAdd }) {
 
         <div className="section-label" style={{marginBottom: 12}}>Finish</div>
         <div style={{display:'flex', gap: 10, marginBottom: 32}}>
-          {['Walnut', 'Birch', 'Oak'].map(f => (
+          {['Walnut', 'Oak', 'Birch'].map(f => (
             <button key={f} onClick={() => { setFinish(f); setView('photo'); }} style={{
               padding: '10px 18px',
               border: `1px solid ${finish===f?'#1A120B':'rgba(26,18,11,0.2)'}`,
@@ -563,7 +563,7 @@ function NestingTableSection({ onAdd }) {
 
         {/* Shade selector tabs — 3 square swatches mirroring main product tabs */}
         <div className="view-tabs">
-          {['Birch','Oak','Walnut'].map(s => (
+          {['Walnut','Oak','Birch'].map(s => (
             <button
               key={s}
               className={`view-tab ${shade===s?'active':''}`}
@@ -593,7 +593,7 @@ function NestingTableSection({ onAdd }) {
 
         <div className="section-label" style={{marginBottom: 12}}>Shade</div>
         <div style={{display:'flex', gap: 10, marginBottom: 40}}>
-          {['Birch', 'Oak', 'Walnut'].map(s => (
+          {['Walnut', 'Oak', 'Birch'].map(s => (
             <button key={s} onClick={() => setShade(s)} style={{
               padding: '10px 18px',
               border: `1px solid ${shade===s?'#1A120B':'rgba(26,18,11,0.2)'}`,
