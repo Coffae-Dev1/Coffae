@@ -1811,6 +1811,17 @@ section { position: relative; }
   padding-bottom: 180px;
   align-items: center;
 }
+.nesting-intro {
+  width: 100%;
+  line-height: 0;
+}
+.nesting-intro__video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
 .product.nesting .product-visual img {
   transition: opacity 0.5s ease;
 }

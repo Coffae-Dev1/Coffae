@@ -518,6 +518,24 @@ function NestingMedia({ shade }) {
   );
 }
 
+// ---------- Nesting Intro Video ----------
+function NestingIntro() {
+  return (
+    <section className="nesting-intro">
+      <video
+        autoPlay
+        muted
+        playsInline
+        loop
+        preload="auto"
+        className="nesting-intro__video"
+      >
+        <source src="assets/nesting-introductory-animation.mp4" type="video/mp4" />
+      </video>
+    </section>
+  );
+}
+
 // ---------- Nesting Tables Section (Product № 002) ----------
 function NestingTableSection({ onAdd }) {
   const [shade, setShade] = React.useState('Oak');
@@ -1386,6 +1404,7 @@ function App() {
       <Nav cartCount={cartCount} onCartOpen={() => setCartOpen(true)} />
       <Ticker />
       <ProductSection onAdd={addToCart} />
+      <NestingIntro />
       <NestingTableSection onAdd={addToCart} />
       <Manifesto />
       <Materials />
