@@ -971,37 +971,58 @@ function MaterialBrowser({ idx, label, options, onExpand }) {
 function MaterialsIntro() {
   const containerRef = React.useRef(null);
   const videoRef = React.useRef(null);
-  const [progress, setProgress] = React.useState(0);
-  const [ready, setReady] = React.useState(false);
+  const targetRef = React.useRef(0);
+  const currentRef = React.useRef(0);
+  const rafRef = React.useRef(null);
+  const prevWordRef = React.useRef(-1);
+  const [activeWord, setActiveWord] = React.useState(-1);
 
+  // Wait for video metadata then pause it — we drive time manually
   React.useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
-    const onMeta = () => { setReady(true); v.pause(); };
+    const onMeta = () => v.pause();
     v.addEventListener('loadedmetadata', onMeta);
-    if (v.readyState >= 1) onMeta();
+    if (v.readyState >= 1) v.pause();
     return () => v.removeEventListener('loadedmetadata', onMeta);
   }, []);
 
+  // Scroll handler — only writes to a ref, no setState
   React.useEffect(() => {
-    const tick = () => {
+    const onScroll = () => {
       const el = containerRef.current;
       if (!el) return;
       const rect = el.getBoundingClientRect();
       const total = el.offsetHeight - window.innerHeight;
-      const p = Math.max(0, Math.min(1, -rect.top / total));
-      setProgress(p);
-      const v = videoRef.current;
-      if (v && ready && v.duration) v.currentTime = p * v.duration;
+      targetRef.current = Math.max(0, Math.min(1, -rect.top / total));
     };
-    window.addEventListener('scroll', tick, { passive: true });
-    tick();
-    return () => window.removeEventListener('scroll', tick);
-  }, [ready]);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // RAF loop — lerps currentRef toward targetRef, then seeks video
+  React.useEffect(() => {
+    const THRESHOLDS = [0.25, 0.55, 0.80];
+    const loop = () => {
+      currentRef.current += (targetRef.current - currentRef.current) * 0.09;
+      const v = videoRef.current;
+      if (v && v.duration) v.currentTime = currentRef.current * v.duration;
+
+      // Update word highlight only when it actually changes
+      const p = currentRef.current;
+      const wi = THRESHOLDS.reduce((acc, t, i) => p >= t ? i : acc, -1);
+      if (wi !== prevWordRef.current) {
+        prevWordRef.current = wi;
+        setActiveWord(wi);
+      }
+      rafRef.current = requestAnimationFrame(loop);
+    };
+    rafRef.current = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, []);
 
   const WORDS = ['Wood', 'Glass', 'Fabric'];
-  const THRESHOLDS = [0.25, 0.55, 0.80];
-  const activeWord = THRESHOLDS.reduce((acc, t, i) => progress >= t ? i : acc, -1);
 
   return (
     <div ref={containerRef} style={{ height: '350vh', position: 'relative' }} id="materials">
