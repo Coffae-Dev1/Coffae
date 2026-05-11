@@ -529,7 +529,7 @@ function NestingTableSection({ onAdd }) {
   return (
     <section className="product nesting" id="nesting" style={{borderTop:'0.5px solid var(--rule)'}}>
       <div className="product-left">
-        <div className="product-visual" style={{aspectRatio:'1/1'}}>
+        <div className="product-visual nesting-visual">
           <NestingMedia shade={shade} />
           <span className="caption">{shade} · set of three</span>
           <span className="index-num" style={{color:'#F2EDE4', mixBlendMode:'difference'}}>02</span>

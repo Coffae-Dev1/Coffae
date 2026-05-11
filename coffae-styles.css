@@ -1803,6 +1803,14 @@ section { position: relative; }
   from { opacity: 0; transform: scale(1.02); }
   to   { opacity: 1; transform: scale(1); }
 }
+.product-visual.nesting-visual {
+  aspect-ratio: 3/4;
+}
+.product.nesting {
+  padding-top: 180px;
+  padding-bottom: 180px;
+  align-items: center;
+}
 .product.nesting .product-visual img {
   transition: opacity 0.5s ease;
 }
