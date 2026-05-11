@@ -479,7 +479,7 @@ function NestingMedia({ shade }) {
         style={{
           position:'absolute', inset:0, width:'100%', height:'100%',
           objectFit:'cover',
-          objectPosition: (key === 'oak' || key === 'walnut') ? 'center 20%' : 'center center',
+          objectPosition: (key === 'oak' || key === 'walnut') ? 'center top' : 'center center',
           opacity: playing ? 0 : 1,
           transition:'opacity 0.45s ease',
         }}
