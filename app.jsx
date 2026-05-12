@@ -985,9 +985,11 @@ function MaterialsIntro() {
       const total = el.offsetHeight - window.innerHeight;
       const p = Math.max(0, Math.min(1, -rect.top / total));
 
-      // Word bar — fade out as section ends
+      // Word bar — fall downward and fade as section ends
       if (wordsBarRef.current) {
-        wordsBarRef.current.style.opacity = Math.max(0, 1 - (p - 0.86) / 0.11);
+        const fo = Math.max(0, 1 - (p - 0.86) / 0.11);
+        wordsBarRef.current.style.opacity = fo;
+        wordsBarRef.current.style.transform = `translateY(${(1 - fo) * 60}px)`;
       }
 
       // Word highlight — setState only when it changes
@@ -1097,10 +1099,12 @@ function Materials() {
     const style = document.createElement('style');
     style.textContent = `
       @keyframes wordsDrop {
-        0%   { transform: translateY(-52px); opacity: 0; }
-        62%  { transform: translateY(7px);  opacity: 1; }
-        79%  { transform: translateY(-3px); }
-        100% { transform: translateY(0);    opacity: 1; }
+        0%   { transform: translateY(-220px); opacity: 0; }
+        18%  { opacity: 1; }
+        72%  { transform: translateY(18px);  animation-timing-function: ease-out; }
+        85%  { transform: translateY(-8px);  }
+        93%  { transform: translateY(4px);   }
+        100% { transform: translateY(0);     opacity: 1; }
       }
     `;
     document.head.appendChild(style);
@@ -1119,8 +1123,8 @@ function Materials() {
 
   const MAT_WORDS = [
     { word: 'Wood',   delay: '0s' },
-    { word: 'Fabric', delay: '0.13s' },
-    { word: 'Glass',  delay: '0.26s' },
+    { word: 'Fabric', delay: '0.18s' },
+    { word: 'Glass',  delay: '0.36s' },
   ];
 
   return (
@@ -1135,7 +1139,7 @@ function Materials() {
             paddingBottom: 12,
             lineHeight: 1,
             opacity: dropped ? undefined : 0,
-            animation: dropped ? `wordsDrop 0.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay} both` : 'none',
+            animation: dropped ? `wordsDrop 1.1s cubic-bezier(0.4, 0, 0.6, 1) ${delay} both` : 'none',
             willChange: 'transform, opacity',
           }}>{word}</div>
         ))}
