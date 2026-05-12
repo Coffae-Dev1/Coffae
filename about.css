@@ -249,6 +249,13 @@ hr.divider {
 }
 
 /* ── OUR STORY ── */
+.story-img-full {
+  width: 100%;
+  display: block;
+  height: auto;
+  object-fit: cover;
+}
+
 .story-img {
   width: 100%;
   max-width: 100%;
