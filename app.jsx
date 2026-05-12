@@ -1098,11 +1098,11 @@ function Materials() {
     const style = document.createElement('style');
     style.textContent = `
       @keyframes wordsDrop {
-        0%   { transform: translateY(-220px); opacity: 0; }
-        18%  { opacity: 1; }
-        72%  { transform: translateY(18px);  animation-timing-function: ease-out; }
-        85%  { transform: translateY(-8px);  }
-        93%  { transform: translateY(4px);   }
+        0%   { transform: translateY(-120px); opacity: 0; }
+        25%  { opacity: 1; }
+        72%  { transform: translateY(14px);  animation-timing-function: ease-out; }
+        85%  { transform: translateY(-6px);  }
+        93%  { transform: translateY(3px);   }
         100% { transform: translateY(0);     opacity: 1; }
       }
     `;
