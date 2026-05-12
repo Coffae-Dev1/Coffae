@@ -457,11 +457,11 @@ hr.divider {
 .maker-card:hover .maker-photo { transform: scale(1.06); }
 
 .maker-photo--koko {
-  object-position: center 10%;
-  transform: scale(1.15);
-  transform-origin: center 10%;
+  object-position: center 78%;
+  transform: scale(1.5);
+  transform-origin: center 78%;
 }
-.maker-card:hover .maker-photo--koko { transform: scale(1.22); }
+.maker-card:hover .maker-photo--koko { transform: scale(1.55); }
 
 .maker-details {
   display: flex;
