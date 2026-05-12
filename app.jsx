@@ -981,14 +981,17 @@ function MaterialsIntro() {
   React.useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
-    const start = () => {
+    let done = false;
+    const freeze = () => {
+      if (done) return;
+      done = true;
       v.currentTime = 1.1;
       v.pause();
       setTimeout(() => v.play().catch(() => {}), 2000);
     };
-    if (v.readyState >= 2) { start(); }
-    else { v.addEventListener('canplay', start, { once: true }); }
-    return () => v.removeEventListener('canplay', start);
+    v.addEventListener('loadeddata', freeze, { once: true });
+    if (v.readyState >= 2) freeze();
+    return () => v.removeEventListener('loadeddata', freeze);
   }, []);
 
   React.useEffect(() => {
@@ -1037,7 +1040,7 @@ function MaterialsIntro() {
         <video
           ref={videoRef}
           src="assets/three-materials-animation.mp4"
-          muted loop playsInline preload="auto"
+          autoPlay muted loop playsInline preload="auto"
           style={{
             position: 'absolute', inset: 0,
             width: '100%', height: '100%', objectFit: 'cover',
