@@ -253,6 +253,16 @@ hr.divider {
 }
 
 /* ── OUR STORY HERO ── */
+
+/* slow pure fade — no slide */
+.story-hero.reveal {
+  transform: none;
+  transition: opacity 2.2s ease;
+}
+.story-hero.reveal.visible {
+  transform: none;
+}
+
 .story-hero {
   position: relative;
   width: 100%;
@@ -294,6 +304,40 @@ hr.divider {
   font-size: 15px;
   color: #1E1D1D;
   line-height: 1.85;
+}
+
+/* ── STORY X MARK ── */
+.story-x-mark {
+  position: absolute;
+  z-index: 3;
+  top: 38%;
+  left: 48%;
+  width: 28px;
+  height: 28px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: xPulse 2.8s ease-in-out infinite;
+}
+
+.story-x-mark::before,
+.story-x-mark::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 2.5px;
+  background: #8B1800;
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(139, 24, 0, 0.45);
+}
+
+.story-x-mark::before { transform: translate(-50%, -50%) rotate(45deg); }
+.story-x-mark::after  { transform: translate(-50%, -50%) rotate(-45deg); }
+
+@keyframes xPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1);    opacity: 1; }
+  50%       { transform: translate(-50%, -50%) scale(1.18); opacity: 0.65; }
 }
 
 .story-img {
