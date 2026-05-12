@@ -252,12 +252,55 @@ hr.divider {
   padding: 0 48px;
 }
 
-/* ── OUR STORY ── */
-.story-img-full {
+/* ── OUR STORY HERO ── */
+.story-hero {
+  position: relative;
   width: 100%;
-  display: block;
-  height: auto;
+  min-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.story-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
+}
+.story-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.15) 0%,
+    rgba(255,255,255,0.72) 40%,
+    rgba(255,255,255,0.72) 60%,
+    rgba(255,255,255,0.15) 100%
+  );
+}
+.story-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 100px 48px;
+  text-align: center;
+}
+.story-hero-title {
+  font-family: 'Schoolbell', cursive;
+  font-size: 52px;
+  font-weight: 400;
+  color: #000;
+  margin-bottom: 28px;
+  line-height: 1;
+}
+.story-hero-text {
+  font-size: 15px;
+  color: #1E1D1D;
+  line-height: 1.85;
 }
 
 .story-img {
