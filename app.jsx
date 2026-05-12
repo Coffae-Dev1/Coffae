@@ -1016,7 +1016,8 @@ function MaterialsIntro() {
       <div style={{
         position: 'sticky', top: 0, height: '100vh',
         overflow: 'hidden', display: 'flex',
-        flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+        flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start',
+        paddingTop: '18vh',
       }}>
         {/* Full-bleed video */}
         <video
@@ -1034,11 +1035,10 @@ function MaterialsIntro() {
           background: 'radial-gradient(ellipse 75% 65% at 50% 50%, rgba(26,18,11,0.05) 0%, rgba(26,18,11,0.68) 100%)',
         }} />
 
-        {/* Title */}
+        {/* Title — in flow, sits at paddingTop position */}
         <div style={{
-          position: 'absolute', top: '18%', left: 0, right: 0,
-          zIndex: 2, textAlign: 'center',
-          userSelect: 'none', pointerEvents: 'none',
+          position: 'relative', zIndex: 2, textAlign: 'center',
+          userSelect: 'none', pointerEvents: 'none', width: '100%',
         }}>
           <h3 style={{
             fontFamily: "'Schoolbell', cursive",
@@ -1049,10 +1049,10 @@ function MaterialsIntro() {
           }}>Three materials.</h3>
         </div>
 
-        {/* Word bar — 130px below the title */}
+        {/* Word bar — 80px below the title, in flow */}
         <div ref={wordsBarRef} style={{
-          position: 'absolute', top: 'calc(18% + 130px)', left: 0, right: 0,
-          zIndex: 2,
+          position: 'relative', zIndex: 2,
+          marginTop: 80, width: '100%',
           display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32,
           padding: '0 36px',
           userSelect: 'none', pointerEvents: 'none',
