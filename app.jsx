@@ -1034,11 +1034,11 @@ function MaterialsIntro() {
           background: 'radial-gradient(ellipse 75% 65% at 50% 50%, rgba(26,18,11,0.05) 0%, rgba(26,18,11,0.68) 100%)',
         }} />
 
-        {/* Title — centered horizontal band at ~18% from top */}
+        {/* Title + word bar — stacked, anchored to upper quarter */}
         <div style={{
           position: 'absolute', top: '18%', left: 0, right: 0,
-          zIndex: 2, textAlign: 'center',
-          userSelect: 'none', pointerEvents: 'none',
+          zIndex: 2, userSelect: 'none', pointerEvents: 'none',
+          display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 32,
         }}>
           <h3 style={{
             fontFamily: "'Schoolbell', cursive",
@@ -1047,36 +1047,34 @@ function MaterialsIntro() {
             textShadow: '0 0 32px rgba(242,237,228,0.3), 0 2px 20px rgba(26,18,11,0.4)',
             margin: 0, lineHeight: 1,
           }}>Three materials.</h3>
-        </div>
 
-        {/* Word bar — just below the title, spaced to match materials grid */}
-        <div ref={wordsBarRef} style={{
-          position: 'absolute', top: '26%', left: 0, right: 0,
-          zIndex: 2,
-          display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32,
-          padding: '0 36px',
-          userSelect: 'none', pointerEvents: 'none',
-        }}>
-          {WORDS.map((w, i) => {
-            const on = activeWord === i;
-            return (
-              <div key={w.label} style={{ textAlign: 'center' }}>
-                <div style={{
-                  fontFamily: "'Schoolbell', cursive", fontSize: 42,
-                  fontWeight: 700,
-                  color: on ? '#F2EDE4' : 'rgba(242,237,228,0.15)',
-                  transition: 'color 0.55s ease',
-                  textShadow: on ? '0 0 32px rgba(242,237,228,0.45)' : 'none',
-                  lineHeight: 1,
-                }}>{w.label}</div>
-                <div style={{
-                  height: 1.5, background: '#F2EDE4',
-                  width: on ? 36 : 0, margin: '9px auto 0',
-                  transition: 'width 0.6s cubic-bezier(0.25,1,0.5,1)',
-                }} />
-              </div>
-            );
-          })}
+          {/* Word bar — directly below title */}
+          <div ref={wordsBarRef} style={{
+            width: '100%',
+            display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32,
+            padding: '0 36px',
+          }}>
+            {WORDS.map((w, i) => {
+              const on = activeWord === i;
+              return (
+                <div key={w.label} style={{ textAlign: 'center' }}>
+                  <div style={{
+                    fontFamily: "'Schoolbell', cursive", fontSize: 42,
+                    fontWeight: 700,
+                    color: on ? '#F2EDE4' : 'rgba(242,237,228,0.15)',
+                    transition: 'color 0.55s ease',
+                    textShadow: on ? '0 0 32px rgba(242,237,228,0.45)' : 'none',
+                    lineHeight: 1,
+                  }}>{w.label}</div>
+                  <div style={{
+                    height: 1.5, background: '#F2EDE4',
+                    width: on ? 36 : 0, margin: '9px auto 0',
+                    transition: 'width 0.6s cubic-bezier(0.25,1,0.5,1)',
+                  }} />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
