@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Schoolbell";
+  src: url("assets/Schoolbell-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ── RESET & BASE ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -7,9 +15,9 @@
   --hero-bg:   #221604;
   --body-bg:   #ffffff;
   --card-bg:   #ffffff;
-  --text-dark: #2a2015;
-  --text-mid:  #5a4e3c;
-  --text-light:#8a7d6a;
+  --text-dark: #000000;
+  --text-mid:  #1E1D1D;
+  --text-light:#444444;
   --border:    #d4c9b8;
   --accent:    #c8a96e;
 }
@@ -17,7 +25,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Barlow', sans-serif;
+  font-family: sans-serif;
   background: var(--body-bg);
   color: var(--text-dark);
   font-size: 15px;
