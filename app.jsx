@@ -987,7 +987,7 @@ function MaterialsIntro() {
 
       // Word bar — fall downward and fade as section ends
       if (wordsBarRef.current) {
-        const fo = Math.max(0, 1 - (p - 0.86) / 0.11);
+        const fo = Math.max(0, Math.min(1, 1 - (p - 0.86) / 0.11));
         wordsBarRef.current.style.opacity = fo;
         wordsBarRef.current.style.transform = `translateY(${(1 - fo) * 60}px)`;
       }
