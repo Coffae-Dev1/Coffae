@@ -1280,35 +1280,34 @@ function CTA({ onAdd }) {
 // ---------- Footer ----------
 function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer-top">
-        <a href="#top" className="footer-logo">COFFAÉ</a>
-        <p className="footer-tagline">Small space. Big personality.</p>
-      </div>
-
-      <div className="footer-middle">
-        <div className="footer-links">
-          <p className="footer-links-label">Quick links</p>
-          <div className="footer-links-grid">
-            <a href="product.html" className="footer-link">Products</a>
-            <a href="about.html" className="footer-link">Our Story</a>
-            <a href="opportunity.html" className="footer-link">Opportunity</a>
-            <a href="contact.html" className="footer-link">Contact</a>
+    <footer className="site-footer">
+      <div className="site-footer-inner">
+        <div className="site-footer-top">
+          <a href="#top" className="site-footer-logo">COFFAÉ</a>
+          <p className="site-footer-tagline">Small space. Big personality.</p>
+        </div>
+        <div className="site-footer-mid">
+          <div className="site-footer-links">
+            <p className="site-footer-label">Quick links</p>
+            <div className="site-footer-links-grid">
+              <a href="product.html" className="site-footer-link">Products</a>
+              <a href="about.html" className="site-footer-link">Our Story</a>
+              <a href="opportunity.html" className="site-footer-link">Opportunity</a>
+              <a href="contact.html" className="site-footer-link">Contact</a>
+            </div>
+          </div>
+          <div className="site-footer-waitlist">
+            <p className="site-footer-label">Join the waitlist</p>
+            <p className="site-footer-sub">Be the first to know when COFFAÉ drops.</p>
+            <div className="site-footer-form">
+              <input type="email" placeholder="Your email" className="site-footer-input" />
+              <button className="site-footer-btn">Join</button>
+            </div>
           </div>
         </div>
-
-        <div className="footer-waitlist">
-          <p className="footer-waitlist-label">Join the waitlist</p>
-          <p className="footer-waitlist-sub">Be the first to know when COFFAÉ drops.</p>
-          <div className="footer-form">
-            <input type="email" placeholder="Your email" className="footer-input" />
-            <button className="footer-btn">Join</button>
-          </div>
+        <div className="site-footer-bottom">
+          <p>© 2026 COFFAÉ. All rights reserved.</p>
         </div>
-      </div>
-
-      <div className="footer-bottom">
-        <p>© 2026 COFFAÉ. All rights reserved.</p>
       </div>
     </footer>
   );
