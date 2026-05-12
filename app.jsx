@@ -1032,26 +1032,19 @@ function MaterialsIntro() {
           background: 'radial-gradient(ellipse 75% 65% at 50% 50%, rgba(26,18,11,0.05) 0%, rgba(26,18,11,0.68) 100%)',
         }} />
 
-        {/* Title — horizontal band at ~18% from top */}
+        {/* Title — centered horizontal band at ~18% from top */}
         <div style={{
           position: 'absolute', top: '18%', left: 0, right: 0,
-          zIndex: 2, display: 'flex', alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: '0 36px',
+          zIndex: 2, textAlign: 'center',
           userSelect: 'none', pointerEvents: 'none',
         }}>
-          <div style={{
-            fontFamily: 'var(--sans)', fontSize: 9,
-            letterSpacing: '0.32em', textTransform: 'uppercase',
-            color: 'rgba(242,237,228,0.45)',
-          }}>№ 003 · Materials</div>
           <h3 style={{
-            fontFamily: 'var(--serif)',
-            fontSize: 'clamp(20px, 2.4vw, 34px)',
-            fontWeight: 400, color: '#F2EDE4',
-            textShadow: '0 2px 24px rgba(26,18,11,0.5)',
-            margin: 0,
-          }}>Three <em>materials.</em></h3>
+            fontFamily: "'Schoolbell', cursive",
+            fontSize: 42, fontWeight: 700,
+            color: '#F2EDE4',
+            textShadow: '0 0 32px rgba(242,237,228,0.3), 0 2px 20px rgba(26,18,11,0.4)',
+            margin: 0, lineHeight: 1,
+          }}>Three materials.</h3>
         </div>
 
         {/* Bottom word bar — spaced to match materials grid columns */}
