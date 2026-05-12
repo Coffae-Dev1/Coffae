@@ -263,3 +263,21 @@ body {
 .contact-socials a:hover {
     opacity: 0.5;
 }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .contact-nav-links { gap: 20px; }
+  .contact-split { grid-template-columns: 1fr; }
+  .contact-right { display: none; }
+  .contact-left { padding: 100px 24px 60px; }
+  .contact-title { font-size: 34px; }
+  .contact-form-row { grid-template-columns: 1fr; gap: 0; }
+  .contact-footer-info { flex-direction: column; gap: 24px; }
+}
+@media (max-width: 480px) {
+  .contact-nav-links { gap: 12px; }
+  .contact-nav-links a { font-size: 10px; }
+  .contact-left { padding: 88px 16px 48px; }
+  .contact-title { font-size: 28px; }
+  .contact-thankyou-title { font-size: 48px; }
+}

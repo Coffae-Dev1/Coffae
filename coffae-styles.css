@@ -1889,3 +1889,21 @@ h1, h2, h3,
 .manifesto .pullquote {
   font-family: "Schoolbell", sans-serif !important;
 }
+
+/* ── PHONE (≤ 480px) ── */
+@media (max-width: 480px) {
+  .product { flex-direction: column; padding: 80px 20px; gap: 40px; }
+  .product-left { position: relative; top: 0; }
+  .product-right { padding: 0; }
+  .product-right h2 { font-size: clamp(2rem, 8vw, 3rem); }
+  .tile-1 .img { width: 240px; }
+  .tile-2 .img { width: 200px; }
+  .tile-3 .img { width: 300px; }
+  .tile-4 .img { width: 200px; }
+  .tile-5 .img { width: 260px; }
+  .gallery-rail { padding: 0 16px; gap: 16px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .footer-links-grid { grid-template-columns: repeat(2, auto); gap: 8px 12px; }
+  .footer { padding: 56px 20px 24px; margin: 0 10px 10px; }
+  .finishes { flex-wrap: wrap; }
+}

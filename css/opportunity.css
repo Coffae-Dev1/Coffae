@@ -323,3 +323,28 @@ body {
     color: #8C775E;
     line-height: 1.7;
 }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .opp-nav-links { gap: 20px; }
+  .opp-hero-title { font-size: 52px; }
+  .opp-hero-sub { font-size: 14px; }
+  .opp-section { padding: 56px 20px; }
+  .opp-canvas { grid-template-columns: repeat(2, 1fr); }
+  .opp-block-large { grid-column: span 2; grid-row: span 1; }
+  .opp-block-wide { grid-column: span 2; }
+  .opp-block-tall { grid-row: span 1; }
+  .opp-cards { grid-template-columns: repeat(2, 1fr); }
+  .opp-comp-tabs { overflow-x: auto; scrollbar-width: none; }
+  .opp-comp-tabs::-webkit-scrollbar { display: none; }
+}
+@media (max-width: 480px) {
+  .opp-nav-links { gap: 12px; }
+  .opp-nav-links a { font-size: 10px; }
+  .opp-hero-title { font-size: 38px; }
+  .opp-section { padding: 40px 16px; }
+  .opp-canvas { grid-template-columns: 1fr; }
+  .opp-block-large, .opp-block-wide { grid-column: span 1; }
+  .opp-cards { grid-template-columns: 1fr; }
+  .opp-card { padding: 32px 20px; }
+}
