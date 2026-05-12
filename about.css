@@ -197,54 +197,42 @@ body {
   text-align: center;
 }
 
-/* Cards grid */
-.cards-top {
+/* ── WHAT MAKES US UNIQUE — 3-col typographic ── */
+.unique-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 56px;
+}
+
+.unique-col {
+  padding: 0 40px;
+  border-right: 1px solid var(--border);
+}
+
+.unique-col:first-child { padding-left: 0; }
+.unique-col:last-child  { padding-right: 0; border-right: none; }
+
+.unique-word {
+  font-family: 'Schoolbell', cursive;
+  font-size: 52px;
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1;
   margin-bottom: 20px;
 }
 
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  padding: 72px 74px;
-  transition: box-shadow 0.25s, transform 0.25s;
-  cursor: default;
+.unique-rule {
+  width: 36px;
+  height: 1.5px;
+  background: var(--text-dark);
+  margin-bottom: 20px;
 }
 
-.card:hover {
-  box-shadow: 0 8px 32px rgba(83, 55, 14, 0.403);
-  transform: translateY(-3px);
-}
-
-.card-title {
-  font-family: 'Schoolbell', cursive;
-  font-weight: 400;
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: var(--text-dark);
-  letter-spacing: 0.02em;
-  text-align: center;
-}
-
-.card-text {
+.unique-text {
   font-size: 14px;
   color: var(--text-light);
-  line-height: 1.8;
-}
-
-.card-wide {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  padding: 72px 74px;
-  transition: box-shadow 0.25s, transform 0.25s;
-  cursor: default;
-}
-
-.card-wide:hover {
-  box-shadow: 0 8px 32px rgba(62,50,32,0.12);
-  transform: translateY(-3px);
+  line-height: 1.85;
 }
 
 /* ── DIVIDER ── */
@@ -527,8 +515,10 @@ hr.divider {
   .section-sm { padding: 40px 0; }
   .teams-section { padding: 48px 0; }
 
-  /* Cards go single column */
-  .cards-top { grid-template-columns: 1fr; }
+  /* Unique grid stacks on mobile */
+  .unique-grid { grid-template-columns: 1fr; gap: 40px; }
+  .unique-col { padding: 0; border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 40px; }
+  .unique-col:last-child { border-bottom: none; padding-bottom: 0; }
 
   /* Story image full width */
   .story-img-placeholder { max-width: 100%; }
