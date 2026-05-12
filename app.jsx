@@ -1022,7 +1022,7 @@ function MaterialsIntro() {
       }}>
         {/* Full-bleed video */}
         <video
-          src="assets/three-materials-animation.mp4#t=1.1"
+          src="assets/three-materials-animation1.mp4"
           autoPlay muted loop playsInline preload="auto"
           style={{
             position: 'absolute', inset: 0,
