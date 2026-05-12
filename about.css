@@ -411,6 +411,13 @@ hr.divider {
 
 .maker-card:hover .maker-photo { transform: scale(1.05); }
 
+.maker-photo--koko {
+  object-position: center 10%;
+  transform: scale(1.15);
+  transform-origin: center 10%;
+}
+.maker-card:hover .maker-photo--koko { transform: scale(1.2); }
+
 .maker-details {
   display: flex;
   flex-direction: column;
