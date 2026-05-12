@@ -1289,10 +1289,12 @@ function Footer() {
       <div className="footer-middle">
         <div className="footer-links">
           <p className="footer-links-label">Quick links</p>
-          <a href="product.html" className="footer-link">Products</a>
-          <a href="about.html" className="footer-link">Our Story</a>
-          <a href="opportunity.html" className="footer-link">Opportunity</a>
-          <a href="contact.html" className="footer-link">Contact</a>
+          <div className="footer-links-grid">
+            <a href="product.html" className="footer-link">Products</a>
+            <a href="about.html" className="footer-link">Our Story</a>
+            <a href="opportunity.html" className="footer-link">Opportunity</a>
+            <a href="contact.html" className="footer-link">Contact</a>
+          </div>
         </div>
 
         <div className="footer-waitlist">

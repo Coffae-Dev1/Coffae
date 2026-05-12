@@ -1265,13 +1265,13 @@ section { position: relative; }
   border-radius: 12px;
   margin: 0 24px 24px;
   color: #221604;
-  padding: 40px 40px 24px;
+  padding: 80px 40px 32px;
   border-top: none;
 }
 .footer-top {
   text-align: center;
   padding-bottom: 0;
-  margin-bottom: 32px;
+  margin-bottom: 60px;
 }
 .footer-logo {
   font-family: "Schoolbell", cursive;
@@ -1295,12 +1295,17 @@ section { position: relative; }
   justify-content: space-between;
   align-items: flex-start;
   border-top: 0.5px solid rgba(34, 22, 4, 0.2);
-  padding-top: 28px;
-  margin-bottom: 24px;
+  padding-top: 48px;
+  margin-bottom: 48px;
   max-width: none;
   gap: 48px;
 }
 .footer-links { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+.footer-links-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px 32px;
+}
 .footer-links-label,
 .footer-waitlist-label {
   font-family: var(--sans);
