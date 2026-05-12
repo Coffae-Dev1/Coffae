@@ -1038,7 +1038,7 @@ function MaterialsIntro() {
         <div style={{
           position: 'absolute', top: '18%', left: 0, right: 0,
           zIndex: 2, userSelect: 'none', pointerEvents: 'none',
-          display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 32,
+          display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 80,
         }}>
           <h3 style={{
             fontFamily: "'Schoolbell', cursive",
