@@ -1049,13 +1049,12 @@ function MaterialsIntro() {
           }}>Three materials.</h3>
         </div>
 
-        {/* Bottom word bar — spaced to match materials grid columns */}
+        {/* Word bar — just below the title, spaced to match materials grid */}
         <div ref={wordsBarRef} style={{
-          position: 'absolute', bottom: 48, left: 0, right: 0,
+          position: 'absolute', top: '26%', left: 0, right: 0,
           zIndex: 2,
           display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32,
-          padding: '20px 36px 0',
-          borderTop: '0.5px solid rgba(242,237,228,0.15)',
+          padding: '0 36px',
           userSelect: 'none', pointerEvents: 'none',
         }}>
           {WORDS.map((w, i) => {
