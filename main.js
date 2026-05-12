@@ -22,6 +22,28 @@ document.querySelectorAll('.photo-wrap').forEach((wrap, i) => {
   wrap.style.transitionDelay = `${i * 0.05}s`;
 });
 
+// ── MAKER CAROUSEL HIGHLIGHT ──
+document.querySelectorAll('.makers-grid').forEach(grid => {
+  const cards = [...grid.querySelectorAll('.maker-card')];
+  if (!cards.length) return;
+
+  function highlight() {
+    const gridLeft = grid.getBoundingClientRect().left;
+    const center = grid.clientWidth / 2;
+    let active = cards[0], minDist = Infinity;
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      const cardCenter = rect.left - gridLeft + rect.width / 2;
+      const dist = Math.abs(cardCenter - center);
+      if (dist < minDist) { minDist = dist; active = card; }
+    });
+    cards.forEach(c => c.classList.toggle('active', c === active));
+  }
+
+  grid.addEventListener('scroll', highlight, { passive: true });
+  highlight();
+});
+
 // ── HAMBURGER MENU TOGGLE ──
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('navLinks');

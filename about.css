@@ -379,12 +379,43 @@ hr.divider {
 }
 
 .makers-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  gap: 24px;
+  padding-bottom: 28px;
+  cursor: grab;
 }
 
-.maker-card { display: flex; flex-direction: column; }
+.makers-grid:active { cursor: grabbing; }
+.makers-grid::-webkit-scrollbar { display: none; }
+
+/* spacers so first/last card can scroll to center */
+.makers-grid::before,
+.makers-grid::after {
+  content: '';
+  flex: 0 0 calc(50% - 140px);
+}
+
+.maker-card {
+  flex: 0 0 260px;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
+  opacity: 0.45;
+  filter: grayscale(55%) brightness(0.82);
+  transform: scale(0.88);
+  transform-origin: center center;
+}
+
+.maker-card.active {
+  opacity: 1;
+  filter: none;
+  transform: scale(1);
+}
 
 .maker-photo-wrap {
   aspect-ratio: 3/4;
@@ -402,14 +433,14 @@ hr.divider {
   filter: sepia(6%) brightness(0.98);
 }
 
-.maker-card:hover .maker-photo { transform: scale(1.05); }
+.maker-card.active .maker-photo { transform: scale(1.03); }
 
 .maker-photo--koko {
   object-position: center 10%;
   transform: scale(1.15);
   transform-origin: center 10%;
 }
-.maker-card:hover .maker-photo--koko { transform: scale(1.2); }
+.maker-card.active .maker-photo--koko { transform: scale(1.2); }
 
 .maker-details {
   display: flex;
@@ -509,7 +540,7 @@ hr.divider {
   .section-sm { padding: 44px 0; }
   .teams-section { padding: 56px 0; }
 
-  .makers-grid { grid-template-columns: repeat(5, 1fr); }
+  .makers-grid { gap: 20px; }
 }
 
 /* ── SMALL TABLET / LARGE PHONE (481px – 768px) ── */
@@ -574,7 +605,7 @@ hr.divider {
   /* Story image full width */
   .story-img-placeholder { max-width: 100%; }
 
-  .makers-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .makers-grid { gap: 16px; }
   .makers-title { font-size: 38px; }
 }
 
@@ -597,7 +628,7 @@ hr.divider {
   .section-title { font-size: 18px; }
   .teams-title { font-size: 24px; margin-bottom: 28px; }
 
-  .makers-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .makers-grid { gap: 12px; }
   .makers-title { font-size: 32px; }
   .story-text { font-size: 13px; }
 }
