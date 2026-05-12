@@ -531,7 +531,7 @@ function NestingTableSection({ onAdd }) {
   const [qty, setQty] = React.useState(1);
   const key = shade.toLowerCase();
 
-  const PRICE = 1480;
+  const PRICE = 800;
 
   return (
     <section className="product nesting" id="nesting" style={{borderTop:'0.5px solid var(--rule)'}}>
@@ -1564,7 +1564,7 @@ function App() {
         onComplete={onComplete}
       />
 
-      <div className={`toast ${toast?'show':''}`}>
+      <div className={`toast ${toast?'show':''}`} onClick={() => { if (toast) setCartOpen(true); }}>
         <span className="bean"><Icon.bean /></span>
         <span>{toast || ''}</span>
       </div>

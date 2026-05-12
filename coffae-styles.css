@@ -1716,10 +1716,13 @@ section { position: relative; }
   z-index: 1500;
   opacity: 0;
   pointer-events: none;
+  cursor: pointer;
+  border: none;
   transition: all 0.45s cubic-bezier(.2,.8,.2,1);
 }
-.toast.show { transform: translate(-50%, 0); opacity: 1; }
-.toast .bean { width: 14px; height: 20px; }
+.toast.show { transform: translate(-50%, 0); opacity: 1; pointer-events: auto; }
+.toast.show:hover { opacity: 0.88; }
+.toast .bean { width: 14px; height: 20px; color: #7B4A1E; }
 
 /* --------- Reveal --------- */
 .reveal {
