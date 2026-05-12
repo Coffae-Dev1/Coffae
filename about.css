@@ -16,8 +16,8 @@
   --body-bg:   #ffffff;
   --card-bg:   #ffffff;
   --text-dark: #000000;
-  --text-mid:  #1E1D1D;
-  --text-light:#444444;
+  --text-mid:  #000000;
+  --text-light:#000000;
   --border:    #d4c9b8;
   --accent:    #c8a96e;
 }
@@ -273,25 +273,14 @@ hr.divider {
   height: auto;
   display: block;
 }
-.story-hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.18);
-}
-.story-hero-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  width: calc(100% - 96px);
-  max-width: 680px;
+
+.story-text-block {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 80px 0 72px;
   text-align: center;
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 64px 56px;
 }
+
 .story-hero-title {
   font-family: 'Schoolbell', cursive;
   font-size: 52px;
@@ -302,7 +291,7 @@ hr.divider {
 }
 .story-hero-text {
   font-size: 15px;
-  color: #1E1D1D;
+  color: #000;
   line-height: 1.85;
 }
 
@@ -310,10 +299,10 @@ hr.divider {
 .story-x-mark {
   position: absolute;
   z-index: 3;
-  top: 38%;
-  left: 48%;
-  width: 28px;
-  height: 28px;
+  top: 44%;
+  left: 52%;
+  width: 36px;
+  height: 36px;
   transform: translate(-50%, -50%);
   pointer-events: none;
   animation: xPulse 2.8s ease-in-out infinite;
@@ -326,10 +315,10 @@ hr.divider {
   top: 50%;
   left: 50%;
   width: 100%;
-  height: 2.5px;
+  height: 3px;
   background: #8B1800;
   border-radius: 2px;
-  box-shadow: 0 0 6px rgba(139, 24, 0, 0.45);
+  box-shadow: 0 0 8px rgba(139, 24, 0, 0.5);
 }
 
 .story-x-mark::before { transform: translate(-50%, -50%) rotate(45deg); }
@@ -337,7 +326,7 @@ hr.divider {
 
 @keyframes xPulse {
   0%, 100% { transform: translate(-50%, -50%) scale(1);    opacity: 1; }
-  50%       { transform: translate(-50%, -50%) scale(1.18); opacity: 0.65; }
+  50%       { transform: translate(-50%, -50%) scale(1.22); opacity: 0.6; }
 }
 
 .story-img {
