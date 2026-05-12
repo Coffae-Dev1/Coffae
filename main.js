@@ -44,6 +44,15 @@ document.querySelectorAll('.makers-grid').forEach(grid => {
   highlight();
 });
 
+// ── STORY CLOSE BUTTON ──
+const storyClose   = document.getElementById('storyClose');
+const storyContent = document.getElementById('storyContent');
+if (storyClose && storyContent) {
+  storyClose.addEventListener('click', () => {
+    storyContent.classList.toggle('hidden');
+  });
+}
+
 // ── HAMBURGER MENU TOGGLE ──
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('navLinks');
