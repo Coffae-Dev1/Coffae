@@ -1253,6 +1253,7 @@ section { position: relative; }
 }
 .cta-btn:hover::after { transform: scaleX(1); transform-origin: right; }
 .cta-btn:hover { color: var(--espresso); }
+.cta-btn:active { background: #ffffff; color: var(--espresso); border-color: #ffffff; }
 .cta-btn > * { position: relative; z-index: 1; }
 
 
