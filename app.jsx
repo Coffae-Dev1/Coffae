@@ -974,8 +974,22 @@ function MaterialsIntro() {
   const containerRef = React.useRef(null);
   const titleRef = React.useRef(null);
   const wordsBarRef = React.useRef(null);
+  const videoRef = React.useRef(null);
   const prevWordRef = React.useRef(-1);
   const [activeWord, setActiveWord] = React.useState(-1);
+
+  React.useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    const start = () => {
+      v.currentTime = 1.1;
+      v.pause();
+      setTimeout(() => v.play().catch(() => {}), 2000);
+    };
+    if (v.readyState >= 2) { start(); }
+    else { v.addEventListener('canplay', start, { once: true }); }
+    return () => v.removeEventListener('canplay', start);
+  }, []);
 
   React.useEffect(() => {
     const onScroll = () => {
@@ -1021,8 +1035,9 @@ function MaterialsIntro() {
       }}>
         {/* Full-bleed video */}
         <video
-          src="assets/three-materials-animation.mp4#t=1.1"
-          autoPlay muted loop playsInline preload="auto"
+          ref={videoRef}
+          src="assets/three-materials-animation.mp4"
+          muted loop playsInline preload="auto"
           style={{
             position: 'absolute', inset: 0,
             width: '100%', height: '100%', objectFit: 'cover',
