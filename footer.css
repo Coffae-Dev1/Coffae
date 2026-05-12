@@ -1,14 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Schoolbell&display=swap");
 
-/* ── COFFAÉ SHARED FOOTER ── */
 .site-footer {
   background: rgba(180, 175, 168, 0.45);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: 12px;
   margin: 0 24px 24px;
-  padding: 80px 40px 32px;
   color: #221604;
+  padding: 80px 40px 32px;
+  border-top: none;
 }
 .site-footer-inner {
   max-width: 1200px;
@@ -16,13 +16,8 @@
 }
 .site-footer-top {
   text-align: center;
+  padding-bottom: 0;
   margin-bottom: 60px;
-}
-.site-footer-links-grid {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  gap: 10px 32px;
-  justify-content: start;
 }
 .site-footer-logo {
   font-family: 'Schoolbell', cursive;
@@ -30,13 +25,15 @@
   color: #221604;
   text-decoration: none;
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  letter-spacing: 0;
+  text-transform: none;
 }
 .site-footer-tagline {
   font-size: 13px;
   letter-spacing: 0.15em;
+  color: #593F28;
   text-transform: uppercase;
-  color: #5a4e3c;
 }
 .site-footer-mid {
   display: flex;
@@ -50,41 +47,59 @@
 .site-footer-links {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
+  align-items: flex-start;
+}
+.site-footer-links-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px 16px;
+  justify-content: start;
 }
 .site-footer-label {
   font-size: 11px;
+  font-weight: 400;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #8a7d6a;
-  margin-bottom: 12px;
+  color: #593F28;
+  margin-bottom: 20px;
 }
 .site-footer-link {
+  display: inline-block;
   font-size: 14px;
-  color: #2a2015;
+  color: #221604;
   text-decoration: none;
-  transition: opacity 0.2s;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid #221604;
+  padding: 12px 28px;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
 }
-.site-footer-link:hover { opacity: 0.5; }
+.site-footer-link:hover { background: #221604; color: #EDE7DA; opacity: 1; }
 .site-footer-waitlist {
   max-width: 400px;
   width: 100%;
 }
 .site-footer-sub {
   font-size: 13px;
-  color: #5a4e3c;
+  color: #593F28;
   margin-bottom: 20px;
+  line-height: 1.6;
+  letter-spacing: 0;
+  text-transform: none;
 }
-.site-footer-form { display: flex; }
+.site-footer-form { display: flex; gap: 0; }
 .site-footer-input {
   flex: 1;
   background: transparent;
-  border: 1px solid rgba(34, 22, 4, 0.25);
-  border-right: none;
-  padding: 10px 16px;
+  border: 0.5px solid rgba(34, 22, 4, 0.3);
+  color: #221604;
+  padding: 12px 16px;
   font-size: 13px;
   outline: none;
-  color: #221604;
+  border-radius: 0;
 }
 .site-footer-input::placeholder { color: rgba(34, 22, 4, 0.4); }
 .site-footer-input:focus { border-color: rgba(34, 22, 4, 0.6); }
@@ -92,18 +107,20 @@
   background: #221604;
   color: #EDE7DA;
   border: none;
-  padding: 10px 20px;
-  font-size: 11px;
-  letter-spacing: 0.12em;
+  padding: 12px 24px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
+  transition: opacity 0.2s;
+  border-radius: 0;
 }
 .site-footer-btn:hover { opacity: 0.8; }
 .site-footer-bottom {
   border-top: 0.5px solid rgba(34, 22, 4, 0.15);
   padding-top: 24px;
   font-size: 11px;
-  color: #8a7d6a;
+  color: rgba(34, 22, 4, 0.5);
   letter-spacing: 0.08em;
-  text-transform: uppercase;
+  text-align: left;
 }
